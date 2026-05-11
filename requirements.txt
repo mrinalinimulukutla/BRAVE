@@ -1,0 +1,17 @@
+numpy
+pandas
+scipy
+matplotlib
+scikit-learn
+scikit-learn-extra
+pyDOE
+joblib
+catboost
+george
+CBFV
+openpyxl
+# Required by HEACalculator
+PyQt5
+typer
+# Proprietary (Thermo-Calc); requires a separate license
+# tc-python
