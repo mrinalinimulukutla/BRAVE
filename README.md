@@ -10,6 +10,7 @@ Representative code for HTMDEC Campaign 2 — Bayesian batch optimization framew
 - `Probability_calculations/` — Gaussian-process classifier that scores points outside the strict feasible space, producing `probs.csv` and `infeasibles.csv` consumed by `bbo_python/main.py`.
 - `HEACalculator/` — high-entropy-alloy thermodynamic feature library imported by `bbo_python/helper.py` (CatBoost feature generation). Bundled from [github.com/dogusariturk/HEACalculator](https://github.com/dogusariturk/HEACalculator) and used here as a library; the original GUI assets (`.ui`, resources, icons) are not redistributed.
 - `HTMDEC_Y2_db.xlsx` — master experimental database used to train the CatBoost priors. Required columns: `Al`, `V`, `Cr`, `Mn`, `Fe`, `Co`, `Ni`, `Cu`, `YS (MPa)`, `UTS / YS`, `EL (%)`.
+- `C2_Visualizations.ipynb` — exploratory plots over `HTMDEC_Y2_db.xlsx` (correlation heatmap, multi-objective SHAP beeswarm + corrSHAP bar plot, property pair plot, and per-property box plots) for iterations BBA / BBB / BBC.
 
 ## Element order
 
@@ -48,7 +49,7 @@ Per-iteration intermediate files (`o{1..5}_GT_y.csv`, `lhp.csv`, `tested_alloys.
 
 ## Citation
 
-If you use this code, please cite the accompanying HTMDEC Campaign 2 publication.
+If you use this code, please cite the accompanying BRAVE publication.
 
 ## License
 
