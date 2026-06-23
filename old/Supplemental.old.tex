@@ -1,0 +1,461 @@
+\listfiles
+
+%\documentclass[final,letterpaper,4pt,times,twocolumn]{elsarticle}
+\documentclass[letterpaper,4pt,times,preprint]{elsarticle}
+
+%\documentclass[a4paper,5pt,twocolumn,preprint]{elsarticle}
+
+\journal{TexExchange}
+    \journal{Journal of \LaTeX\ Templates}
+    
+%    \usepackage
+%[
+%        a4paper,% other options: a3paper, a5paper, etc
+%        left=1.3cm,
+%        right=1.5cm,
+%        top=2cm,
+%        bottom=2cm,
+        % use vmargin=2cm to make vertical margins equal to 2cm.
+        % us  hmargin=3cm to make horizontal margins equal to 3cm.
+        % use margin=3cm to make all margins  equal to 3cm.
+%]
+%{geometry}
+    
+    %\usepackage{draftwatermark}
+    %\SetWatermarkText{Confidential}
+    %\SetWatermarkScale{1}    
+    
+    \usepackage{tgtermes}
+    \usepackage{nicematrix}
+    \usepackage{tikz}
+    \usepackage{multirow}
+    \usepackage{hyperref}
+    \usepackage[version=3]{mhchem}
+    \newcommand{\mst}{\ce{Mg2Si_{$x$}Sn_{$1-x$}}}
+    \newcommand{\zT}{$zT$}
+    \usepackage{changepage}
+
+    
+    
+    \usepackage{siunitx}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \usepackage[letterpaper, portrait, margin=0.60in]{geometry}
+
+    \usepackage{hhline}  % http://ctan.org/pkg/hhline
+    \usepackage{float}
+    %\usepackage{subfig}
+    \usepackage{multirow}
+    \usepackage{graphicx,booktabs}
+    \usepackage{booktabs,tabularx}
+    %\usepackage{showframe}
+    \usepackage{xfrac}
+    \usepackage{titlesec}
+    \titleformat{\paragraph}[runin]{\normalfont\bfseries}{\theparagraph}{1em}{}
+    \usepackage{wrapfig,booktabs}
+    \usepackage{mwe}
+    \usepackage{adjustbox}
+    %\usepackage[demo]{graphicx}
+    \usepackage{caption}
+    \usepackage{subcaption}
+    \usepackage{makecell}
+    \usepackage{rotating}
+    %\usepackage{mathrsfs}
+    \usepackage[permil]{overpic}
+    \usepackage{pict2e} % for drawing polygons
+
+    \usepackage{amsmath,array, amssymb}
+    %\usepackage[usenames,dvipsnames]{color}
+    \usepackage{xcolor,soul}
+    \usepackage{tcolorbox}
+    \usepackage{calrsfs}
+%    \usepackage{array}
+    \usepackage{longtable}
+    \usepackage{ragged2e}
+    
+    %\usepackage{parskip}
+    \usepackage[indent=1cm]{parskip}
+    \setlength{\parindent}{20pt}
+    \usepackage{svg}
+
+
+
+    
+\hypersetup{colorlinks,breaklinks,
+            urlcolor=Maroon,
+            linkcolor=Maroon}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newcommand{\etal}{\textit{et al}.}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \setcounter{secnumdepth}{3}
+    \setlength{\columnsep}{18.0pt}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \parindent=0pt
+
+    \def\correction#1{%
+    \abovedisplayshortskip=#1\baselineskip\relax\belowdisplayshortskip=#1\baselineskip\relax%
+    \abovedisplayskip=#1\baselineskip\relax\belowdisplayskip=#1\baselineskip\relax}
+
+    \arrayrulewidth=1pt\relax
+    \tabcolsep=5pt\relax
+    %\arrayrulecolor{red}
+    \fboxsep=\tabcolsep\relax
+    \fboxrule=\arrayrulewidth\relax
+
+    \newcolumntype{A}[2]{%
+    >{\minipage{\dimexpr#1\linewidth-2\tabcolsep-#2\arrayrulewidth\relax}\vspace\tabcolsep}%
+    c<{\vspace\tabcolsep\endminipage}}
+    
+
+\newenvironment{Table}[4]{%
+    \longtable{%
+        |A{#1}{1.5}% for figure
+        |>{\centering$\displaystyle}A{#2}{1}<{$}% for inline equation
+        |>{\correction{-1}\strut\[}A{#3}{1}<{\]\strut}% for displayed equation
+        |>{\centering}A{#4}{1.5}% for text
+        |}\hline\ignorespaces}{%
+    \endlongtable\ignorespacesafterend}
+
+\newcommand{\dummy}{%
+    It is practically a big lie that \LaTeX\ 
+    makes you focus on the content without
+    bothering about the layout.}
+
+\newcommand{\Row}{%
+    \includegraphics[widcbh=\linewidth]{newton}  &
+     &
+     &
+    \fcolorbox{cyan}{yellow}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\dummy}}
+    \tabularnewline\hline}    
+
+    %%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Image scale bar
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+    %%
+    \usepackage{siunitx}
+
+    \usepackage{tikz}
+    \usepackage{color}
+    \definecolor{scalebgcolor}{rgb}{0.08,0.52,0.80}     
+    %% To change the backgroundcolor, adjust the scalebgcolor variable to use the desired color. Add the following code to your preamble:
+
+    \newcommand{\scalebarbackground}[5][white]{
+        \begin{tikzpicture}
+            \draw (0,0) node[anchor=south east,inner sep=0] (image) { #2 };
+                \begin{scope}[x={(image.south west)},y={(image.north west)}]
+                \fill [fill=scalebgcolor, fill opacity=0.75] (0.02,1.3em) rectangle (#5*#4/#3+0.04,0.1em);
+                %\draw [#1, line width=0.2em] (0.04,1.2em) -- node[below,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,1.2em);
+                \draw [#1, line width=0.2em] (0.02,0.4em) -- node[above,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,0.4em);
+            \end{scope}
+        \end{tikzpicture}
+    }
+
+%\usepackage{tikz}
+%\usepackage[usenames, dvipsnames]{color}
+
+% Inserts a scale bar into an image
+% Optional argument 1: the colour of the bar and text
+% Argument 2: an \includegraphics command
+% Argument 3: the real world width of the image
+% Argument 4: the length of the scale bar in pixels
+% Argument 5: the length of the scale bar in um
+%\newcommand{\scalebarbackground}[5][blue]{
+% \begin{tikzpicture}
+%  \node[anchor=south west,inner sep=0] (image) { #2 };
+%  \begin{scope}[x={(image.south east)},y={(image.north west)}]
+%   \draw [#1, line width=0.2em] (0.04,1.2em) -- node[below,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,1.2em);
+%  \end{scope}
+% \end{tikzpicture}
+%}    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\bigzero{%
+    \makebox[0pt]{\text{\normalsize Symmetric}}}
+    %\makebox[0pt]{Some text} over this text
+    %\makebox[15ex][s]{Censored text}\hspace{-15ex}\makebox[15ex][s]{X X X X X}
+    %Text \makebox[2\width][r]{running away}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %\bibliographystyle{elsarticle-num}
+    %\bibliographystyle{model1-num-names}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+% Numbered
+% \bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+% \bibliographystyle{model1a-num-names}
+
+%% Harvard
+% \bibliographystyle{model2-names}\biboptions{authoryear}
+
+%% Vancouver numbered
+% \usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+% \usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+% \bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+% \usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style, distributed in TeX Live 2019
+\bibliographystyle{elsarticle-num}
+% \usepackage{numcompress}\bibliographystyle{elsarticle-num-names}
+% \bibliographystyle{elsarticle-harv}\biboptions{authoryear}
+%%%%%%%%%%%%%%%%%%%%%%%
+\biboptions{numbers,sort&compress}
+
+\begin{document}
+
+\begin{frontmatter}
+%evaluating balling during PBF-AM, 	
+\title{\Large{A BRAVE Alloy Design Campaign\\
+(Bayesian Risk-aware Alloy discovery and Exploration)}}
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for the associated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for the associated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for the associated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%%
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{<author name>}
+%% \address[label1]{<address>}
+%% \address[label2]{<address>}
+
+\author{Mrinalini Mulukutla$^{a}$}
+\author{Danial Khatamsaz$^{a}$}
+\author{Trevor Hastings$^{a}$}
+\author{Bibhu Sahu$^{a}$}
+\author{Wenle Xu $^{a}$}
+\author{Daniel Salas$^{a}$}
+\author{Daniel Lewis $^{a}$}
+\author{Jacob Hempel $^{a}$}
+\author{Clinton Strosser $^{a}$}
+%\author{Samantha Mitra $^{c}$}
+%\author{Raj Jung Mahat $^{c}$}
+\author{Haoren Wang $^{c}$}
+\author{Alexandra Salinas $^{b}$}
+\author{Nicholas Flores $^{a}$}
+\author{Brent Vela$^{a}$}
+\author{Sina Hossein Zadeh$^{a}$}
+\author{Brady Butler $^{d}$}
+\author{James Paramore $^{d}$}
+%\author{Manish Vasoya $^{a}$}
+\author{Dimitris Lagoudas $^{a}$}
+%\author{Surya Kalidindi $^{c}$}
+\author{Kenneth Vecchio $^{c}$}
+\author{Justin Wilkerson $^{a}$}
+\author{George Pharr $^{a}$}
+\author{Douglas Allaire $^{a}$}
+\author{Vahid Attari $^{a}$}
+\author{Ibrahim Karaman $^{a}$}
+\author{Ankit Srivastava $^{a}$}
+\author{Raymundo Arr\'{o}yave$^{a,b}$}
+
+
+\address{$^a$Department of Materials Science and Engineering, Texas A\&M University, College Station, TX 77843, USA}
+\address{$^b$Mechanical Engineering Department, Texas A\&M University, College Station, TX, USA 77840}
+\address{$^c$University of California- San Diego, San Diego, CA 92093}
+\address{$^d$DEVCOM Army Research Laboratory South at Texas A\&M University, College Station, TX 77843-3003, USA}
+
+
+%% or include affiliations in footnotes:
+\cortext[mycorrespondingauthor]{Corresponding author email:\textrm{mrinalini.mulukutla@tamu.edu}, \textrm{danialkh26@tamu.edu}} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+\begin{abstract}
+
+
+Multi-objective Bayesian optimization has emerged as a powerful engine for navigating trade-offs between competing objectives and identifying candidates with superior property combinations. However, realistic materials design problems are constrained by synthesis limitations, processing limitations, and stability requirements, all of which can render large fractions of the design space experimentally inaccessible, or infeasible. Crucially, such infeasible design points do not merely yield poor objective values—they often correspond to failed experiments for which objective measurements cannot be obtained at all. Evaluating infeasible candidates wastes substantial experimental resources and delays discovery timelines. Despite this critical challenge, traditional multi-objective Bayesian optimization frameworks typically neglect feasibility constraints during candidate selection, leading to inefficient exploration strategies that can repeatedly suggest invalid designs. This work presents a comprehensive investigation of risk-aware multi-objective Bayesian optimization for constrained materials discovery, where risk is  defined as the probability of querying infeasible designs that fail to return objective values. We developed a physics-informed optimization framework that couples multi-fidelity property models with probabilistic constraint satisfaction, demonstrated through high-throughput discovery of single phase high entropy alloys for ballistic applications. The iterative design campaign synthesized and characterized Al-V-Cr-Mn-Fe-Co-Ni-Cu HEA compositions across multiple design iterations, evaluating quasi-static and dynamic mechanical properties alongside computational ballistic performance predictions.
+
+
+\end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{keyword}
+
+\end{keyword}
+\end{frontmatter}
+
+\subsection{Benchmarking Risk-Aware Multi-Objective Bayesian Optimization}
+
+To quantitatively assess the effectiveness of the proposed risk-aware multi-objective Bayesian optimization (MOBBO) strategy, we constructed a controlled computational benchmark based on a six component HEA chemistry space (Al–V–Cr–Fe–Co–Ni). The full design space was discretized at 4~at.\% resolution, generating a pool of 23{,}694 distinct compositions. For each candidate, objective properties and phase stability metrics were precomputed, enabling a fully closed-loop active learning simulation without incurring additional computational cost during optimization.
+
+Two bi-objective optimization problems were defined:  
+(i) maximize yield strength proxy (CV\_YS) and Pugh ratio ($B/G$), and  
+(ii) maximize CV\_YS and Cauchy pressure ($C_{12} - C_{44}$).  
+The CV\_YS metric was computed using the Curtin–Varvenne solid solution strengthening model~\cite{varvenne2016theory}, while Pugh ratio and Cauchy pressure were approximated via rule of mixtures aggregation of elemental elastic constants. These two objective pairs provide contrasting design pressures between intrinsic strengthening and ductility surrogates, while being computationally inexpensive enough to support large scale screening and repeated simulations.
+
+Feasibility was introduced through CALPHAD based phase stability constraints. Screening was performed using ThermoCalc database TCHEA6, requiring FCC fraction $\geq 0.99$ at 700$^\circ$C. Ground truth feasibility labels were assigned using equilibrium predictions from the updated TCHEA7 database at 700$^\circ$C. Any composition with TCHEA7 FCC fraction $<0.99$ was treated as infeasible, representing the presence of undesirable secondary phases. This dual database configuration mimics a realistic model discrepancy scenario, where low fidelity (TCHEA6) predictions are used for screening, but the true feasibility landscape conforms to higher fidelity (TCHEA7) physics. The resulting mismatch provides a rich testbed for evaluating whether risk-aware approaches can systematically avoid infeasible regions.
+
+Four acquisition strategies were evaluated:
+
+\begin{enumerate}
+    \item Baseline MOBBO: Expected Hypervolume Improvement (EHVI) applied across the full design space without considering feasibility. This corresponds to a feasibility-agnostic optimizer.
+    \item Hard-Filter MOBBO: EHVI restricted to TCHEA6-predicted FCC-stable compositions ($\text{FCC}_{\text{TCHEA6}} \geq 0.99$). This reflects common practice in alloy design, where computational phase filtering is used to reduce risk.
+    \item Risk-Weighted MOBBO: EHVI multiplied by a continuous probability of feasibility defined as  
+    \[
+    p_{\text{feas}} = \left(\text{FCC}_{\text{TCHEA7}}\right)^{\alpha}, \qquad \alpha = 2.
+    \]
+    Here the TCHEA7 FCC fraction acts as a soft estimate of feasibility, penalizing candidates with low phase stability confidence while preserving exploration flexibility near the phase boundary.
+    \item Oracle MOBBO: EHVI weighted by the true binary feasibility label from TCHEA7. This serves as an upper-performance bound under perfect feasibility knowledge.
+\end{enumerate}
+
+Gaussian Process (GP) regressors with squared-exponential kernels were trained for each objective, while feasibility learning used a Random Forest classifier informed by composition and TCHEA7 FCC fraction. Objective values were globally normalized across the full candidate pool to ensure consistent scaling across iterations and seeds.
+
+Each active-learning campaign proceeded by selecting 10 initial diverse compositions using $k$-medoids clustering, querying objective values and feasibility from the dataset (simulating experiments), updating all surrogate models, and selecting a batch of 10 new candidates using EHVI-based acquisition and $k$-medoids clustering over the top 3$\times$batch candidates to ensure diversity. Twenty sequential iterations were performed for each of 5 random seeds, yielding 100 total optimization campaigns per objective pair.
+
+\vspace{6pt}
+\noindent\ Benchmarking Metrics:  
+Algorithm performance was evaluated using: (a) feasible hypervolume (HV) in normalized objective space relative to $[0, 0]$, (b) the number of feasible non-dominated points (Pareto front size), and (c) feasibility violation rate (FVR), defined as the fraction of infeasible selections within each batch. These metrics jointly measure optimization quality, feasibility awareness, and resource efficiency—closely reflecting constraints faced in real-world experimental alloy discovery.
+
+\vspace{8pt}
+\noindent\ Results and Findings:
+
+Benchmark results for both objective pairs (CV(\text{YS})--Pugh and CV(\text{YS})--Cauchy) are summarized in Fig.~\ref{fig:benchmark_results}. Across all metrics, the differences between the four strategies are stark and highly consistent.
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.95\linewidth]{Figures/benchmark_results.svg}
+    \caption{Benchmarking results for the multi-objective Bayesian optimization (MOBBO) strategies applied to the six-component HEA toy problem. 
+    The two bi-objective optimization tasks are: (a) CV(\text{YS})--Pugh ratio and (b) CV(\text{YS})--Cauchy pressure. 
+    Four acquisition strategies are compared: Baseline MOBBO (feasibility-blind), Hard-Filter MOBBO (TCHEA6-constrained), Risk-Weighted MOBBO (soft feasibility weighting), and Oracle MOBBO (perfect feasibility knowledge). 
+    Performance metrics shown include feasible hypervolume (HV), number of feasible non-dominated points (Pareto front size), and feasibility-violation rate (FVR). 
+    Risk-weighted MOBBO consistently matches oracle performance while maintaining low FVR, demonstrating superior robustness and resource efficiency.}
+    \label{fig:benchmark_results}
+\end{figure}
+
+
+\begin{itemize}
+
+\item Baseline MOBBO fails completely under feasibility constraints. For both objective pairs, the baseline approach accumulated nearly zero hypervolume (HV $\approx 0.5$--1.1), produced a trivial Pareto set (0--1 feasible non-dominated points), exhibited extreme feasibility violation rates (FVR $\approx 1.0$), wasted $>90\%$ of evaluations (209--210 infeasible queries out of 210).
+This matches real world alloy campaigns: feasibility blind BO aggressively explores high-objective but infeasible regions, resulting in extremely high resource inefficiency.
+
+\item Hard-Filter MOBBO drastically improves feasibility, but remains brittle.
+Hard-filtering eliminates most infeasible evaluations (FVR~$\approx 0.15$), but its performance is bottlenecked by TCHEA6’s systematic mispredictions. It achieves large feasible hypervolume (HV = 7.25 for Pugh, 4.66 for Cauchy) and pareto fronts are significantly larger (1--10 feasible points). However, performance plateaus early when the filter over-restricts exploration.
+In both studies, the hard filter produces correct trends but lacks robustness, occasionally excluding near-optimal regions misclassified by TCHEA6.
+
+\item Risk-Weighted MOBBO consistently matches the Oracle and is the most robust method. 
+Risk-weighted MOBBO demonstrates the strongest and most stable performance. It achieves identical final hypervolume to the hard filter and oracle in both tasks (HV = 7.25 for Pugh; HV = 4.66 for Cauchy), produces large Pareto fronts (1--10 points), maintains very low FVR ($\approx 0.15$--0.20) and converges \textbf{rapidly within 3--5 iterations}, frequently surpassing the hard filter early.
+The key advantage is flexibility. Instead of discarding candidates outright, risk-weighting smoothly moves the search away from uncertain regions while still allowing exploration near critical boundaries.
+
+\item Oracle MOBBO confirms the theoretical upper bound. 
+Oracle behavior exhibits final hypervolume essentially identical to risk-weighted MOBBO (7.25 and 4.64--4.66), fast convergence, but unexpectedly \textbf{high wasted evaluations} ($\approx 170$--190) because the oracle still strongly explores high-objective but infeasible regions early on.
+The oracle’s poor resource efficiency highlights that feasibility information alone is not sufficient to reduce waste; feasibility must be incorporated into the acquisition function—precisely what risk-weighting does.
+
+\end{itemize}
+
+
+Across both objective landscapes, (CV(\text{YS})--Pugh) and (CV(\text{YS})--Cauchy), the conclusions are clear:
+\begin{itemize}
+    \item Feasibility-blind BO is inefficient for alloy design.
+    \item Hard filtering is helpful but rigid, vulnerable to model form error.
+    \item Risk-weighted MOBBO is the most effective, stable, and resource efficient strategy. Its performance is statistically indistinguishable from the oracle, but with $\sim$5$\times$ fewer wasted evaluations.
+    \item Soft feasibility modeling is more robust than hard constraints when underlying screening models (TCHEA6) are imperfect.
+\end{itemize}
+
+These findings provide strong evidence supporting the use of risk-aware acquisition functions in practical closed-loop alloy discovery pipelines, particularly when navigating uncertain and multimodal feasibility landscapes characteristic of practical design problems.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{Figures/Hdyn_Hqs_HSRNI.png}
+    \caption{Dynamic hardness (red curve) and quasistatic hardness (blue curve) are compared at the same depth (2000 nm).}
+    \label{fig:HSR_NI}
+\end{figure}
+
+
+%Updated analysis and results 
+
+% Composition-Property Relationships from Exploratory Data Analysis
+Exploratory data analysis conducted during this study produced a multi-faceted view of composition–property relationships that informed subsequent design decisions. Figure~\ref{fig:correlation_matrix} combines three complementary visualizations: (a) a Pearson correlation matrix quantifying linear relationships among elemental concentrations and mechanical responses, (b) a SHapley Additive exPlanations (SHAP) summary plot revealing which features the predictive models use most and how their effects vary nonlinearly across samples, and (c) a corrSHAP analysis measuring correlations between each feature's values and its SHAP contributions, thereby giving the net elemental influence on model predictions.
+
+
+The correlation matrix (Fig.~\ref{fig:correlation_matrix}a) quantitatively maps the linear relationships among compositional variables, mechanical properties, and ballistic response in the alloy dataset. The ductility related metrics, elongation and the UTS/YS ratio, are nearly uncorrelated (r = -0.04) and both show weak negative correlations with yield strength (elongation: r = -0.08, UTS/YS: r = 0), indicating only a marginal trade-off between initial yield and ductility within the compositional space. Compositional relationships show some important observations Mn and Cu exhibit a notable positive linear correlation (r = 0.23), Mn and Ni show a weak negative correlation (r = -0.14), whereas Cu demonstrates moderate positive correlations with Al (r = 0.3) and Fe (r = 0.15). Vanadium’s presence shows meaningful correlation with several mechanical metrics: yield strength (r = 0.26), dynamic hardness (Avg Hdyn: r = 0.2), and ultimate tensile strength (UTS: r = 0.18), highlighting its role in enhancing strength related attributes. Of the elemental correlations with mechanical properties, Ni stands out, showing a relatively high positive correlation with Avg Hdyn (r = 0.34), indicating that Ni may be a key influencer of dynamic hardness performance. Average dynamic and quasi-static hardness (Avg Hdyn and Avg Hqs) are positively correlated with strength metrics (yield strength and UTS: r = 0.11 to 0.20), and Avg Hdyn shows positive correlation with the UTS/YS ratio (r = 0.31). Depth of penetration has a positive association with Avg HDYN/HQS: r = 0.22, Al (r = 0.21), Co (r = 0.12), and exhibits its strongest linear relationship with quasi-static hardness (Avg Hqs: r = 0.4).
+
+
+Across all variables, most absolute Pearson coefficients stay below 0.3, highlighting that while there are moderate pairwise trends, the design space is primarily governed by complex, multivariate interactions rather than strong linear dependencies. This points toward the necessity of multivariable modeling and design approaches in advanced alloy development.[1]
+
+
+The SHAP beeswarm plot (Fig.~\ref{fig:correlation_matrix}b) complements linear correlations. Features with a broad horizontal spread contribute strongly to model variance, while the color mapping shows whether high or low feature values are associated with increases or decreases in predicted targets. Several elements (notably Co, V, and Cu) show large, high-variance SHAP contributions, signifying strong, context-dependent influence: the same element can increase a given target in one compositional context and decrease it in another, reflecting nonlinear couplings and feature interactions captured by the predictive models.
+
+
+The corrSHAP panel (Fig.~\ref{fig:correlation_matrix}c) resolves net directional tendencies learned by the models by correlating each feature's values with its SHAP contributions. The corrSHAP bar plot visualizes the correlation between each feature's value and its SHAP value across the dataset. Positive correlations imply that increasing the element's content generally increases the model output. Ni ($r \approx 0.34$), Mn, and Fe display the strongest positive corrSHAP values in this panel, indicating that their addition tends to positively affect the predicted target property. V also shows a moderate positive impact. In contrast, Al, Co, and especially Cr show negative corrSHAP correlations (Cr: $r \approx -0.2$), implying that their presence is generally associated with decreased model output. These signs and magnitudes help identify which elements are likely to exert directionally consistent effects in data-driven alloy design.
+
+
+Taken together, the three analyses provide a unified interpretation. The integrated picture suggests that nickel and manganese are useful levers for improving several performance metrics, whereas chromium and aluminum require careful management when optimization focuses on strength and hardness targets. Elements with high SHAP variance (vanadium, cobalt) are effective tuning parameters but require composition-context aware optimization because of interaction driven behavior. The observed coupling between UTS/YS and tensile elongation suggests that improving ductility while maintaining strength will require designs that promote strain hardening, which can be achieved via targeted co-alloying strategies. These insights are very useful to prioritize candidate compositions for synthesis and to focus experimental resources on regions of the design space that balance competing objectives (yield strength, UTS/YS ratio, elongation, dynamic versus quasi-static strength ratios, and penetration resistance) while preserving manufacturability and phase stability.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Figures/correlation_matrix.png}
+    \caption{(a) Pearson correlation matrix showing linear relationships among elemental concentrations and mechanical properties. (b) SHAP beeswarm plot illustrating per-feature contributions to the predictive hardness model. (c) corrSHAP feature correlations indicating the net directional influence of each element on model output. Together, these panels integrate linear trends, nonlinear feature effects, and overall directional tendencies.}
+    \label{fig:correlation_matrix}
+\end{figure}
+
+
+
+
+
+
+
+\section*{Declaration of competing interest}
+
+    The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Data Availability}
+
+    The data generated from this study is included in \underline{Supplementary Information}.
+
+\section*{Code Availability}
+
+    Code used in this project is available on .
+
+\section{Acknowledgements}
+
+The research was sponsored by the Army Research Laboratory and was accomplished under Cooperative Agreement Number W911NF-22-2-0106. The views and conclusions contained in this document are those of the authors. They should not be interpreted as representing the official policies, either expressed or implied, of the Army Research Laboratory or the US Government. The US Government is authorized to reproduce and distribute reprints for Government Purposes, notwithstanding any copyright notation herein. 
+    
+We would like to acknowledge Dr. Anup and his group at Texas A\&M University for the use of their XRD Bruker D8 Discover instrument as well as Texas A\&M’s Materials Characterization Facility for the use of their EBSD-capable FIB-SEM. We would like to acknowledge Texas A\&M’s High Performance Research Computing group for access to the computational infrastructure used in this work.
+
+
+
+\bibliography{references.bib}
+\end{document}
+
+

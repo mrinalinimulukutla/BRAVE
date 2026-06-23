@@ -1,0 +1,58 @@
+\section{Conclusions}\label{sec:Conclusion} 
+
+
+This study presents the results of current work under the BIRDSHOT initiative, which applied a probabilistic, microstructure-aware, and high-throughput optimization framework to the discovery of high-performance alloys for extreme environments. 
+
+
+The key conclusions and lessons learned are as follows:
+
+\begin{itemize}
+    \item Closed-loop Bayesian optimization is effective for multi-objective alloy discovery. The framework successfully guided the selection of candidate alloys across three acquisition iterations, leading to consistent improvements in yield strength, ductility, rate sensitivity, and impact resistance.
+
+    \item Risk-aware design maintains exploration flexibility. The use of a probabilistic feasibility model, based on CALPHAD predictions, allowed the framework to downweigh, but not eliminate, uncertain regions of the design space, preserving high risk, high reward candidates.
+
+    \item High fidelity mechanical characterization enables robust model training. Data from tensile testing, nanoindentation, high strain rate nanoindentation, split Hopkinson pressure bar, and simulated depth of penetration provided a comprehensive performance profile for each alloy and allowed robust surrogate model development.
+
+    \item Simulated depth of penetration is a valuable inverse metric for high-rate performance. Using a calibrated Cowper–Symonds viscoplastic model, DoP modeling provided consistent insight into impact resistance and revealed strong inverse correlations with strength metrics (YS and UTS), validating its use as a BO objective.
+
+    \item Bayesian optimization accelerated discovery of Pareto-optimal alloys. Hypervolume increased by ~30\% between each iterations, and the Pareto front size expanded with new non-dominated alloys added in two iterations alone.
+
+    \item Cold work and uniform recrystallized microstructure are essential for property reliability. Variability in grain size and incomplete recrystallization led to mechanical anomalies and brittle behavior in several otherwise phase stable alloys. Microstructure quality must be tightly controlled in future studies.
+
+    \item Microstructure-awareness is critical and will be a focus going forward. In addition to risk- and probability-aware acquisition, future iterations will explicitly incorporate microstructural descriptors to better capture process–structure–property relationships.
+
+    \item The BIRDSHOT framework is scalable and ready for deployment in broader applications. Year 2 of the Center's activities demonstrated the ability to integrate computation, automation, and high-throughput characterization into a scalable discovery loop, paving the way for transition to larger-scale, mission-relevant alloy systems.
+\end{itemize}
+
+%These insights not only validate the scientific contributions of current study but also establish best practices for high-throughput, AI-guided materials discovery in complex alloy spaces.
+
+
+\subsection{Process-Structure-Property Relationship Insights}
+
+A critical lesson learned from this study concerns the fundamental importance of process-structure-property relationships in high entropy alloy design. The analysis revealed that cold work and uniform grain size control are essential parameters for manipulating the microstructural features necessary for effective alloy discovery and optimization. The initial focus on compositional optimization, while successful, highlighted the need for more comprehensive consideration of processing-induced microstructural variations.
+
+The observation that microstructural uniformity significantly influences mechanical property reproducibility and performance predictability underscores the limitations of purely compositional approaches to materials design. Variations in grain size, recrystallization temperature, and cold work levels can introduce substantial scatter in mechanical properties, potentially masking the effects of compositional optimization and reducing the effectiveness of machine learning models that rely on consistent structure-property relationships.
+
+The integration of temperature constraints at both 700°C and 950°C in iteration BBB provided initial insights into thermal stability requirements, but the study revealed that more sophisticated microstructure-aware design approaches are necessary to fully exploit the potential of high entropy alloy systems. The recognition of this limitation has prompted a strategic shift toward microstructure-aware optimization frameworks that can simultaneously consider compositional, processing, and microstructural variables.
+
+\subsection{Implications for Accelerated Materials Discovery}
+
+The successful application of multi-objective Bayesian optimization to HEA design demonstrates the potential for dramatically accelerated materials discovery in complex compositional spaces. The achievement of significant performance improvements through systematic exploration of less than 0.2\% of the feasible space represents a substantial advance in materials design efficiency.
+
+The integration of physics informed constraints with performance driven objectives (strength, ballistic resistance) within the Bayesian framework provides a template for future materials discovery campaigns. The demonstrated ability to simultaneously optimize multiple competing objectives while maintaining computational efficiency opens new possibilities for complex materials design challenges.
+
+The risk-aware nature of the approach, combined with the demonstrated correlation between optimization progress and actual performance improvements, establishes confidence in the framework's applicability to critical applications where material reliability is paramount. This work provides a foundation for extending Bayesian optimization approaches to other complex materials systems and extreme environment applications.
+
+
+\subsection{Future Directions and Research Priorities}
+
+Based on the insights gained from this study, several critical research priorities have been identified for advancing risk-aware materials discovery frameworks. The most immediate priority is the development of microstructure-aware optimization approaches that can simultaneously consider compositional, processing, and microstructural design variables. This expansion beyond purely compositional optimization is essential for achieving reliable process-structure-property relationships and maximizing the potential of high entropy alloy systems.
+
+
+The extension of the current framework to include thermal processing optimization represents another critical research direction. The recognition that cold work and thermal history significantly influence final properties suggests that process parameter optimization should be integrated directly into the Bayesian optimization framework rather than treated as fixed constraints.
+
+The development of more sophisticated multi-fidelity approaches that can effectively integrate experimental data across different length scales and time scales will enhance the predictive capability of the framework. 
+
+Finally, the validation of the framework through large-scale experimental study and eventual deployment in real-world applications will be essential for demonstrating the practical impact of risk-aware materials discovery. The transition from laboratory-scale proof-of-concept to industrial-scale implementation will require careful consideration of manufacturing constraints, quality control requirements, and performance validation under actual service conditions.
+
+The lessons learned from this study provide a solid foundation for these future research directions and demonstrate the potential for transforming materials discovery through the integration of advanced optimization algorithms, high-fidelity computational models, and comprehensive experimental validation. The demonstrated success in achieving simultaneous improvements across multiple competing objectives while maintaining computational efficiency establishes a new paradigm for accelerated materials development in extreme environment applications.

@@ -1,0 +1,380 @@
+\listfiles
+
+%\documentclass[letterpaper,5pt,twocolumn,final]{elsarticle}
+\documentclass[final,5p,times,twocolumn]{elsarticle}
+%\documentclass[letterpaper,4pt,times,preprint]{elsarticle}
+
+%\documentclass[a4paper,5pt,twocolumn,preprint]{elsarticle}
+
+\journal{TexExchange}
+    \journal{Journal of \LaTeX\ Templates}
+    
+%    \usepackage
+%[
+%        a4paper,% other options: a3paper, a5paper, etc
+%        left=1.3cm,
+%        right=1.5cm,
+%        top=2cm,
+%        bottom=2cm,
+        % use vmargin=2cm to make vertical margins equal to 2cm.
+        % us  hmargin=3cm to make horizontal margins equal to 3cm.
+        % use margin=3cm to make all margins  equal to 3cm.
+%]
+%{geometry}
+    
+    %\usepackage{draftwatermark}
+    %\SetWatermarkText{Confidential}
+    %\SetWatermarkScale{1}    
+    
+    \usepackage{tgtermes}
+    \usepackage{nicematrix}
+    \usepackage{tikz}
+    \usepackage{multirow}
+    \usepackage{hyperref}
+    \usepackage[version=3]{mhchem}
+    \newcommand{\mst}{\ce{Mg2Si_{$x$}Sn_{$1-x$}}}
+    \newcommand{\zT}{$zT$}
+    \usepackage{changepage}
+    % xr-hyper removed: no cross-references from main text to SI labels
+    % \usepackage{xr-hyper}
+    % \externaldocument{Supplemental}
+
+    
+    
+    \usepackage{siunitx}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Use the journal class layout in two-column mode rather than overriding it.
+    %\usepackage[letterpaper, portrait, margin=0.60in]{geometry}
+
+    \usepackage{hhline}  % http://ctan.org/pkg/hhline
+    \usepackage{float}
+    %\usepackage{subfig}
+    \usepackage{multirow}
+    \usepackage{graphicx,booktabs}
+    \usepackage{booktabs,tabularx}
+    %\usepackage{showframe}
+    \usepackage{xfrac}
+    \usepackage{titlesec}
+    \titleformat{\paragraph}[runin]{\normalfont\bfseries}{\theparagraph}{1em}{}
+    \usepackage{wrapfig,booktabs}
+    \usepackage{mwe}
+    \usepackage{adjustbox}
+    %\usepackage[demo]{graphicx}
+    \usepackage{caption}
+    \usepackage{subcaption}
+    \usepackage{makecell}
+    \usepackage{rotating}
+    %\usepackage{mathrsfs}
+    \usepackage[permil]{overpic}
+    \usepackage{pict2e} % for drawing polygons
+
+    \usepackage{algorithm}
+    \usepackage{algpseudocode}
+    \usepackage{amsmath,array, amssymb}
+    %\usepackage[usenames,dvipsnames]{color}
+    \usepackage{xcolor,soul}
+    \usepackage{tcolorbox}
+    \usepackage{calrsfs}
+%    \usepackage{array}
+    \usepackage{longtable}
+    \usepackage{ragged2e}
+    
+    %\usepackage{parskip}
+    \usepackage[indent=1cm]{parskip}
+    \setlength{\parindent}{20pt}
+    \usepackage{svg}
+
+    \usepackage{tabularray}
+    % Make good looking tables
+
+    \usepackage{makecell}
+    % Allows extra line within cell
+    \usepackage{setspace}
+    \usepackage{float}
+    \usepackage[singlelinecheck=false]{caption}
+    \captionsetup[table]{skip=5pt}
+    % https://ctan.org/pkg/caption
+    \captionsetup{skip = 10pt}
+    % Space between fig and cap
+    % Use standard "Figure X." style with normal caption text
+    \captionsetup{font=small, labelfont=bf, textfont=normalfont}
+    \captionsetup{labelformat=default, labelsep=period}
+    \captionsetup{format=plain, justification=raggedright, singlelinecheck=false}
+
+
+
+    
+\hypersetup{colorlinks,breaklinks,
+            urlcolor=Maroon,
+            linkcolor=Maroon}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newcommand{\etal}{\textit{et al}.}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \setcounter{secnumdepth}{3}
+    \setlength{\columnsep}{18.0pt}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \parindent=0pt
+
+    \def\correction#1{%
+    \abovedisplayshortskip=#1\baselineskip\relax\belowdisplayshortskip=#1\baselineskip\relax%
+    \abovedisplayskip=#1\baselineskip\relax\belowdisplayskip=#1\baselineskip\relax}
+
+    \arrayrulewidth=1pt\relax
+    \tabcolsep=5pt\relax
+    %\arrayrulecolor{red}
+    \fboxsep=\tabcolsep\relax
+    \fboxrule=\arrayrulewidth\relax
+
+    \newcolumntype{A}[2]{%
+    >{\minipage{\dimexpr#1\linewidth-2\tabcolsep-#2\arrayrulewidth\relax}\vspace\tabcolsep}%
+    c<{\vspace\tabcolsep\endminipage}}
+    
+
+\newenvironment{Table}[4]{%
+    \longtable{%
+        |A{#1}{1.5}% for figure
+        |>{\centering$\displaystyle}A{#2}{1}<{$}% for inline equation
+        |>{\correction{-1}\strut\[}A{#3}{1}<{\]\strut}% for displayed equation
+        |>{\centering}A{#4}{1.5}% for text
+        |}\hline\ignorespaces}{%
+    \endlongtable\ignorespacesafterend}
+
+\newcommand{\dummy}{%
+    It is practically a big lie that \LaTeX\ 
+    makes you focus on the content without
+    bothering about the layout.}
+
+\newcommand{\Row}{%
+    \includegraphics[widcbh=\linewidth]{newton}  &
+     &
+     &
+    \fcolorbox{cyan}{yellow}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\dummy}}
+    \tabularnewline\hline}    
+
+    %%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Image scale bar
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+    %%
+    \usepackage{siunitx}
+
+    \usepackage{tikz}
+    \usepackage{color}
+    \definecolor{scalebgcolor}{rgb}{0.08,0.52,0.80}     
+    %% To change the backgroundcolor, adjust the scalebgcolor variable to use the desired color. Add the following code to your preamble:
+
+    \newcommand{\scalebarbackground}[5][white]{
+        \begin{tikzpicture}
+            \draw (0,0) node[anchor=south east,inner sep=0] (image) { #2 };
+                \begin{scope}[x={(image.south west)},y={(image.north west)}]
+                \fill [fill=scalebgcolor, fill opacity=0.75] (0.02,1.3em) rectangle (#5*#4/#3+0.04,0.1em);
+                %\draw [#1, line width=0.2em] (0.04,1.2em) -- node[below,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,1.2em);
+                \draw [#1, line width=0.2em] (0.02,0.4em) -- node[above,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,0.4em);
+            \end{scope}
+        \end{tikzpicture}
+    }
+
+%\usepackage{tikz}
+%\usepackage[usenames, dvipsnames]{color}
+
+% Inserts a scale bar into an image
+% Optional argument 1: the colour of the bar and text
+% Argument 2: an \includegraphics command
+% Argument 3: the real world width of the image
+% Argument 4: the length of the scale bar in pixels
+% Argument 5: the length of the scale bar in um
+%\newcommand{\scalebarbackground}[5][blue]{
+% \begin{tikzpicture}
+%  \node[anchor=south west,inner sep=0] (image) { #2 };
+%  \begin{scope}[x={(image.south east)},y={(image.north west)}]
+%   \draw [#1, line width=0.2em] (0.04,1.2em) -- node[below,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,1.2em);
+%  \end{scope}
+% \end{tikzpicture}
+%}    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\bigzero{%
+    \makebox[0pt]{\text{\normalsize Symmetric}}}
+    %\makebox[0pt]{Some text} over this text
+    %\makebox[15ex][s]{Censored text}\hspace{-15ex}\makebox[15ex][s]{X X X X X}
+    %Text \makebox[2\width][r]{running away}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %\bibliographystyle{elsarticle-num}
+    %\bibliographystyle{model1-num-names}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+% Numbered
+% \bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+% \bibliographystyle{model1a-num-names}
+
+%% Harvard
+% \bibliographystyle{model2-names}\biboptions{authoryear}
+
+%% Vancouver numbered
+% \usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+% \usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+% \bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+% \usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style, distributed in TeX Live 2019
+\bibliographystyle{elsarticle-num}
+% \usepackage{numcompress}\bibliographystyle{elsarticle-num-names}
+% \bibliographystyle{elsarticle-harv}\biboptions{authoryear}
+%%%%%%%%%%%%%%%%%%%%%%%
+\biboptions{numbers,sort&compress}
+\raggedbottom
+
+\begin{document}
+
+\begin{frontmatter}
+%evaluating balling during PBF-AM, 	
+\title{\Large{A BRAVE Alloy Design Campaign\\
+(Bayesian Risk-aware Alloy discovery and Exploration)}}
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for the associated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for the associated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for the associated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%%
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{<author name>}
+%% \address[label1]{<address>}
+%% \address[label2]{<address>}
+
+\author{Mrinalini Mulukutla$^{a}$} \corref{mycorrespondingauthor}
+\author{Danial Khatamsaz$^{a}$}
+\author{Trevor Hastings$^{a}$}
+%\author{Bibhu Sahu$^{a}$}
+\author{Wenle Xu $^{a}$}
+\author{Daniel Salas$^{a}$}
+\author{Joydeep Kundu$^{a}$}
+\author{Vasanthchakrava Shunmugasamy$^{a}$}
+\author{Daniel Lewis $^{a}$}
+\author{Jacob Hempel $^{a}$}
+\author{Clinton Strosser $^{a}$}
+\author{Alexandra Salinas $^{b}$}
+\author{Brent Vela$^{a}$}
+\author{Nicolas Flores $^{a}$}
+\author{Sina Hossein Zadeh$^{a}$}
+\author{Ali Rachidi$^{e}$}
+\author{David Elbert$^{e}$}
+\author{Brady Butler $^{d}$}
+\author{James Paramore $^{d}$}
+%\author{Manish Vasoya $^{a}$}
+\author{Dimitris Lagoudas $^{a}$}
+\author{Justin Wilkerson $^{a}$}
+\author{George Pharr $^{a}$}
+\author{Douglas Allaire $^{a}$}
+\author{Vahid Attari $^{a}$}
+\author{Ibrahim Karaman $^{a}$}
+\author{Ankit Srivastava $^{a}$}
+\author{Raymundo Arr\'{o}yave$^{a,b}$}
+
+
+\address{$^a$Department of Materials Science and Engineering, Texas A\&M University, College Station, TX 77843, USA}
+\address{$^b$Mechanical Engineering Department, Texas A\&M University, College Station, TX, USA 77840}
+\address{$^d$DEVCOM Army Research Laboratory South at Texas A\&M University, College Station, TX 77843-3003, USA}
+\address{$^e$Hopkins Extreme Materials Institute, Johns Hopkins University, Baltimore, Maryland, 21218, USA}
+
+
+%% or include affiliations in footnotes:
+\cortext[mycorrespondingauthor]{Corresponding author email:\textrm{mrinalini.mulukutla@tamu.edu}} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+\begin{abstract}
+
+
+In constrained alloy optimization, the compositions with the highest performance potential often reside at the boundary of phase stability---where the risk of experimental failure is also highest. This work demonstrates this principle through a risk-aware Bayesian optimization campaign on single-phase FCC high-entropy alloys in the Al--V--Cr--Mn--Fe--Co--Ni--Cu system. A learned feasibility classifier, integrated directly into the multi-objective acquisition function, probabilistically penalizes candidates likely to produce failed experiments while preserving access to high-performing boundary compositions. From approximately 27{,}000 CALPHAD-screened candidates, 48 alloys were synthesized over three closed-loop iterations targeting five objectives (yield strength, UTS/YS ratio, strain at UTS, dynamic-to-quasi-static hardness ratio, and simulated depth of penetration), exploring 0.12\% of the feasible space. Two compositional regimes emerged: a V-rich, Ni-rich high-strength regime (UTS up to ${\sim}1480$~MPa at 50\% elongation) and a Mn-containing high-ductility regime (UTS/YS up to 4.20 at $>$50\% elongation). Among feasible alloys, vanadium simultaneously drives yield strength ($r = 0.84$) and sigma-phase formation ($r = 0.54$ with infeasibility):1 at V = 24~at.\%, the three strongest alloys and three sigma failures share the same compositional point. Additionally, the strongest performing alloys cluster in a narrow region of compositional space (V $\geq$ 20 at.\%, Ni $\geq$ 36 at.\%), representing ${\sim}100$ of $27{,}074$ feasible candidates---a probability of $P \approx 6.5 \times 10^{-6}$ under random sampling. This dual role---consistent with the KKT prediction that constrained optima lie on active constraint boundaries---required feasibility-aware acquisition to access; hard filtering would have excluded this region entirely.
+
+
+\end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{keyword}
+
+
+High Entropy Alloys, Multi-objective Bayesian Optimization, Risk-aware acquisition, Feasibility awareness, CALPHAD, Quasi-static and Dynamic mechanical properties, Penetration resistance, Closed-loop alloy discovery 
+
+\end{keyword}
+\end{frontmatter}
+
+
+
+\input{01_introduction}
+
+\input{02_methods}
+
+\input{03_results}
+
+\input{04_conclusion}
+
+
+\section*{Declaration of competing interest}
+
+    The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Data Availability}
+
+    The data generated and analyzed during this study is included in \underline{Supplementary Information} and is also available in the github repository below, provided as an Excel database.
+
+\section*{Code Availability}
+
+    Code used in this project is available on https://github.com/mrinalinimulukutla/BRAVE.
+
+\section{Acknowledgements}
+
+The research was sponsored by the Army Research Laboratory and was accomplished under Cooperative Agreement Number W911NF-22-2-0106. The views and conclusions contained in this document are those of the authors. They should not be interpreted as representing the official policies, either expressed or implied, of the Army Research Laboratory or the US Government. The US Government is authorized to reproduce and distribute reprints for Government Purposes, notwithstanding any copyright notation herein. 
+    
+We would like to acknowledge Dr. Anup and his group at Texas A\&M University for the use of their XRD Bruker D8 Discover instrument as well as Texas A\&M’s Materials Characterization Facility for the use of their EBSD-capable FIB-SEM. We would like to acknowledge Texas A\&M’s High Performance Research Computing group for access to the computational infrastructure used in this work.
+
+We also acknowledge the use of Claude Sonnet 4.6 for data analysis and some sentence structure formations in the manuscript. After using this tool/service, the author(s) reviewed and edited the content as needed and take(s) full responsibility for the content of the publication.  
+
+%\input{Supplemental}
+
+\bibliography{references.bib}
+
+\input{05_appendix}
+\end{document}

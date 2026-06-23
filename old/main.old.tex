@@ -1,0 +1,483 @@
+\listfiles
+
+%\documentclass[letterpaper,5pt,twocolumn,final]{elsarticle}
+%\documentclass[final,letterpaper,4pt,times,twocolumn]{elsarticle}
+\documentclass[letterpaper,4pt,times,preprint]{elsarticle}
+
+%\documentclass[a4paper,5pt,twocolumn,preprint]{elsarticle}
+
+\journal{TexExchange}
+    \journal{Journal of \LaTeX\ Templates}
+    
+%    \usepackage
+%[
+%        a4paper,% other options: a3paper, a5paper, etc
+%        left=1.3cm,
+%        right=1.5cm,
+%        top=2cm,
+%        bottom=2cm,
+        % use vmargin=2cm to make vertical margins equal to 2cm.
+        % us  hmargin=3cm to make horizontal margins equal to 3cm.
+        % use margin=3cm to make all margins  equal to 3cm.
+%]
+%{geometry}
+    
+    %\usepackage{draftwatermark}
+    %\SetWatermarkText{Confidential}
+    %\SetWatermarkScale{1}    
+    
+    \usepackage{tgtermes}
+    \usepackage{nicematrix}
+    \usepackage{tikz}
+    \usepackage{multirow}
+    \usepackage{hyperref}
+    \usepackage[version=3]{mhchem}
+    \newcommand{\mst}{\ce{Mg2Si_{$x$}Sn_{$1-x$}}}
+    \newcommand{\zT}{$zT$}
+    \usepackage{changepage}
+    \usepackage{xr-hyper}
+    \externaldocument{Supplemental}
+
+    
+    
+    \usepackage{siunitx}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \usepackage[letterpaper, portrait, margin=0.60in]{geometry}
+
+    \usepackage{hhline}  % http://ctan.org/pkg/hhline
+    \usepackage{float}
+    %\usepackage{subfig}
+    \usepackage{multirow}
+    \usepackage{graphicx,booktabs}
+    \usepackage{booktabs,tabularx}
+    %\usepackage{showframe}
+    \usepackage{xfrac}
+    \usepackage{titlesec}
+    \titleformat{\paragraph}[runin]{\normalfont\bfseries}{\theparagraph}{1em}{}
+    \usepackage{wrapfig,booktabs}
+    \usepackage{mwe}
+    \usepackage{adjustbox}
+    %\usepackage[demo]{graphicx}
+    \usepackage{caption}
+    \usepackage{subcaption}
+    \usepackage{makecell}
+    \usepackage{rotating}
+    %\usepackage{mathrsfs}
+    \usepackage[permil]{overpic}
+    \usepackage{pict2e} % for drawing polygons
+
+    \usepackage{amsmath,array, amssymb}
+    %\usepackage[usenames,dvipsnames]{color}
+    \usepackage{xcolor,soul}
+    \usepackage{tcolorbox}
+    \usepackage{calrsfs}
+%    \usepackage{array}
+    \usepackage{longtable}
+    \usepackage{ragged2e}
+    
+    %\usepackage{parskip}
+    \usepackage[indent=1cm]{parskip}
+    \setlength{\parindent}{20pt}
+    \usepackage{svg}
+
+    \usepackage{tabularray}
+    % Make good looking tables
+
+    \usepackage{makecell}
+    % Allows extra line within cell
+    \usepackage{setspace}
+    \usepackage{float}
+    \usepackage[singlelinecheck=false]{caption}
+    \captionsetup[table]{skip=5pt}
+    % https://ctan.org/pkg/caption
+    \captionsetup{skip = 10pt}
+    % Space between fig and cap
+    \DeclareCaptionLabelFormat{bf_parens}{(\textbf{#2})}
+    % Hanging setup with "(1)..." as figure numbering
+    \captionsetup{font={small,bf}}
+    \captionsetup{labelformat = bf_parens, labelsep = quad}
+    \captionsetup{format = hang}
+
+
+
+    
+\hypersetup{colorlinks,breaklinks,
+            urlcolor=Maroon,
+            linkcolor=Maroon}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newcommand{\etal}{\textit{et al}.}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \setcounter{secnumdepth}{3}
+    \setlength{\columnsep}{18.0pt}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \parindent=0pt
+
+    \def\correction#1{%
+    \abovedisplayshortskip=#1\baselineskip\relax\belowdisplayshortskip=#1\baselineskip\relax%
+    \abovedisplayskip=#1\baselineskip\relax\belowdisplayskip=#1\baselineskip\relax}
+
+    \arrayrulewidth=1pt\relax
+    \tabcolsep=5pt\relax
+    %\arrayrulecolor{red}
+    \fboxsep=\tabcolsep\relax
+    \fboxrule=\arrayrulewidth\relax
+
+    \newcolumntype{A}[2]{%
+    >{\minipage{\dimexpr#1\linewidth-2\tabcolsep-#2\arrayrulewidth\relax}\vspace\tabcolsep}%
+    c<{\vspace\tabcolsep\endminipage}}
+    
+
+\newenvironment{Table}[4]{%
+    \longtable{%
+        |A{#1}{1.5}% for figure
+        |>{\centering$\displaystyle}A{#2}{1}<{$}% for inline equation
+        |>{\correction{-1}\strut\[}A{#3}{1}<{\]\strut}% for displayed equation
+        |>{\centering}A{#4}{1.5}% for text
+        |}\hline\ignorespaces}{%
+    \endlongtable\ignorespacesafterend}
+
+\newcommand{\dummy}{%
+    It is practically a big lie that \LaTeX\ 
+    makes you focus on the content without
+    bothering about the layout.}
+
+\newcommand{\Row}{%
+    \includegraphics[widcbh=\linewidth]{newton}  &
+     &
+     &
+    \fcolorbox{cyan}{yellow}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\dummy}}
+    \tabularnewline\hline}    
+
+    %%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Image scale bar
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+    %%
+    \usepackage{siunitx}
+
+    \usepackage{tikz}
+    \usepackage{color}
+    \definecolor{scalebgcolor}{rgb}{0.08,0.52,0.80}     
+    %% To change the backgroundcolor, adjust the scalebgcolor variable to use the desired color. Add the following code to your preamble:
+
+    \newcommand{\scalebarbackground}[5][white]{
+        \begin{tikzpicture}
+            \draw (0,0) node[anchor=south east,inner sep=0] (image) { #2 };
+                \begin{scope}[x={(image.south west)},y={(image.north west)}]
+                \fill [fill=scalebgcolor, fill opacity=0.75] (0.02,1.3em) rectangle (#5*#4/#3+0.04,0.1em);
+                %\draw [#1, line width=0.2em] (0.04,1.2em) -- node[below,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,1.2em);
+                \draw [#1, line width=0.2em] (0.02,0.4em) -- node[above,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,0.4em);
+            \end{scope}
+        \end{tikzpicture}
+    }
+
+%\usepackage{tikz}
+%\usepackage[usenames, dvipsnames]{color}
+
+% Inserts a scale bar into an image
+% Optional argument 1: the colour of the bar and text
+% Argument 2: an \includegraphics command
+% Argument 3: the real world width of the image
+% Argument 4: the length of the scale bar in pixels
+% Argument 5: the length of the scale bar in um
+%\newcommand{\scalebarbackground}[5][blue]{
+% \begin{tikzpicture}
+%  \node[anchor=south west,inner sep=0] (image) { #2 };
+%  \begin{scope}[x={(image.south east)},y={(image.north west)}]
+%   \draw [#1, line width=0.2em] (0.04,1.2em) -- node[below,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,1.2em);
+%  \end{scope}
+% \end{tikzpicture}
+%}    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\bigzero{%
+    \makebox[0pt]{\text{\normalsize Symmetric}}}
+    %\makebox[0pt]{Some text} over this text
+    %\makebox[15ex][s]{Censored text}\hspace{-15ex}\makebox[15ex][s]{X X X X X}
+    %Text \makebox[2\width][r]{running away}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %\bibliographystyle{elsarticle-num}
+    %\bibliographystyle{model1-num-names}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+% Numbered
+% \bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+% \bibliographystyle{model1a-num-names}
+
+%% Harvard
+% \bibliographystyle{model2-names}\biboptions{authoryear}
+
+%% Vancouver numbered
+% \usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+% \usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+% \bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+% \usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style, distributed in TeX Live 2019
+\bibliographystyle{elsarticle-num}
+% \usepackage{numcompress}\bibliographystyle{elsarticle-num-names}
+% \bibliographystyle{elsarticle-harv}\biboptions{authoryear}
+%%%%%%%%%%%%%%%%%%%%%%%
+\biboptions{numbers,sort&compress}
+
+\begin{document}
+
+\begin{frontmatter}
+%evaluating balling during PBF-AM, 	
+\title{\Large{A BRAVE Alloy Design Campaign\\
+(Bayesian Risk-aware Alloy discovery and Exploration)}}
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for the associated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for the associated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for the associated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%%
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{<author name>}
+%% \address[label1]{<address>}
+%% \address[label2]{<address>}
+
+\author{Mrinalini Mulukutla$^{a}$}
+\author{Danial Khatamsaz$^{a}$}
+\author{Trevor Hastings$^{a}$}
+%\author{Bibhu Sahu$^{a}$}
+\author{Wenle Xu $^{a}$}
+\author{Daniel Salas$^{a}$}
+\author{Joydeep Kundu$^{a}$}
+\author{Vasanthchakrava Shunmugasamy$^{a}$}
+\author{Daniel Lewis $^{a}$}
+\author{Jacob Hempel $^{a}$}
+\author{Clinton Strosser $^{a}$}
+%\author{Samantha Mitra $^{c}$}
+%\author{Raj Jung Mahat $^{c}$}
+\author{Haoren Wang $^{c}$}
+\author{Alexandra Salinas $^{b}$}
+\author{Nicholas Flores $^{a}$}
+\author{Brent Vela$^{a}$}
+\author{Sina Hossein Zadeh$^{a}$}
+\author{Brady Butler $^{d}$}
+\author{James Paramore $^{d}$}
+%\author{Manish Vasoya $^{a}$}
+\author{Dimitris Lagoudas $^{a}$}
+%\author{Surya Kalidindi $^{c}$}
+\author{Kenneth Vecchio $^{c}$}
+\author{Justin Wilkerson $^{a}$}
+\author{George Pharr $^{a}$}
+\author{Douglas Allaire $^{a}$}
+\author{Vahid Attari $^{a}$}
+\author{Ibrahim Karaman $^{a}$}
+\author{Ankit Srivastava $^{a}$}
+\author{Raymundo Arr\'{o}yave$^{a,b}$}
+
+
+\address{$^a$Department of Materials Science and Engineering, Texas A\&M University, College Station, TX 77843, USA}
+\address{$^b$Mechanical Engineering Department, Texas A\&M University, College Station, TX, USA 77840}
+\address{$^c$University of California- San Diego, San Diego, CA 92093}
+\address{$^d$DEVCOM Army Research Laboratory South at Texas A\&M University, College Station, TX 77843-3003, USA}
+
+
+%% or include affiliations in footnotes:
+\cortext[mycorrespondingauthor]{Corresponding author email:\textrm{mrinalini.mulukutla@tamu.edu}} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+\begin{abstract}
+
+
+Multi-objective Bayesian optimization is increasingly used to accelerate materials discovery, yet standard frameworks neglect a critical practical constraint: many candidate designs are infeasible and yield no measurable objective values, wasting experimental resources. This work presents a risk-aware multi-objective Bayesian optimization framework that incorporates a learned feasibility classifier to probabilistically penalize candidates likely to produce failed experiments, while preserving exploration of uncertain but promising regions. The framework couples physics-informed Gaussian process surrogates with multi-fidelity property models and is demonstrated through high-throughput discovery of single-phase FCC high-entropy alloys in the Al--V--Cr--Mn--Fe--Co--Ni--Cu system for ballistic applications. From a feasible space of approximately 27{,}000 CALPHAD-screened compositions, 48 alloys were synthesized and characterized over three closed-loop iterations, targeting five objectives: yield strength, UTS/YS ratio, strain at UTS, dynamic-to-quasi-static strength ratio, and simulated depth of penetration. The risk-aware strategy expanded the Pareto front from 10 to 21 non-dominated alloys while increasing the hypervolume by approximately 30\% per iteration, efficiently navigating a high-dimensional, constraint-rich design space while exploring less than 0.2\% of the feasible compositions.
+
+
+\end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{keyword}
+
+\end{keyword}
+\end{frontmatter}
+
+% Writing points
+
+% Accelerated Multi-Objective Alloy Discovery through Data-driven and Efficient Bayesian Methods
+
+% 1. Multi-Objective Optimization in Alloy Design: 
+%    - Use of batch Bayesian Optimization (BO) framework to simultaneously maximize multiple material objectives
+%    - Unlike conventional approaches, which often optimize a single objective at a time, this study integrates multi-source experimental data and computational models to guide the alloy design process more efficiently.
+
+% 2. Risk-Aware BO  
+%    - Incorporates prior knowledge from experimental data to refine the search space, reducing number of required iterations while improving accuracy 
+%    - Risk-aware strategy —regions deemed infeasible (due to manufacturing challenges or phase stability violations) are not strictly eliminated but are assigned lower probabilities, preventing over-exclusion and bias in the optimization process.
+
+% 3. Experimental and Computational Integration in Workflow
+%      - Nanoindentation and high-strain-rate testing for mechanical property characterization.  
+%      - Dynamic small punch testing (SPT) with a modified SHPB setup for evaluating material performance under extreme conditions.  
+%      - Microstructural analysis (EBSD, XRD, and microscopy techniques) to investigate phase stability, grain size and grain orientation effects.  
+%      - Finite element modeling (Kolsky bar test predictions) to evaluate depth of penetration, for designing impact-resistant HEAs.
+
+% 4. Scalable and High-Throughput Methodologies:  
+%    - Sample preparation techniques (Major time saving task) (high-throughput grinding, polishing, and laser marking) 
+%    - Automated data acquisition and processing pipelines (Python/ImageJ-based scripts) developed for nanoindentation and HSRNI
+
+% Advancement in data-driven alloy discovery integrating experimental validation, computational modeling, and machine learning-based Bayesian optimization to navigate a complex, high-dimensional design space. By employing a risk-aware multi-objective optimization framework, this work accelerates the identification of promising HEAs while maintaining robustness against infeasible candidate selections. High-throughput alloy design strategies applicable to broader material systems and applications.  
+
+
+% 1. Introduction: 
+%    - Re-emphasize the need for efficient alloy discovery and the challenges of optimizing multiple competing objectives.  
+%    - This study builds upon prior work while introducing a more open-ended design space with complicated multiple objective materials discovery problem.  
+%    - Bayesian Optimization strategy with with integration of experiments, modeling, and machine learning.
+
+% 2. Alloy Design Framework & Methodology:  
+%    - Define design space, including the inclusion of Mn and Cu and the rationale behind it.  
+%    - Explain multi-objective Bayesian Optimization framework, highlighting how prior models and risk-aware strategies improve efficiency.  
+%    - Go over details of the experimental techniques used for validation and their role.  
+%    - Data Management? 
+
+% 3. Results & Discussion:
+%     Discuss challenges with manufacturing, secondary phases and testing faced in Campaign-2
+%    - Show how BO framework refined the search space without prematurely eliminating regions, preventing bias.  
+%    - Experimental results of objectives chosen, and correlations between tensile testing, nanoindentation, HSRNI, and Kolsky bar modeling.  
+%    - Microstructural features and their implications for alloy performance - Lay the foundation for Camapign-3
+
+% 4. Conclusions & Future Work: 
+%    - How the framework is an advancement over Campaign-1 and how it accelerates discovery  
+%    - Extensions to other alloy systems or manufacturing constraints in future research.
+
+%Tentative Outline:
+
+% 1. Introduction
+% Background on multi-objective alloy design and the need for accelerated discovery
+% Brief summary of Campaign-1 outcomes and limitations
+% Motivation for expanding to an 8-element HEA system (Al-V-Cr-Mn-Fe-Co-Ni-Cu).
+% Rationale for inclusion of Mn and Cu.
+% Shift from constrained optimization to a phase-stability-constrained, open-ended design problem.
+% Overview of objectives
+% BO as the central design methodology.
+% Digital Twins
+% 2. Alloy Design Framework
+% -Compositional Space
+% 8-element HEA system (4 at.% resolution → ~3.3M compositions).
+% Expert-imposed compositional maximums and reduction to ~1.49M alloys.
+% Phase stability filtering using TCHEA6 and TCHEA7 at 700°C and 950°C → ~27k feasible alloys.
+% -Subsystem Definition and Sampling
+% 37 chemically distinct subsystems (based on combinations of 6 to 8 elements).
+% Application of k-medoids clustering to full feasible space for diversity-aware downselection (1000 candidates).
+% Heuristic-based downselection of 16 synthesis candidates to maximize subsystem coverage and BO exploration efficiency.
+% 3. MOBBO
+% GPR
+% Informative Priors
+% Integration of multiple sources
+% BBO
+% Risk-aware decision-making
+% Constraint aware EHVI
+% 4. Experimental Methodology
+% Synthesis and Sample Preparation - Hot Forging/Cold Rolling
+% Development of efficient sample mounting and polishing workflow
+% Throughput improvements (16+ samples per batch, laser marking for traceability).
+% Microstructural Characterization
+% Mechanical Characterization
+% Tensile testing
+% Nanoindentation at multiple strain rates; automation of projected contact area analysis (Python/ImageJ).
+% High Strain Rate Nanoindentation
+% SPHB: Dual strain rate testing (1500 s⁻¹ and 3000 s⁻¹) for a subset of alloys.
+% Development of modified SHPB setup for SPT.
+% SPT
+% LIPIT (not sure if we are including it here, results from LIPIT were not used in optimization workflow as the equipment was down for maintenance).
+% 5. Integration of Simulation: Depth of Penetration Modeling
+% Use of Kolsky bar simulations to predict depth of penetration as a surrogate for impact performance.
+% Strategy for blending simulated and experimental objectives
+% 6. Results and Discussion
+% Characterization results
+% Phase validation (XRD), microstructure analysis (EBSD).
+% Property optimization, improvement of objectives - detailed discussion of results
+% Visualizations and detailed analysis based on ANOVA and feature importance.
+% Nanoindentation vs. SHPB vs. SPT (i am looking into this, i will contact teams for their feedback)
+% Impact of automated workflows on experimental efficiency and data quality.
+% Insights from BO-guided iterations: diversity, convergence, and uncertainty management.
+% 7. Conclusion
+% Summary of the design framework’s effectiveness in navigating a complex HEA space.
+% Key innovations: subsystem-based sampling, risk-aware optimization, high-throughput testing.
+% Outlook for generalizing this approach to other alloy systems or objectives.
+% Challenges and Limitations
+% Future Work
+
+
+\input{01_introduction}
+
+\input{02_methods}
+
+\input{03_results}
+
+\input{04_conclusion}
+
+
+
+
+
+
+
+
+\section*{Declaration of competing interest}
+
+    The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Data Availability}
+
+    The data generated from this study is included in \underline{Supplementary Information}.
+
+\section*{Code Availability}
+
+    Code used in this project is available on https://github.com/mrinalinimulukutla/HTMDEC-C2.
+
+\section{Acknowledgements}
+
+The research was sponsored by the Army Research Laboratory and was accomplished under Cooperative Agreement Number W911NF-22-2-0106. The views and conclusions contained in this document are those of the authors. They should not be interpreted as representing the official policies, either expressed or implied, of the Army Research Laboratory or the US Government. The US Government is authorized to reproduce and distribute reprints for Government Purposes, notwithstanding any copyright notation herein. 
+    
+We would like to acknowledge Dr. Anup and his group at Texas A\&M University for the use of their XRD Bruker D8 Discover instrument as well as Texas A\&M’s Materials Characterization Facility for the use of their EBSD-capable FIB-SEM. We would like to acknowledge Texas A\&M’s High Performance Research Computing group for access to the computational infrastructure used in this work.
+
+
+
+\bibliography{references.bib}
+\end{document}
+
+
