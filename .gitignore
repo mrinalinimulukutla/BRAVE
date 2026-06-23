@@ -1,12 +1,32 @@
+# Python
 __pycache__/
 *.pyc
 *.pyo
+*.egg-info/
+.venv/
+venv/
+
+# Editors / OS
 .DS_Store
 .ipynb_checkpoints/
 .vscode/
 .idea/
-*.egg-info/
-.venv/
-venv/
+*.spl
+
+# Pipeline working dirs / model caches
 CalcFiles/
 catboost_info/
+
+# LaTeX build artifacts (compiled main.pdf / Supplemental.pdf are tracked deliberately)
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.run.xml
+*.bcf
+_minted*/

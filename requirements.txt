@@ -1,17 +1,25 @@
-numpy
-pandas
-scipy
-matplotlib
-scikit-learn
-scikit-learn-extra
-pyDOE
-joblib
-catboost
-george
+# Pinned to the environment used to produce the published figures and results.
+# Install with:  pip install -r requirements.txt
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.17.1
+matplotlib==3.10.3
+scikit-learn==1.6.1
+scikit-learn-extra==0.3.0
+joblib==1.5.1
+catboost==1.2.10
+george==0.4.1
+pyDOE==0.3.8
+openpyxl==3.1.5
+
+# Composition-based feature vectors (used by code/bbo_python/helper.py).
+# Not version-pinned: install the current release.
 CBFV
-openpyxl
-# Required by HEACalculator
+
+# Required only by the bundled HEACalculator GUI (code/HEACalculator/).
 PyQt5
-typer
-# Proprietary (Thermo-Calc); requires a separate license
+typer==0.25.1
+
+# Proprietary (Thermo-Calc); required only by code/htmdec_y2_tc_property_gen.py.
+# Install separately following the vendor instructions.
 # tc-python
