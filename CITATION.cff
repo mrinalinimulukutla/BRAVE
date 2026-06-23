@@ -1,0 +1,101 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite both the software (this repository) and the accompanying publication."
+title: "BRAVE: Bayesian Risk-aware Alloy discovery and Exploration (HTMDEC Campaign 2)"
+abstract: >-
+  Representative code, data, and manuscript for HTMDEC Campaign 2 — a Bayesian
+  batch optimization framework for high-throughput alloy discovery in the
+  Al–V–Cr–Mn–Fe–Co–Ni–Cu compositional space across five mechanical objectives.
+type: software
+repository-code: "https://github.com/mrinalinimulukutla/BRAVE"
+license: MIT
+keywords:
+  - Bayesian optimization
+  - high-entropy alloys
+  - alloy design
+  - materials discovery
+  - high-throughput
+  - multi-objective optimization
+  - Gaussian process
+# Replace the placeholder DOI below with the Zenodo concept DOI after the first release.
+# doi: 10.5281/zenodo.XXXXXXX
+authors:
+  - given-names: Mrinalini
+    family-names: Mulukutla
+    email: mrinalini.mulukutla@tamu.edu
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+  - given-names: Danial
+    family-names: Khatamsaz
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Trevor
+    family-names: Hastings
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Wenle
+    family-names: Xu
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Daniel
+    family-names: Salas
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Joydeep
+    family-names: Kundu
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: "Vasanth C."
+    family-names: Shunmugasamy
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Daniel
+    family-names: Lewis
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Jacob
+    family-names: Hempel
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Clinton
+    family-names: Strosser
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Alexandra
+    family-names: Salinas
+    affiliation: "Mechanical Engineering Department, Texas A&M University, College Station, TX, USA"
+  - given-names: Brent
+    family-names: Vela
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Nicolas
+    family-names: Flores
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Sina
+    family-names: "Hossein Zadeh"
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Ali
+    family-names: Rachidi
+    affiliation: "Hopkins Extreme Materials Institute, Johns Hopkins University, Baltimore, MD, USA"
+  - given-names: David
+    family-names: Elbert
+    affiliation: "Hopkins Extreme Materials Institute, Johns Hopkins University, Baltimore, MD, USA"
+  - given-names: Brady
+    family-names: Butler
+    affiliation: "DEVCOM Army Research Laboratory South at Texas A&M University, College Station, TX, USA"
+  - given-names: James
+    family-names: Paramore
+    affiliation: "Bush Combat Development Complex, Texas A&M University System, College Station, TX, USA"
+  - given-names: Dimitris
+    family-names: Lagoudas
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Justin
+    family-names: Wilkerson
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: George
+    family-names: Pharr
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Douglas
+    family-names: Allaire
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Vahid
+    family-names: Attari
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Ibrahim
+    family-names: Karaman
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Ankit
+    family-names: Srivastava
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+  - given-names: Raymundo
+    family-names: Arróyave
+    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
