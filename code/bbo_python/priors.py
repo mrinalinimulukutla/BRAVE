@@ -1,12 +1,18 @@
 # -*- coding: utf-8 -*-
 
 
+from pathlib import Path
+
 from helper import FeatureGenerator
 import pandas as pd
 import catboost as cb
 import numpy as np
 
-df = pd.read_excel("HTMDEC_Y2_db.xlsx")
+# Resolve the master database from the repository root so this runs from any
+# working directory (the figure scripts use the same pattern).
+DB_FILE = Path(__file__).resolve().parents[2] / "data" / "HTMDEC_Y2_db.xlsx"
+
+df = pd.read_excel(DB_FILE)
 df = df[(df["YS (MPa)"].notna()) & (df["YS (MPa)"] != 0)]
 
 df_final = df.copy()
@@ -27,7 +33,7 @@ ys_model = cb.CatBoostRegressor(**params)
 ys_model.fit(dtrain)
 
 
-df = pd.read_excel("HTMDEC_Y2_db.xlsx")
+df = pd.read_excel(DB_FILE)
 df = df[(df["UTS / YS"].notna()) & (df["UTS / YS"] != 0)]
 df_final = df.copy()
 df_final = df_final[["Al", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu"]].astype(float)
@@ -46,7 +52,7 @@ params = {
 uts_ys_model = cb.CatBoostRegressor(**params)
 uts_ys_model.fit(dtrain)
 
-df = pd.read_excel("HTMDEC_Y2_db.xlsx")
+df = pd.read_excel(DB_FILE)
 df = df[(df["EL (%)"].notna()) & (df["EL (%)"] != 0)]
 df_final = df.copy()
 df_final = df_final[["Al", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu"]].astype(float)
