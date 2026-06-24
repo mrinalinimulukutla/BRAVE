@@ -18,6 +18,19 @@ keywords:
   - Gaussian process
 # Replace the placeholder DOI below with the Zenodo concept DOI after the first release.
 # doi: 10.5281/zenodo.XXXXXXX
+# Once the arXiv preprint is posted (expected next day), uncomment and fill in the ID
+# to link this software to the paper. Also add a matching "related_identifiers"
+# entry to .zenodo.json, e.g.:
+#   "related_identifiers": [
+#     { "relation": "isSupplementTo", "identifier": "arXiv:XXXX.XXXXX",
+#       "scheme": "arxiv", "resource_type": "publication-preprint" }
+#   ]
+# preferred-citation:
+#   type: article
+#   title: "A BRAVE Alloy Design Campaign (Bayesian Risk-aware Alloy discovery and Exploration)"
+#   identifiers:
+#     - type: other
+#       value: "arXiv:XXXX.XXXXX"
 authors:
   - given-names: Mrinalini
     family-names: Mulukutla
@@ -80,13 +93,13 @@ authors:
     affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
   - given-names: Justin
     family-names: Wilkerson
-    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+    affiliation: "Mechanical Engineering Department, Texas A&M University, College Station, TX, USA"
   - given-names: George
     family-names: Pharr
     affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
   - given-names: Douglas
     family-names: Allaire
-    affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
+    affiliation: "Mechanical Engineering Department, Texas A&M University, College Station, TX, USA"
   - given-names: Vahid
     family-names: Attari
     affiliation: "Department of Materials Science and Engineering, Texas A&M University, College Station, TX, USA"
