@@ -14,8 +14,12 @@ paper/         LaTeX manuscript, bibliography, and figure assets
 ```
 
 - **`data/HTMDEC_Y2_db.xlsx`** — master experimental database used to train the
-  CatBoost priors and to generate the figures. Required columns: `Al`, `V`, `Cr`,
-  `Mn`, `Fe`, `Co`, `Ni`, `Cu`, `YS (MPa)`, `UTS / YS`, `EL (%)`.
+  CatBoost priors and to generate the figures. Composition columns are `Al`, `Co`,
+  `Cr`, `Cu`, `Fe`, `Mn`, `Ni`, `V`; property columns consumed by the priors and
+  figure scripts include `Yield Strength (MPa)`, `UTS_True (Mpa)`, `UTS/YS`,
+  `Elong_T (%)`, `Avg Hdyn (GPa) HSR`, `Avg Hqs (GPa) HSR`, `Avg HDYN/HQS`,
+  `Depth of Penetration (mm) FE_Sim`, `Rate Sensitivity Exponent (M)`, alongside
+  `Iteration`, `Alloy Name`, and `XRD Phase`.
 - **`code/htmdec_y2_tc_property_gen.py`** — Thermo-Calc property generation
   (liquidus / solidus / freeze-in equilibrium) for candidate compositions.
   Requires a licensed Thermo-Calc installation and `tc_python`.
