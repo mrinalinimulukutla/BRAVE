@@ -18,9 +18,8 @@ keywords:
   - high-throughput
   - multi-objective optimization
   - Gaussian process
-# Replace the placeholder DOI below with the Zenodo concept DOI after the first release.
-# doi: 10.5281/zenodo.XXXXXXX
-# Once the arXiv preprint is posted (expected next day), uncomment and fill in the ID
+doi: 10.5281/zenodo.21253553
+# Once the arXiv preprint is posted, uncomment and fill in the ID
 # to link this software to the paper. Also add a matching "related_identifiers"
 # entry to .zenodo.json, e.g.:
 #   "related_identifiers": [

@@ -1,5 +1,7 @@
 # BRAVE
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21253553.svg)](https://doi.org/10.5281/zenodo.21253553)
+
 Representative code, data, and manuscript for HTMDEC Campaign 2 — a Bayesian batch
 optimization framework for high-throughput alloy discovery in the
 Al–V–Cr–Mn–Fe–Co–Ni–Cu compositional space across five mechanical objectives.
@@ -138,7 +140,9 @@ sufficient to reproduce the modeling framework and all data-driven figures.
 
 ## Citation
 
-If you use this code, please cite the accompanying BRAVE publication.
+If you use this software or data, please cite the archived release
+(DOI [10.5281/zenodo.21253553](https://doi.org/10.5281/zenodo.21253553); see
+[CITATION.cff](CITATION.cff)) together with the accompanying BRAVE publication.
 
 ## License
 
