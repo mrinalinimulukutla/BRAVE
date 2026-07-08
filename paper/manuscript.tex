@@ -1,0 +1,1853 @@
+\listfiles
+
+%\documentclass[letterpaper,5pt,twocolumn,final]{elsarticle}
+%\documentclass[final,5p,times,twocolumn]{elsarticle}  % final two-column typesetting (previous)
+\documentclass[preprint,12pt,times]{elsarticle}  % review version: single-column, 12pt, double-spaced
+%\documentclass[letterpaper,4pt,times,preprint]{elsarticle}
+
+%\documentclass[a4paper,5pt,twocolumn,preprint]{elsarticle}
+
+\journal{Acta Materialia}
+    
+%    \usepackage
+%[
+%        a4paper,% other options: a3paper, a5paper, etc
+%        left=1.3cm,
+%        right=1.5cm,
+%        top=2cm,
+%        bottom=2cm,
+        % use vmargin=2cm to make vertical margins equal to 2cm.
+        % us  hmargin=3cm to make horizontal margins equal to 3cm.
+        % use margin=3cm to make all margins  equal to 3cm.
+%]
+%{geometry}
+    
+    %\usepackage{draftwatermark}
+    %\SetWatermarkText{Confidential}
+    %\SetWatermarkScale{1}    
+    
+    \usepackage{tgtermes}
+    \usepackage{nicematrix}
+    \usepackage{tikz}
+    \usepackage{multirow}
+    \usepackage{hyperref}
+    \usepackage[version=3]{mhchem}
+    \newcommand{\mst}{\ce{Mg2Si_{$x$}Sn_{$1-x$}}}
+    \newcommand{\zT}{$zT$}
+    \usepackage{changepage}
+    % xr-hyper removed: no cross-references from main text to SI labels
+    % \usepackage{xr-hyper}
+    % \externaldocument{Supplemental}
+
+    
+    
+    \usepackage{siunitx}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Use the journal class layout in two-column mode rather than overriding it.
+    %\usepackage[letterpaper, portrait, margin=0.60in]{geometry}
+
+    \usepackage{hhline}  % http://ctan.org/pkg/hhline
+    \usepackage{float}
+    %\usepackage{subfig}
+    \usepackage{multirow}
+    \usepackage{graphicx,booktabs}
+    \usepackage{booktabs,tabularx}
+    %\usepackage{showframe}
+    \usepackage{xfrac}
+    \usepackage{titlesec}
+    \titleformat{\paragraph}[runin]{\normalfont\bfseries}{\theparagraph}{1em}{}
+    \usepackage{wrapfig,booktabs}
+    \usepackage{mwe}
+    \usepackage{adjustbox}
+    %\usepackage[demo]{graphicx}
+    \usepackage{caption}
+    \usepackage{subcaption}
+    \usepackage{makecell}
+    \usepackage{rotating}
+    %\usepackage{mathrsfs}
+    \usepackage[permil]{overpic}
+    \usepackage{pict2e} % for drawing polygons
+
+    \usepackage{algorithm}
+    \usepackage{algpseudocode}
+    \usepackage{amsmath,array, amssymb}
+    %\usepackage[usenames,dvipsnames]{color}
+    \usepackage{xcolor,soul}
+    \usepackage{tcolorbox}
+    \usepackage{calrsfs}
+%    \usepackage{array}
+    \usepackage{longtable}
+    \usepackage{ragged2e}
+    
+    %\usepackage{parskip}
+    \usepackage[indent=1cm]{parskip}
+    \setlength{\parindent}{20pt}
+    \usepackage{svg}
+
+    \usepackage{tabularray}
+    % Make good looking tables
+
+    \usepackage{makecell}
+    % Allows extra line within cell
+    \usepackage{setspace}
+    \usepackage{float}
+    \usepackage[singlelinecheck=false]{caption}
+    \captionsetup[table]{skip=5pt}
+    % https://ctan.org/pkg/caption
+    \captionsetup{skip = 10pt}
+    % Space between fig and cap
+    % Use standard "Figure X." style with normal caption text
+    \captionsetup{font=small, labelfont=bf, textfont=normalfont}
+    \captionsetup{labelformat=default, labelsep=period}
+    \captionsetup{format=plain, justification=raggedright, singlelinecheck=false}
+
+
+
+    
+\hypersetup{colorlinks,breaklinks,
+            urlcolor=Maroon,
+            linkcolor=Maroon}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newcommand{\etal}{\textit{et al}.}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \setcounter{secnumdepth}{3}
+    \setlength{\columnsep}{18.0pt}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \parindent=0pt
+
+    \def\correction#1{%
+    \abovedisplayshortskip=#1\baselineskip\relax\belowdisplayshortskip=#1\baselineskip\relax%
+    \abovedisplayskip=#1\baselineskip\relax\belowdisplayskip=#1\baselineskip\relax}
+
+    \arrayrulewidth=1pt\relax
+    \tabcolsep=5pt\relax
+    %\arrayrulecolor{red}
+    \fboxsep=\tabcolsep\relax
+    \fboxrule=\arrayrulewidth\relax
+
+    \newcolumntype{A}[2]{%
+    >{\minipage{\dimexpr#1\linewidth-2\tabcolsep-#2\arrayrulewidth\relax}\vspace\tabcolsep}%
+    c<{\vspace\tabcolsep\endminipage}}
+    
+
+\newenvironment{Table}[4]{%
+    \longtable{%
+        |A{#1}{1.5}% for figure
+        |>{\centering$\displaystyle}A{#2}{1}<{$}% for inline equation
+        |>{\correction{-1}\strut\[}A{#3}{1}<{\]\strut}% for displayed equation
+        |>{\centering}A{#4}{1.5}% for text
+        |}\hline\ignorespaces}{%
+    \endlongtable\ignorespacesafterend}
+
+\newcommand{\dummy}{%
+    It is practically a big lie that \LaTeX\ 
+    makes you focus on the content without
+    bothering about the layout.}
+
+\newcommand{\Row}{%
+    \includegraphics[widcbh=\linewidth]{newton}  &
+     &
+     &
+    \fcolorbox{cyan}{yellow}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\dummy}}
+    \tabularnewline\hline}    
+
+    %%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Image scale bar
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+    %%
+    \usepackage{siunitx}
+
+    \usepackage{tikz}
+    \usepackage{color}
+    \definecolor{scalebgcolor}{rgb}{0.08,0.52,0.80}     
+    %% To change the backgroundcolor, adjust the scalebgcolor variable to use the desired color. Add the following code to your preamble:
+
+    \newcommand{\scalebarbackground}[5][white]{
+        \begin{tikzpicture}
+            \draw (0,0) node[anchor=south east,inner sep=0] (image) { #2 };
+                \begin{scope}[x={(image.south west)},y={(image.north west)}]
+                \fill [fill=scalebgcolor, fill opacity=0.75] (0.02,1.3em) rectangle (#5*#4/#3+0.04,0.1em);
+                %\draw [#1, line width=0.2em] (0.04,1.2em) -- node[below,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,1.2em);
+                \draw [#1, line width=0.2em] (0.02,0.4em) -- node[above,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,0.4em);
+            \end{scope}
+        \end{tikzpicture}
+    }
+
+%\usepackage{tikz}
+%\usepackage[usenames, dvipsnames]{color}
+
+% Inserts a scale bar into an image
+% Optional argument 1: the colour of the bar and text
+% Argument 2: an \includegraphics command
+% Argument 3: the real world width of the image
+% Argument 4: the length of the scale bar in pixels
+% Argument 5: the length of the scale bar in um
+%\newcommand{\scalebarbackground}[5][blue]{
+% \begin{tikzpicture}
+%  \node[anchor=south west,inner sep=0] (image) { #2 };
+%  \begin{scope}[x={(image.south east)},y={(image.north west)}]
+%   \draw [#1, line width=0.2em] (0.04,1.2em) -- node[below,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,1.2em);
+%  \end{scope}
+% \end{tikzpicture}
+%}    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\bigzero{%
+    \makebox[0pt]{\text{\normalsize Symmetric}}}
+    %\makebox[0pt]{Some text} over this text
+    %\makebox[15ex][s]{Censored text}\hspace{-15ex}\makebox[15ex][s]{X X X X X}
+    %Text \makebox[2\width][r]{running away}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %\bibliographystyle{jabbrv_elsarticle-num}
+    %\bibliographystyle{jabbrv_elsarticle-num}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+% Numbered
+% \bibliographystyle{jabbrv_elsarticle-num}
+
+%% Numbered without titles
+% \bibliographystyle{jabbrv_elsarticle-num}
+
+%% Harvard
+% \bibliographystyle{jabbrv_elsarticle-num}\biboptions{authoryear}
+
+%% Vancouver numbered
+% \usepackage{numcompress}\bibliographystyle{jabbrv_elsarticle-num}
+
+%% Vancouver name/year
+% \usepackage{numcompress}\bibliographystyle{jabbrv_elsarticle-num}\biboptions{authoryear}
+
+%% APA style
+% \bibliographystyle{jabbrv_elsarticle-num}\biboptions{authoryear}
+
+%% AMA style
+% \usepackage{numcompress}\bibliographystyle{jabbrv_elsarticle-num}
+
+%% `Elsevier LaTeX' style, distributed in TeX Live 2019
+\bibliographystyle{jabbrv_elsarticle-num}
+% \usepackage{numcompress}\bibliographystyle{jabbrv_elsarticle-num}
+% \bibliographystyle{jabbrv_elsarticle-num}\biboptions{authoryear}
+%%%%%%%%%%%%%%%%%%%%%%%
+\biboptions{numbers,sort&compress}
+\raggedbottom
+
+% Passthrough definition of jabbrv's \JournalTitle{} macro so the inlined
+% bibliography compiles without the external jabbrv package. Journal names
+% inside \JournalTitle{...} in the inlined bib are already abbreviated
+% directly (per the override table applied at submission-package build).
+\providecommand{\JournalTitle}[1]{#1}
+\usepackage{lineno}
+\linenumbers
+\begin{document}
+
+\begin{frontmatter}
+%evaluating balling during PBF-AM,
+\title{\Large{A BRAVE Alloy Design Campaign\\
+(Bayesian Risk-aware Alloy discoVery and Exploration)}}
+
+\begin{highlights}
+\item Risk-aware BO uses learned feasibility to explore phase-stability boundaries
+\item 48 HEAs from Al-V-Cr-Mn-Fe-Co-Ni-Cu synthesized over three closed-loop iterations
+\item V drives both yield strength ($r{=}0.84$) and sigma-phase failure ($r{=}0.54$)
+\item V-rich FCC alloys reach 1480 MPa UTS at 50\% elongation
+\item Optima cluster on KKT-active boundary. Hard filtering would exclude them
+\end{highlights}
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for the associated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for the associated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for the associated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%%
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{<author name>}
+%% \address[label1]{<address>}
+%% \address[label2]{<address>}
+
+\author{Mrinalini Mulukutla$^{a}$} \corref{mycorrespondingauthor}
+\author{Danial Khatamsaz$^{a}$}
+\author{Trevor Hastings$^{a}$}
+\author{Wenle Xu $^{a}$}
+\author{Daniel Salas$^{a}$}
+\author{Joydeep Kundu$^{a}$}
+\author{Vasanth C. Shunmugasamy$^{a}$}
+\author{Daniel Lewis $^{a}$}
+\author{Jacob Hempel $^{a}$}
+\author{Clinton Strosser $^{a}$}
+\author{Alexandra Salinas $^{b}$}
+\author{Brent Vela$^{a}$}
+\author{Nicolas Flores $^{a}$}
+\author{Sina Hossein Zadeh$^{a}$}
+\author{Ali Rachidi$^{d}$}
+\author{David Elbert$^{d}$}
+\author{Brady Butler $^{c}$}
+\author{James Paramore $^{e}$}
+\author{Dimitris Lagoudas $^{a}$}
+\author{Justin Wilkerson $^{b}$}
+\author{George Pharr $^{a}$}
+\author{Douglas Allaire $^{b}$}
+\author{Vahid Attari $^{a}$}
+\author{Ibrahim Karaman $^{a}$}
+\author{Ankit Srivastava $^{a}$}
+\author{Raymundo Arr\'{o}yave$^{a,b}$}
+
+
+\address{$^a$Department of Materials Science and Engineering, Texas A\&M University, College Station, TX 77843, USA}
+\address{$^b$Mechanical Engineering Department, Texas A\&M University, College Station, TX, USA 77840}
+\address{$^c$DEVCOM Army Research Laboratory South at Texas A\&M University, College Station, TX 77843-3003, USA}
+\address{$^d$Hopkins Extreme Materials Institute, Johns Hopkins University, Baltimore, Maryland, 21218, USA}
+\address{$^e$Bush Combat Development Complex, Texas A\&M University System, 3479 TAMU, College Station, TX 77843-3479, USA}
+
+
+%% or include affiliations in footnotes:
+\cortext[mycorrespondingauthor]{Corresponding author email:\textrm{mrinalini.mulukutla@tamu.edu}} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+\begin{abstract}
+
+
+In constrained alloy optimization, the compositions with the highest performance potential often reside at the boundary of phase stability---where the risk of experimental failure is also highest. This work demonstrates this principle through a risk-aware Bayesian optimization campaign on single-phase FCC high-entropy alloys in the Al--V--Cr--Mn--Fe--Co--Ni--Cu system. A learned feasibility classifier, integrated directly into the multi-objective acquisition function, probabilistically penalizes candidates likely to produce failed experiments while preserving access to high-performing boundary compositions. From approximately 27{,}000 CALPHAD-screened candidates, 48 alloys were synthesized over three closed-loop iterations targeting five objectives (yield strength, UTS/YS ratio, strain at UTS, dynamic-to-quasi-static hardness ratio, and simulated depth of penetration), exploring 0.12\% of the feasible space. Two compositional regimes emerged: a V-rich, Ni-rich high-strength regime (UTS up to ${\sim}1480$~MPa at 50\% elongation) and a Mn-containing high-ductility regime (UTS/YS up to 4.20 at $>$50\% elongation). Among feasible alloys, vanadium simultaneously drives yield strength ($r = 0.84$) and sigma-phase formation ($r = 0.54$ with infeasibility); at V = 24~at.\%, the three strongest alloys and three sigma failures share the same compositional point. Additionally, the strongest performing alloys cluster in a narrow region of compositional space (V $\geq$ 20 at.\%, Ni $\geq$ 36 at.\%), representing ${\sim}100$ of $27{,}074$ feasible candidates---a probability of $P \approx 6.5 \times 10^{-6}$ under random sampling. This dual role---consistent with the KKT prediction that constrained optima lie on active constraint boundaries---required feasibility-aware acquisition to access; hard filtering would have excluded this region entirely.
+
+
+\end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{keyword}
+
+
+High Entropy Alloys, Multi-objective Bayesian Optimization, Risk-aware acquisition, Feasibility awareness, CALPHAD, Quasi-static and Dynamic mechanical properties, Penetration resistance, Closed-loop alloy discovery 
+
+\end{keyword}
+\end{frontmatter}
+%%% BEGIN inlined from 01_introduction.tex
+\section{Introduction}\label{sec:Intro}
+
+% Para 1: Stakes — structural alloys matter, development is slow, PSPP space is vast, HEAs compound the problem.
+
+Structural alloys for extreme environments---from ballistic armor to gas turbine blades---underpin performance in defense, aerospace, and energy systems~\cite{pollock2016alloy, reed2006superalloys, arroyave2022perspective}. Although significant advances have been made in computational screening, high-throughput synthesis, and machine learning, the alloy development cycle remains slow and resource-intensive~\cite{liu2022highthroughput}: typically, alloy development programs proceed through iterative synthesis--processing--characterization--testing loops, and each cycle demands reproducibility (i.e., multiple evaluations) across heats, processing routes, and testing protocols. This problem is compounded by the fact that the composition--process--microstructure--performance (PSPP) space over which alloy campaigns operate is vast, and only a minute fraction has been explored directly~\cite{miracle2017critical}. In high-entropy alloy (HEA) systems, where five or more principal elements define a combinatorially large design space, exhaustive exploration is impractical even with advanced experimental methods~\cite{zhang2014microstructures, cantor2004microstructural}.
+
+% Para 2: Science — why HEAs are hard: competing deformation mechanisms, navigable trade-offs, CALPHAD errors at FCC boundaries.
+
+Within this broad landscape, FCC HEAs present a rich but not sufficiently mapped composition--property space. Strength and ductility are governed by competing deformation mechanisms---dislocation glide, twinning, and local chemical ordering---whose relative contributions shift with composition in ways that binary or ternary subsystem data cannot predict. Interaction effects among four or more solutes (i.e., beyond pairwise or ternary interactions) are absent from lower-order assessments, leaving large regions of the compositional space without reliable property estimates. The strength--ductility trade-off, often treated as intrinsic, may instead reflect constrained design trajectories; multi-component spaces can contain regions where twinning-induced plasticity (TWIP), transformation-induced plasticity (TRIP), or both enable simultaneous improvements~\cite{gludovatz2014fracture, li2016metastable, otto2013influences}. Thermodynamic constraints compound the challenge: CALPHAD databases show significant prediction errors at FCC stability boundaries in higher-order systems, and compositions that appear promising from property models frequently form brittle intermetallics. Mapping these composition--structure--property relationships thus requires an exploration strategy that generates both optimized compositions and the physical insight needed to interpret them.
+
+% Para 3: Existing tools — HTP/ICME/ML each fall short. The bottleneck is resource allocation under finite budget.
+
+To date, several distinct frameworks have been applied to this problem. Combinatorial and high-throughput (HTP) approaches, for example, can generate candidate compositions at scale, but open-loop strategies tend to produce a significant fraction of infeasible compositions---alloys with undesired phase constitution---making such campaigns inherently resource-inefficient~\cite{potyrailo2011combinatorial, rajan2008combinatorial}. More targeted campaigns, guided by Integrated Computational Materials Engineering (ICME) models or domain expertise, reduce infeasibility risk but require substantial computational investment and often struggle to integrate multi-scale simulations at acceptable computational cost~\cite{national2008integrated, panchal2013key, arroyave2019systems}. Machine learning (ML) approaches complement these frameworks by enabling rapid screening, yet they frequently defer experimental validation to later stages, particularly for bulk structural alloys where synthesis and testing costs are significant~\cite{yang2022machine}. Despite the progress made, the dominant bottleneck across all these approaches is resource allocation: deciding which chemistries to interrogate under a finite experimental budget~\cite{arroyave2022perspective}.
+
+% Para 4: BO — sequential decision-making under uncertainty. GPs, EHVI, metallurgical priors.
+
+In this context, Bayesian optimization (BO) has rapidly emerged as a principled approach to optimal resource allocation in materials discovery, framing the problem as sequential decision-making under uncertainty~\cite{shahriari2016taking, frazier2018tutorial}. In a BO framework, probabilistic surrogate models (typically Gaussian processes~\cite{Rasmussen:2005:GPM:1162254}) quantify epistemic uncertainty across the design space, and acquisition functions balance (a)~exploration of poorly characterized regions with (b)~exploitation of promising candidates~\cite{snoek2012practical, arroyave2022perspective}. Multi-objective formulations extend this framework to optimize competing performance metrics simultaneously, typically by maximizing the expected hypervolume improvement (EHVI) of the Pareto front~\cite{emmerich2006single, zhao2018fast, mamun2025accelerated, hanaoka2022comparison}. Furthermore, metallurgical knowledge (thermodynamic stability limits, processing windows, and microstructural descriptors) can be encoded directly into surrogate structure and constraint models, improving data efficiency while preserving physical interpretability~\cite{khatamsaz2022multiobjective, vela2023data, paramore2025twoshot}.
+
+% Para 5: Prior art — closed-loop alloy campaigns validate BO in practice (Xue, Rao, Sohail, others).
+
+Over the past decade, closed-loop experimental campaigns that couple BO with iterative alloy synthesis have validated this approach in practice. Xue et al.~\cite{xue2016accelerated} pioneered adaptive alloy design by identifying low-hysteresis NiTi-based shape memory alloys through nine feedback loops exploring fewer than 40 compositions from a space of 800{,}000 candidates. Rao et al.~\cite{rao2022machine} applied iterative ML-guided design to discover high-entropy Invar alloys with near-zero thermal expansion. More recently, Sohail et al.~\cite{sohail2025machine} used domain-knowledge-informed active learning to design FeNiCoAlTa alloys achieving 1.8~GPa yield strength with 25\% elongation. Additional closed-loop campaigns have targeted lead-free solders~\cite{wei2025discovering}, magnesium alloys~\cite{ghorbani2024active}, high-temperature shape memory alloys~\cite{tian2024noise}, and Al--Si alloys~\cite{cai2025process}, with several incorporating multi-objective acquisition strategies~\cite{wei2025discovering, li2022strength}. These studies demonstrate that BO-guided campaigns can identify competitive alloy compositions while exploring less than 1\% of the feasible design space.
+
+% Para 6: Gap — failed experiments waste budget and return no training data. Standard BO ignores feasibility.
+
+However, a practical constraint remains unaddressed in these campaigns: many candidate designs are infeasible and yield no measurable objective values, wasting experimental resources without contributing to surrogate model refinement. We note that in alloy discovery, failure does not indicate poor performance (e.g., low yield strength) but rather that experimental time and resources are expended without obtaining usable measurements---because the alloy cannot be synthesized, processed, or tested under the prescribed conditions. This distinction is consequential: a low-performing alloy still provides training data for the surrogate model, whereas a failed experiment provides none. The cost of each experimental iteration---several thousands of dollars in materials, instrument time, and personnel---means that even a small fraction of failed experiments can substantially reduce campaign efficiency. Yet standard BO frameworks implicitly assume that every queried candidate returns measurable objectives, offering no mechanism to account for experimental viability during candidate selection. \autoref{fig:kkt_schematic} illustrates why this matters: in constrained optimization, the best solutions tend to reside on the feasibility boundary---a pattern most cleanly expressed by the Karush--Kuhn--Tucker optimality conditions~\cite{nocedal2006numerical} for continuous single-objective problems, and which we invoke here as an intuitive framework for the discrete multi-objective setting (formal statement in Section~3.4). A framework that excludes boundary compositions sacrifices the best candidates. One that ignores feasibility wastes budget on infeasible ones. Although such boundary-adjacent optima have been observed implicitly in metastability-engineered HEAs~\cite{li2016metastable} and proposed algorithmically for constrained BO~\cite{tian2024boundary, maguire2025good}, they have not, to our knowledge, been demonstrated with statistical significance in a closed-loop experimental alloy campaign---the gap the present work closes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\columnwidth]{fig_01_kkt.png}
+    \caption{Constrained optimization in composition space. (a)~When the objective (e.g., yield strength) increases toward the infeasible region (sigma phase), the KKT conditions place the constrained optimum (star) on the phase stability boundary where $\nabla f$ and $\nabla g$ are aligned; the unconstrained optimum (open circle) lies in the infeasible region. (b)~Three acquisition strategies distribute experimental budget differently given the same total number of samples. Hard filtering over-constrains the search by excluding a buffer zone around the boundary, missing the KKT optimum entirely. Feasibility-blind BO concentrates samples near the unconstrained optimum, wasting budget on infeasible compositions. BRAVE navigates the boundary by concentrating samples in the feasible region near the phase stability limit, accepting a small number of infeasible outcomes as the cost of boundary exploration.}
+    \label{fig:kkt_schematic}
+\end{figure}
+
+% Para 7: Gap sharpened — constraint-aware BO spreading across domains; alloys lack experimental deployment.
+
+Constraint-aware acquisition strategies have begun to address this gap across several domains. Hickman et al.~\cite{hickman2025anubis} introduced feasibility-aware acquisition functions that reduce failed experiments in perovskite and drug synthesis. Low et al.~\cite{low2024evolution} developed evolution-guided constrained optimization for self-driving chemistry laboratories. Chen et al.~\cite{chen2026materials} coupled constrained expected improvement with representation learning for computational catalyst and transparent conductor design. Tamura et al.~\cite{tamura2023nims} integrated feasibility constraints into autonomous robotic materials exploration. In alloy systems specifically, constraint-aware formulations have been proposed~\cite{khatamsaz2022multiobjective, khatamsaz2023bayesian}, and physics-informed feasibility classifiers have been developed~\cite{hardcastle2025physics}, but no experimental alloy campaign has yet integrated a learned feasibility model directly into the multi-objective acquisition function within an iterative workflow.
+
+% Para 8: BIRDSHOT + Campaign 1 — what it achieved, what it couldn't handle (sigma phases, no failure mechanism).
+
+The BIRDSHOT (Batch-wise Improvement in Reduced Design Space using a Holistic Optimization Technique) framework was developed to integrate computational screening, high-throughput experimentation, and batch Bayesian optimization within an iterative design--make--test--learn workflow~\cite{mulukutla2024illustrating, hastings2025accelerated} (\autoref{fig:birdshot_framework}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\columnwidth]{fig_02_birdshot.pdf}
+    \caption{Overview of the BIRDSHOT framework. Physics-based filters (CALPHAD phase stability, property constraints) reduce the design space before optimization begins. The iterative loop cycles through design of experiments, high-throughput simulation, high-throughput characterization, data curation, and machine learning, with Bayesian optimization closing the loop at each iteration. Reproduced from:~\cite{hastings2025accelerated}.}
+    \label{fig:birdshot_framework}
+\end{figure}
+
+In a prior campaign, we applied BIRDSHOT to the six-component Al--V--Cr--Fe--Co--Ni FCC HEA system, targeting three mechanical objectives (UTS/YS ratio, hardness, and strain rate sensitivity) under four constraints (single-phase FCC at 700$^\circ$C, density $<$ 8.5~g/cm$^3$, thermal conductivity $>$ 5~W/(K$\cdot$m), and SFE regime classification)~\cite{hastings2025accelerated}. Five iterative design--make--test--learn loops, each synthesizing 8 alloys via vacuum arc melting, identified Pareto-optimal compositions by exploring only 0.15\% of the feasible design space. That campaign established the viability of iterative, multi-objective Bayesian optimization for structural alloy development. Although successful in identifying Pareto-optimal compositions, it also exposed limitations. CALPHAD phase stability predictions were imperfect: several alloys predicted to be single-phase FCC showed sigma or BCC secondary phases. The framework had no mechanism to account for these failed experiments, which consumed resources without contributing to model refinement. A detailed summary of this earlier work is provided in the Supplemental Information.
+
+% Para 9: Transition — three extensions.
+
+In the present work, we report a second discovery campaign that extends the BIRDSHOT framework in three directions, addressing the limitations identified above. The campaign also exposes a tension inherent to this alloy system: vanadium, the dominant strengthening solute, simultaneously promotes sigma-phase formation, forcing the best alloys onto the FCC phase stability boundary where the risk of experimental failure is highest.
+
+% Para 10: Extension 1 — BRAVE: risk-aware acquisition via GP feasibility classifier on EHVI.
+
+First, we introduce a risk-aware acquisition strategy---Bayesian Risk-Aware Alloy Discovery and Exploration (BRAVE)---that penalizes candidates likely to produce failed experiments (i.e., alloys that form secondary phases and yield no usable objective data). Alloys predicted to form single-phase FCC structures but found to contain secondary phases are classified as failures: they introduce processing challenges and do not provide a consistent basis for comparison within the intended single-phase design space. To mitigate this risk, we extend the EHVI acquisition function with a learned Gaussian process classifier that estimates the probability of experimental viability for each candidate composition. High-risk candidates receive a probabilistic penalty during acquisition scoring, reducing their selection priority. We note that \emph{the penalty is soft}: a candidate with sufficiently high predicted objective values can still be selected despite elevated risk, preserving controlled exploration in uncertain but potentially high-performing regions.
+
+% Para 11: Extension 2 — 8-element space (Mn for SFE/twinning, Cu for solubility limits), diversity sampling.
+
+Second, we expand the design space from the previous 6-element system to an 8-element system, Al--V--Cr--Mn--Fe--Co--Ni--Cu. The inclusion of Mn and Cu introduces additional degrees of freedom for tuning ductility and phase stability, guided by prior experimental insights and domain knowledge. Mn is expected to reduce the stacking fault energy in FCC alloys, potentially promoting mechanical twinning and enhancing strain-hardening capacity. Cu expands the accessible composition space but has positive mixing enthalpies with Fe, Co, and Cr, driving FCC phase separation into Cu-rich and Cu-lean regions and creating thermodynamic boundaries that test the limits of current CALPHAD predictions. Grid sampling at 4~at.\% resolution yields approximately 3.4 million candidate compositions, of which $\sim$27{,}000 (i.e., less than 1\%) are predicted to form single-phase FCC structures after CALPHAD screening. To enable tractable exploration of this feasible space, we use a diversity-aware sampling strategy based on k-medoids clustering~\cite{paramore2025twoshot} across 37 chemically distinct subsystems. This prioritizes compositionally informative candidates over redundant clusters, improving early-stage surrogate learning through better coverage of the design space.
+
+% Para 12: Extension 3 — five objectives as multi-scale deformation probes; DoP as simulation-in-the-loop.
+
+Third, five objectives are evaluated through a coordinated high-throughput characterization workflow: yield strength (YS), UTS/YS ratio, strain at UTS, dynamic-to-quasi-static hardness ratio ($H_\text{dyn}/H_\text{qs}$), and depth of penetration (DoP). These objectives serve as complementary probes of deformation behavior across strain rates, spanning (a)~quasi-static tensile response, (b)~rate-dependent behavior measured by nanoindentation and split Hopkinson pressure bar (SHPB) testing, and (c)~simulated impact resistance computed via finite-element modeling. Among these, DoP is derived from ballistic impact simulations parameterized by Cowper--Symonds constitutive models calibrated to the quasi-static tensile and dynamic SHPB data acquired within each iteration. This creates a simulation-in-the-loop architecture in which experimental measurements from one stage of characterization feed directly into a computational objective evaluated within the same design cycle, coupling experiment and simulation within a single design iteration. Although DoP correlates strongly with YS ($r = -0.94$; Section~3.3), the calibrated Cowper--Symonds exponent encodes rate-sensitivity signal invisible to quasi-static testing alone---a distinction quantified in Section~3.3.6---so DoP contributes information beyond that carried by YS.
+
+% Para 13: Roadmap — figure reference, what the paper delivers.
+
+The complete BIRDSHOT framework---encompassing computational design, synthesis, characterization, and simulation---is summarized in \autoref{fig:full_framework}. By addressing thermodynamic constraints, manufacturability, and experimental throughput within a closed-loop workflow, this campaign demonstrates risk-aware, multi-objective optimization through three iterative experimental cycles. The remainder of this paper presents the design methodology, experimental results across three closed-loop iterations, and the implications for feasibility-aware optimization in high-dimensional compositional spaces.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=1\textwidth]{fig_03_workflow.pdf}
+    \caption{BIRDSHOT workflow from computational design through synthesis, characterization, and simulation. The iterative loop feeds experimental measurements and phase verification results back into the Bayesian optimization framework, which updates surrogate models and the feasibility classifier before selecting the next batch of candidate alloys.}
+    \label{fig:full_framework}
+\end{figure*}
+
+%%% END inlined from 01_introduction.tex%%% BEGIN inlined from 02_methods.tex
+\section{Methods}\label{sec:Material and methods}
+
+\subsection{Alloy Design Methodology}
+
+\subsubsection{Design Space Definition and Compositional Constraints}
+
+The design space is an 8-element HEA system, Al--V--Cr--Mn--Fe--Co--Ni--Cu, extending the 6-element Al--V--Cr--Fe--Co--Ni system investigated in Campaign~1~\cite{hastings2025accelerated} by the addition of Mn and Cu (rationale discussed in Section~1). The system includes all subsystems from 5 to 8 elements. Unlike Campaign~1, which imposed four constraints (single-phase FCC, density, thermal conductivity, and SFE regime), this study enforces only phase stability (i.e., single-phase FCC across the designated temperature range), adopting an open-ended strategy that avoids prematurely excluding regions of the composition space.
+
+The initial compositional space is discretized at a resolution of 4 atomic percent, resulting in a pool of 3,365,848 unique compositions. To ensure manufacturability and focus on regions with potential for high performance, expert recommendations were used to impose upper limits on elemental fractions: Al $\leq 0.24$, V $\leq 0.24$, Cr $\leq 0.50$, Mn $\leq 0.40$, Fe $\leq 0.50$, Co $\leq 0.50$, Ni $\leq 0.60$, Cu $\leq 0.24$. These compositional bounds reduce the design space to 1,504,938 candidate alloys, of which 1,490,129 were successfully evaluated using CALPHAD due to solver limitations encountered on the high-performance computing cluster.
+
+% \begin{figure*}[t]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/feasible_space_v2.pdf}
+%     \caption{
+%     Visualization of the Al–V–Cr–Mn–Fe–Co–Ni–Cu compositional design space and feasible space for this study using UMAP dimensionality reduction.
+%     \textbf{(Left)} The full 8-dimensional phase space sampled at 4\,at.\% resolution consists of 3,365,848 possible alloys (gray). \textbf{(Middle)} Expert-imposed compositional maximums, applied to filter for manufacturability, resulting in a reduced space of 1,504,938 alloys and a final modeled space of 1,490,129 alloys (brown).
+%     \textbf{(Right)} Thermo-Calc (TCHEA6, 2022.2) predictions of FCC phase fraction at 700\textdegree{}C are mapped over the filtered space. Regions with FCC fraction $\geq$ 0.99 (white) define the feasible domain for Bayesian optimization.
+%     This visualization highlights both the impact of practical compositional constraints and the nonuniform phase stability landscape across the HEA system.
+%     }
+%     \label{fig:umap_alloyspace}
+% \end{figure*}
+
+
+\subsubsection{Candidate Screening via CALculation of PHAse Diagram (CALPHAD) Predictions}
+
+To enforce the FCC phase stability constraint, we screened the reduced compositional space using CALPHAD simulations. Thermo-Calc demonstrated effective single-phase predictions for the Al-V-Cr-Fe-Co-Ni system in Campaign~1~\cite{hastings2025accelerated}. Using the TCHEA6 database, we retained compositions with FCC phase fraction $\geq 0.99$ at 700$^\circ$C, reducing $\sim$3.36 million candidates to a feasible space of 26,621 alloys (approximately 0.8\% of the original design space). Visualizations of this downselection are included in the \textbf{SI}.
+
+Phase prediction discrepancies in the first optimization iteration (BBB)---alloys predicted as single-phase FCC that experimentally formed sigma---motivated a reanalysis using the updated TCHEA7 database, released during this study. TCHEA7 enabled prediction of multiple phase regions (FCC, BCC, HCP, SIGMA, and liquid) across different temperature regimes. We reevaluated the design space at both 700$^\circ$C and 950$^\circ$C, advancing only alloys that retained FCC under both conditions. This dual-temperature screening yielded a final feasible set of approximately 27,240 candidate alloys.
+
+\subsubsection{Sampling and Candidate Selection}
+
+Given the large number of candidate alloys resulting from the initial filtering and screening (over 26,000), an efficient sampling strategy was critical to balance experimental feasibility with adequate coverage of the design space. For iteration BBA (zeroth iteration), sampling was performed over the initial TCHEA6-screened feasible space of 26,621 alloys (the TCHEA7 re-screening to 27,240 alloys occurred after iteration BBB). We implemented a hierarchical sampling strategy using k-medoids clustering. First, the entire feasible space was segmented based on chemical composition into 37 distinct subsystems, defined by the specific combination of elements present (for example, alloys containing all eight elements formed one subsystem, while seven-element alloys were grouped by which element is absent). Details of subsystem grouping are provided in \textbf{SI}.
+
+Subsequently, we applied k-medoids clustering to the feasible space to extract a subset of 1000 representative alloys. In this clustering process, we enforced a constraint that at least one candidate alloy was selected from each of the 37 subsystems, with the number of selections per subsystem proportional to the number of feasible candidates available within that system. This approach guaranteed broad chemical coverage and preserved the diversity of the design space.
+
+From this subset of 1000 alloys, a further down-selection identified 16 candidate alloys for synthesis. The downselection maximized representation across all 37 subsystems, ensuring that the final batch covered as many distinct chemistries as possible and provided a well-distributed initial training dataset for the Bayesian optimization loop.
+
+
+\subsection{Synthesis}
+
+The computationally designed alloys were synthesized using high-purity elemental ($>$ 99.9 wt.\%) precursors to produce $\sim$35~g dense, crack-free ingots using a Vacuum Arc Melting (VAM) (Edmund B\"{u}hler AM 200) system. The elements were initially melted in Cu crucibles under a high-purity Ar atmosphere. Each ingot was flipped and re-melted 10 times to promote overall uniform chemical homogeneity. Mass loss was monitored throughout processing, and ingots showing losses greater than 0.5\% were reprocessed. Post-solidification, the ingots were homogenized between 950$^\circ$C to 1150$^\circ$C temperature ranges for 24~h in a Centorr LF Series Model~22 high-temperature furnace. The homogenization heat treatment temperatures were selected based on the predicted solidus temperature. Prior to heating, the furnace chamber was purged with Ar gas multiple times to achieve a vacuum of $\sim$5~$\times$~10$^{-5}$~torr. The heat treatment was conducted under a low-pressure Ar atmosphere ($<$10$^{-2}$~torr), followed by furnace cooling.
+
+The homogenized ingots were subsequently cold rolled to a $\sim$60\% reduction in thickness. For recrystallization, the rolled specimens were wrapped in stainless-steel foil with Ti sponge sacrificial getter to minimize oxidation. Recrystallization was performed at 950\textdegree C for 30~min, followed by water quenching to suppress secondary-phase precipitation during cooling.
+
+Test sample profiles were precision-cut using wire-Electrical Discharge Machining (EDM). Approximately 4 miniaturized flat tensile specimens, modeled following modified SS-3 designs, were prepared for quasistatic tension testing. Each tensile specimen had a total length of $\sim$26~mm, a gauge length of $\sim$8~mm, and a typical cross-sectional area of 3~$\times$~1~mm$^{2}$, with the loading axis aligned parallel to the rolling direction. Prior to testing, the tensile samples were ground using 120~grit SiC abrasive papers to ensure grip section parallelism, and pinholes were drilled using carbide drill bits. Additional specimens were prepared for microstructural and mechanical characterization, as follows: two specimens, each $\sim$2~mm thick with an exposed face area of 8.4~mm$^{2}$ normal to the long rolling direction, were designated for nanoindentation. Another two samples, 1.2~mm thick with a face area of 14.4~mm$^{2}$ (also normal to the rolling direction), were allocated for scanning electron microscopy (SEM), electron backscatter diffraction (EBSD), energy-dispersive X-ray spectroscopy (EDS), X-ray diffraction (XRD), and Vickers hardness (HV) measurements. A schematic of the specimen geometries is shown in \autoref{fig:Sample Cutting Protocol}.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{fig_04_cutting.pdf}
+    \caption{Representative schematics of ingots post-cold rolling with corresponding approximate sample dimensions for distinct characterization tasks: SEM/EBSD, EDS, XRD, and mechanical (Vickers, Nanoindentation) analyses, quasistatic tensile deformation, and Kolsky-bar compression dynamic mechanical response tests.}
+    \label{fig:Sample Cutting Protocol}
+\end{figure}
+
+We note that manganese contents exceeding 20 atomic percent introduced significant challenges during arc melting. Mn has a relatively low boiling point and high vapor pressure compared to the other constituent elements, making it volatile under the localized temperatures generated during arc melting. This volatility leads to Mn evaporation, resulting in deviations from the nominal composition and causing microstructural inhomogeneities and porosity in the cast ingots. Mn loss disrupts the stability of the intended single-phase FCC structure and promotes the formation of intermetallic compounds or segregated phases.
+
+
+\subsection{Verification}
+
+\subsubsection{Metallography}
+
+Microstructural characterization and nanoindentation samples were prepared by mechanical polishing using a Buehler AutoMet 250 autopolisher with diamond suspensions down to 1~$\mu$m, followed by vibratory polishing in 0.04~$\mu$m colloidal silica for EBSD analysis. A high-throughput sample preparation workflow was developed over the course of the campaign, evolving from individual mounting (8 samples per batch) to large-format aluminum platens supporting 16 or more samples simultaneously, with laser marking for traceability. Details of this workflow evolution are provided in the \textbf{SI}.
+
+
+\subsubsection{Chemical, Microstructural, and Phase Analyses}
+
+Compositional analysis was performed using a Tescan FERA-3 Model GMH Focused Ion Beam Microscope equipped with an Oxford energy-dispersive X-ray spectroscopy (EDS) detector, operated at an accelerating voltage of 20 kV. EDS point measurements were obtained from three spatially distinct regions of each processed ingot, with five acquisition points per region and an integrated time of $\sim$50~s per point. The overall composition of each ingot was determined as the arithmetic mean of the 15 measurements. Inter-regional variability was evaluated to assess chemical homogeneity. Representative EDS results from three independent synthesis iterations are presented in \autoref{fig:EDS}. The mean deviation between measured and nominal compositions was $\sim$0.42~at.\%, with 99\% of individual elemental measurements deviating by less than 1~at.\%, confirming compositional uniformity across all synthesis batches.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{fig_05_eds.pdf}
+    \caption{Comparison between target and realized chemistry for the samples generated in this study.}
+    \label{fig:EDS}
+\end{figure}
+
+Microstructural characterization of the undeformed samples was performed by backscattered electron (BSE) imaging at 15~kV using a Phenom XL scanning electron microscope (SEM) with a working distance of $\sim$6~mm. Electron backscatter diffraction (EBSD) measurements were carried out using a FERA SEM equipped with an Oxford Symmetry CMOS-based EBSD detector, operated at an accelerating voltage of 20~kV, a beam current of 18~nA, and a specimen tilt angle of 70$^\circ$. Crystallographic orientation (IPF) maps were acquired on surfaces normal to the cold-rolling direction over an area of approximately 1~$\times$~1~mm$^{2}$, using a step size of $\sim$2~$\mu$m.
+
+Room-temperature X-ray diffraction (XRD) measurements were conducted using a Bruker D8 Discover diffractometer with Cu K-$\alpha$ radiation ($\lambda$ = 1.5406~\AA) and a 1~mm aperture collimator. Diffraction patterns were collected using a Vantec 500 area detector over a 2$\theta$ range of 30--80$^\circ$. Phase identification and diffraction pattern analysis were performed using the MAUD software package.
+
+\subsection{Characterization}
+
+The optimization targets five objectives that together span the quasi-static--to--dynamic response space: (a)~yield strength (YS), (b)~the UTS/YS ratio (a proxy for strain hardening capacity and resistance to strain localization), and (c)~engineering strain at UTS (ductility reserve before peak load), all three extracted from uniaxial tensile tests; (d)~the dynamic-to-quasi-static hardness ratio ($H_\text{dyn}/H_\text{qs}$), obtained from nanoindentation and SHPB measurements, which quantifies how much the alloy strengthens under impact loading; and (e)~depth of penetration (DoP), computed from finite-element ballistic simulations calibrated to the tensile and SHPB data acquired within the same iteration---the only objective derived from simulation rather than direct measurement. Campaign~1 used hardness as an objective; here we replace it with the tensile-derived metrics, which connect more directly to bulk deformation behavior and are less sensitive to local microstructural heterogeneity.
+
+\subsubsection{Quasistatic Tensile Deformation}
+
+Uniaxial tensile tests were conducted at ambient temperature using an MTS 810 servo-hydraulic testing system equipped with an 11.12~kN (2500~lbf) load cell, under a constant quasi-static strain rate of 5~$\times$~10$^{-4}$~s$^{-1}$. Axial strain was measured using an MTS clip-on extensometer mounted directly on the specimen gauge section. An initial force-controlled loading sequence was performed to verify specimen alignment, modulus consistency, and linearity of the elastic response. At least 2 tests were conducted for each condition to ensure reproducibility. Tensile tests were terminated upon complete fracture. True stress--strain ($\sigma$--$\varepsilon$) curves were calculated, from which the ultimate tensile strength (UTS), 0.2\% offset yield strength (YS), and uniform elongation ($\varepsilon$) were determined.
+
+\subsubsection{Nanoindentation}
+
+% Each sample was indented using a KLA Instruments iMicro nanoindenter fitted with a Berkovich diamond tip. Hardness ($H$) and reduced modulus ($E_r$) were determined following the Oliver and Pharr method \cite{Oliver1992}.
+
+% Strain rate jump tests were conducted to assess rate-dependent mechanical behavior across all candidate alloys. Automated methods for quantifying projected contact areas and correcting for pile-up effects were developed to improve measurement precision and throughput; details of the automation pipeline are provided in the \textbf{SI}. The strain rate sensitivities obtained from nanoindentation were cross-validated against SHPB results and found to be in close agreement, typically within one standard deviation.
+
+Each sample was indented using a KLA Instruments iMicro nanoindenter fitted with a Berkovich diamond tip. Hardness ($H$) and reduced modulus ($E_r$) were determined following the Oliver and Pharr method \cite{Oliver1992}. Conventional nanoindentation hardness values were obtained from strain-rate jump tests using a constant $\dot{P}\!/P$ protocol, with hardness reported at an indentation depth of \SI{2000}{\nano\meter}. A minimum of 10 strain-rate jump indents was performed for each alloy. Indents were typically spaced \SI{100}{\micro\meter} apart to prevent overlap between neighboring plastic zones.
+Strain-rate jump tests were conducted to assess rate-dependent mechanical behavior across the candidate alloys. These measurements were used to estimate indentation strain-rate sensitivity. The strain-rate sensitivities obtained from nanoindentation were cross-validated against SHPB results and were found to be in close agreement, typically within one standard deviation.
+Projected contact areas were corrected for pile-up for each individual indent. The projected contact area was calculated from the calibrated tip area function, $A(h_c)$, determined from fused silica calibration \cite{Oliver1992}, and evaluated at the contact depth, $h_c$. The contact depth was calculated from the measured indentation depth, h, using an experimentally measured pile-up ratio,
+\[
+\eta = \frac{h_c}{h}
+\]
+
+The pile-up ratio was measured after each indentation using optical profilometry. First, the nominal indentation area, $A_N$, was determined from the region below the original sample surface. This area scales with $h^2$. The actual residual contact area, $A_R$, was then segmented using a gradient-based method that identifies the Berkovich impression boundary; this area scales with $h_c^2$. Assuming self-similar Berkovich geometry, the pile-up ratio was calculated as
+\[
+\eta = \frac{h_c}{h} \approx \sqrt{\frac{A_R}{A_N}}
+\]
+
+An independent value of $\eta$ was measured for every indent and applied to the corresponding hardness and modulus calculation. This correction was applied to strain-rate jump, quasistatic, and dynamic hardness measurements. The pile-up correction typically reduced the measured hardness by approximately 5 to 15\%, depending on alloy composition and testing condition. Custom analysis scripts were developed to extract the instrument data and automate projected contact area quantification; additional details of the image-analysis workflow are provided in the SI.
+
+
+
+\subsubsection{High Strain Rate Nanoindentation}
+
+
+% A nanoindentation instrument was adapted for impact testing at strain rates exceeding $10^{3}~\text{s}^{-1}$. Nanoindentation impact tests were conducted using an indenter system containing a hexapod specimen stage and an InForce 1000 actuator customized to measure displacements at high acquisition rates using a Michelson interferometer; full details of this setup can be found in \cite{Hackett2023}. All tests were performed with a Berkovich three sided pyramid tip.
+
+% Quasistatic constant indentation strain rate tests were conducted using a constant $\dot{P}/P$ protocol (force rate over force) with a target $\dot{P}/P = 0.2~\text{s}^{-1}$ and a target load of 1~N. Dynamic tests consisted of indentation impact tests with an impact force of 20~mN, followed by re-loading at the same indent location up to 1~N at a target $\dot{P}/P = 0.2~\text{s}^{-1}$. The reloading step was included to enable comparison of the dynamic-to-quasistatic hardness ratio, $H_{\text{DYN}}/H_{\text{QS}}$, obtained from separate tests with that obtained from a single testing point; the results of this comparison will be presented in a separate study.
+
+% Hardness was evaluated at an indentation depth of 2000~nm by dividing the load at that depth by the expected projected contact area. The projected contact area was calculated from the tip area function, $A(h)$, determined through a separate calibration procedure on fused silica \cite{Oliver1992}, and evaluated at the contact depth, $h_c$. The contact depth was obtained by multiplying the indentation depth by the contact-depth-to-indentation-depth ratio, $h_c/h$. This ratio was determined experimentally by imaging each indentation impression after testing using a laser confocal microscope. The residual contact area, $A_R$, was measured by manually tracing the impression boundary, and the nominal contact area, $A_N$, was obtained by thresholding the images. The ratio was then estimated as:
+% \begin{equation}
+% \frac{h_c}{h} = \sqrt{\frac{A_R}{A_N}}.
+% \label{eq:contact_depth_ratio}
+% \end{equation}
+
+High strain rate nanoindentation was performed on a separate custom instrument adapted for indentation impact testing at strain rates exceeding $10^{3}\ \mathrm{s^{-1}}$. The instrument includes a hexapod specimen stage and an InForce 1000 actuator customized to measure displacements at high acquisition rates using a Michelson interferometer; full details of this setup are provided by Hackett \etal\ (2023). All tests were performed with a Berkovich three-sided pyramidal diamond tip.
+
+The high strain rate instrument was used to measure the dynamic-to-quasistatic hardness ratio, $H_{\mathrm{DYN}}/H_{\mathrm{QS}}$, which was incorporated into the Bayesian optimization loop. Dynamic hardness, $H_{\mathrm{DYN}}$, was measured from indentation impact tests with an effective $\dot{P}/P = 2 \times 10^{3}\ \mathrm{s^{-1}}$. Quasistatic hardness, $H_{\mathrm{QS}}$, was measured on the same instrument using a constant $\dot{P}/P = 2 \times 10^{-1}\ \mathrm{s^{-1}}$. A minimum of 10 dynamic impact indents and 10 quasistatic indents was performed for each alloy, with indents typically spaced $100\ \mu\mathrm{m}$ apart.
+
+Dynamic tests used an impact force of $20\ \mathrm{mN}$, followed by reloading at the same indentation location to $1\ \mathrm{N}$ at $\dot{P}/P = 2 \times 10^{-1}\ \mathrm{s^{-1}}$. The reloading step was included to compare the dynamic-to-quasistatic hardness ratio obtained from separate tests with the ratio obtained from a single indentation location; those results will be presented in a separate study. Independent optical profilometry measurements were used to determine $\eta$ for each dynamic and quasistatic indent, and the corresponding pile-up correction was applied to each hardness value before calculating $H_{\mathrm{DYN}}/H_{\mathrm{QS}}$.
+
+Custom analysis scripts were developed to extract data from the instrument's encrypted binary output and automated projected contact area quantification (see \textbf{SI} for details). High strain rate hardness data was acquired for all candidate alloy compositions and incorporated into the Bayesian optimization loop.
+
+
+\subsubsection{Split-Hopkinson Pressure Bar (SHPB) Testing}
+
+To characterize the high strain rate mechanical behavior of the high-entropy alloys (HEAs) developed in this program, Split-Hopkinson Pressure Bar (SHPB) testing was performed on all candidate alloys. For each composition, a minimum of two specimens were tested, and approximately half of the alloys were evaluated at multiple strain rates, namely 1500\,s$^{-1}$ or both 1500\,s$^{-1}$ and 3000\,s$^{-1}$.
+
+The SHPB experiments used a pulse-shaping technique to achieve and maintain a uniform strain rate throughout the major portion of the specimen deformation. A Ni-30Mo alloy was used as the pulse shaper due to its strain hardening behavior, which closely resembles that of the tested HEAs. The SHPB setup captures three essential waveforms: the incident pulse, transmitted pulse, and reflected pulse.
+
+These signals are time-synchronized to construct the dynamic stress–strain response of the material. \autoref{fig:shpb_signals} shows representative results from two SHPB tests performed at a nominal strain rate of 1500\,s$^{-1}$. The black curves represent the true stress–strain response, while the blue curves illustrate the instantaneous strain rate as a function of strain. These measurements provide the dynamic response data required for the multi-objective optimization framework.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{fig_06_shpb.pdf}
+    \caption{Dynamic true stress–strain responses (black) and corresponding strain rate as a function of strain (blue) for two HEA samples tested at 1500\,s$^{-1}$.}
+    \label{fig:shpb_signals}
+\end{figure}
+
+
+\subsection{Depth of Penetration Simulation}
+
+\emph{Viscoplasticity Constitutive Model Implementation:} We modeled the ballistic impact response using the Cowper-Symonds (CS) viscoplasticity framework to capture strain rate sensitivity under dynamic loading. The CS model provides a description of the flow stress evolution as a function of plastic strain rate through a multiplicative enhancement factor applied to the quasi-static flow strength. The constitutive relationship is expressed as:
+
+\begin{equation}
+\sigma_f = \sigma_{qs}^f \left(1 + \left(\frac{\dot{\varepsilon}_p}{D}\right)^{1/M}\right)
+\end{equation}
+
+where $\sigma_{qs}^f$ represents the quasi-static flow strength that evolves with accumulated plastic strain due to work hardening mechanisms, $\dot{\varepsilon}_p$ denotes the effective plastic strain rate, $D = 10^6 \text{ s}^{-1}$ serves as a material-dependent constant multiplier, and $M$ constitutes the strain rate sensitivity exponent within the CS formulation. This formulation captures dynamic strengthening at elevated loading rates, where dislocation motion becomes increasingly constrained.
+
+In the Cowper--Symonds form, $D$ and $M$ are mathematically coupled: for a given pair of quasi-static and dynamic flow-stress measurements, a continuum of $(D, M)$ combinations can reproduce the data with comparable fidelity. With one SHPB curve and one quasi-static curve per alloy, joint identification of both parameters is underdetermined. We resolve this by fixing $D = 10^{6}\ \text{s}^{-1}$ uniformly across all alloys and calibrating $M$ per alloy by RMSE minimization against the experimental QS+SHPB data (Eq.~\ref{eq:rmse}. This convention isolates the alloy-to-alloy variation in a single rate-sensitivity parameter, allows direct comparison of $M$ across the composition set on a common basis.
+
+\emph{Rate Sensitivity Parameter Identification:} The strain rate sensitivity parameter $M$ for each high entropy alloy composition was determined through a systematic calibration procedure based on experimental data obtained from quasistatic uniaxial tension tests and dynamic SHPB compression experiments conducted at strain rates ranging from $10^{-3} \text{ s}^{-1}$ to $10^4 \text{ s}^{-1}$. The parameter identification process used a nonlinear least-squares optimization algorithm to minimize the root mean squared error (RMSE) between the CS model predictions and experimental true stress measurements:
+
+\begin{equation}
+\text{RMSE} = \sqrt{\frac{1}{N}\sum_{i=1}^{N}\left(\sigma_{pred,i}^f - \sigma_{obs,i}^f\right)^2}
+\label{eq:rmse}
+\end{equation}
+
+where $N$ represents the total number of discrete data points in the experimental stress-strain response, $\sigma_{pred,i}^f$ denotes the model-predicted flow stress at the $i$-th data point, and $\sigma_{obs,i}^f$ corresponds to the experimentally observed true stress value. The optimization procedure was implemented under isothermal conditions to isolate the strain rate effects from thermal softening mechanisms. The calibrated rate sensitivity exponents for the investigated high entropy alloy compositions ranged between 2 and 7, consistent with the expected strain rate sensitivity behavior of face-centered cubic polycrystalline materials.
+
+\emph{Finite Element Ballistic Impact Simulation:} We implemented the calibrated material parameters into a user-defined material subroutine (UMAT) within the ABAQUS/Explicit finite element framework to simulate the ballistic impact response. The computational model used a two-dimensional axisymmetric formulation to simulate the normal impact of a rigid spherical projectile onto a cylindrical target of the candidate alloy. The target geometry consisted of a cylinder with radius $r_t = 34$ mm and thickness $t = 17$ mm, while the projectile was modeled as a rigid sphere with diameter $d_p = 10$ mm impacting at a velocity of $V_0 = 500$ m/s.
+
+The finite element discretization used explicit, linear, axisymmetric stress elements (CAX4R) with a characteristic mesh size of 0.8 mm, resulting in a computational domain of 42 $\times$ 21 elements in the radial and axial directions, respectively. The target material properties included an elastic modulus $E_t = 200$ GPa, Poisson's ratio $\nu_t = 0.3$, and density $\rho_t = 7.85 \times 10^{-9}$ tonne/mm$^3$ (ABAQUS mm--tonne--s--N consistent units). Mesh distortion controls were implemented using default ABAQUS settings. The elastic constants and density are held fixed across all the alloys. This reflects both the available characterization data and a deliberate scoping choice. The quasi-static tension and SHPB experiments resolve only the plastic flow response of each alloy; elastic moduli and densities were not independently measured for individual compositions, so representative steel-class values ($E_t = 200$ GPa, $\rho_t = 7.85 \times 10^{-9}$ tonne/mm$^3$) were used uniformly. For Ni-stabilized FCC HEAs representative of the type studied here, Young's modulus and Poisson's ratio are expected to vary by less than $\sim$10\% across compositions and to contribute negligibly to penetration response, which is dominated by plastic dissipation at 500 m/s. 
+
+
+\emph{Depth of Penetration Quantification:} The ballistic performance of each alloy composition was quantified through the depth of penetration (DoP), defined as the maximum axial displacement of the projectile centroid into the target at the instant when the projectile velocity approaches zero. DoP serves as the primary response variable for correlating material properties with impact performance. All alloys across the three optimization iterations were evaluated under identical loading conditions using their individually calibrated viscoplastic constitutive models.
+
+
+\subsection{Computational Design Framework}
+
+The computational component of BRAVE linked thermodynamic screening, physics-informed surrogate modeling, feasibility classification, multi-objective acquisition, and diversity-aware batch selection into one loop. In each iteration, experimentally verified FCC alloys provided objective data for surrogate updates, while infeasible alloys contributed only their phase labels to the feasibility model. A more detailed end-to-end workflow diagram is provided in the \textbf{SI}.
+
+\subsubsection{Surrogate Models and Objective Representation}
+
+We used Gaussian process surrogate models because they provide both property predictions and uncertainty estimates, which are needed for Bayesian optimization. The surrogates were initialized with informative priors rather than zero-mean priors, using the Varvenne--Luque--Curtin solid solution strengthening model together with prior campaign data to provide a physics-grounded starting point before substantial new data were collected. Detailed mathematical expressions for the GP posterior and prior construction are provided in the Appendix.
+
+The optimization targeted the five objectives defined in Section~2.3. Four objectives (YS, UTS/YS, strain at UTS, and $H_\text{dyn}/H_\text{qs}$) were obtained experimentally, while DoP was computed from constitutive calibration and FEM simulation using data acquired in the same iteration. Because EHVI is implemented in minimization form, the four desirable-to-maximize objectives were sign-inverted before surrogate modeling and hypervolume calculation, while DoP remained in its original minimization form.
+
+\subsubsection{Acquisition, Fusion, and Batch Selection}
+
+Candidate ranking was based on Expected Hypervolume Improvement (EHVI), which favors alloys expected to improve the current Pareto front while still exploring uncertain regions. Where multiple computational estimates contributed to the same target, their predictions were fused through a reification-based multi-source model so that the acquisition function operated on a single posterior distribution for each objective. To reduce sensitivity to any one kernel hyperparameter setting in the low-data regime, we used an ensemble of Gaussian processes with different length-scale assumptions and then applied $k$-medoids clustering to select a diverse experimental batch. Mathematical details for EHVI, reification, and the batch ensemble strategy are provided in the Appendix.
+
+\subsubsection{Constraint-Aware Acquisition with Learned Feasibility}
+
+Phase stability constraints were enforced initially through CALPHAD screening, but deterministic rejection alone is too rigid near the FCC phase boundary. We therefore trained a Gaussian process classifier (GPC) on experimentally verified phase outcomes to estimate a continuous feasibility probability, $P_\text{feas}(\mathbf{x})$, for each candidate composition. This allowed the optimizer to distinguish compositions that were confidently infeasible from those that were merely uncertain.
+
+To assess how robust CALPHAD-predicted FCC stability is to small local composition changes, we performed a perturbation analysis on candidate alloys that satisfied FCC $\geq 0.99$. Of the 1,154,207 perturbed compositions evaluated, 903,326 (78.3\%) retained FCC $\geq 0.99$. We therefore interpreted a feasibility probability near 0.8 as corresponding to a composition that is locally robust to small perturbations, which motivated the acquisition threshold $P_\text{feas}(\mathbf{x}) \geq 0.8$. Details are provided in the \textbf{SI}.
+
+Candidates that passed the initial CALPHAD filter were assigned $P_\text{feas} = 1$. Candidates rejected by CALPHAD but predicted by the GPC to satisfy $P_\text{feas}(\mathbf{x}) \geq 0.8$ were reintroduced into the search space, but their acquisition value was penalized according to feasibility risk:
+\begin{equation}
+    \textrm{EHVI}(\mathbf{x})_{\textrm{constraint-aware}} = \textrm{EHVI}(\mathbf{x}) \times P_{\textrm{feas}}(\mathbf{x})
+\end{equation}
+This feasibility-weighted acquisition suppressed high-risk candidates whose apparent promise was driven mainly by uncertainty, while still allowing near-boundary alloys to be selected when their predicted performance was sufficiently strong. As new alloys were synthesized and phase-verified, the GPC was retrained so that the feasibility boundary improved over successive iterations. Manufacturing failures were not modeled by this classifier; it addressed phase-outcome feasibility only.
+
+\subsubsection{Summary of the BRAVE Campaign Algorithm}
+
+\autoref{fig:brave_architecture} illustrates the data flow within a single iteration of the BRAVE campaign. The bifurcation at phase verification was the defining structural feature: feasible alloys proceeded through full characterization and fed objective data into the GP surrogates, while infeasible alloys contributed only their phase outcome to the GPC feasibility classifier. Both paths converged at the acquisition step, where EHVI was weighted by the learned feasibility probability. Algorithm~\ref{alg:brave} formalizes this workflow.
+
+Algorithm~\ref{alg:brave} consolidates the full BRAVE campaign workflow, from design space initialization through iterative closed-loop optimization. Infeasible alloys (line~9) contribute to the feasibility classifier but not to surrogate model training, capturing the asymmetry between failed and successful experiments that motivates the risk-aware acquisition strategy. The DoP objective (lines~16--18) is computed within each iteration from experimentally calibrated constitutive models, creating the simulation-in-the-loop architecture described in Section~1.
+
+\begin{algorithm}[!htbp]
+\caption{BRAVE: Bayesian Risk-Aware Alloy Discovery and Exploration}\label{alg:brave}
+\begin{algorithmic}[1]
+\Statex \textbf{Input:} 8-element composition grid, CALPHAD database, batch size $B = 16$
+\Statex
+\Statex \textit{// Initialization}
+\State Apply compositional bounds $\rightarrow$ 1,504,938 candidates
+\State CALPHAD screen (TCHEA6, FCC $\geq 0.99$ at 700$^\circ$C) $\rightarrow$ 26,621 feasible
+\State Partition feasible space into 37 chemical subsystems
+\State Retain subsystem labels for feasible candidates
+\State $k$-medoids clustering $\rightarrow$ 1,000 representative alloys
+\State Diversity-aware down-selection $\rightarrow$ $B_0 = 16$ initial candidates
+\Statex
+\Statex \textit{// Mid-campaign update (from iteration BBB onward)}
+\State Augment feasibility screening using TCHEA7 (700$^\circ$C and 950$^\circ$C)
+\State Update feasible design space
+\Statex
+\Statex \textit{// Iterative closed-loop optimization}
+\For{iteration $t = 0, 1, 2$}
+    \State Synthesize $B_t$ alloys via vacuum arc melting
+    \State Verify phase purity (XRD): classify each alloy as \textit{feasible} or \textit{infeasible}
+    \State Update GPC feasibility classifier with new phase outcomes
+    \For{each \textit{feasible} alloy}
+        \State Characterize: tensile $\rightarrow$ YS, UTS/YS, strain at UTS
+        \State Characterize: NI + HSRNI + SHPB $\rightarrow$ $H_\text{dyn}/H_\text{qs}$
+        \State Calibrate Cowper--Symonds model from tensile + SHPB data
+        \State Simulate depth of penetration (DoP) via FEM with calibrated model
+    \EndFor
+    \State Update GP surrogates with new objective measurements (feasible alloys only)
+    \State Fuse multi-source predictions via reification
+    \For{each of $n$ random length-scale configurations}
+        \State Build GP ensemble member
+        \State Compute $\textrm{EHVI}(\mathbf{x}) \times P_\text{feas}(\mathbf{x})$ for all remaining candidates
+    \EndFor
+    \State $k$-medoids select $B_{t+1}$ from top-ranked candidates
+\EndFor
+\Statex
+\Statex \textbf{Output:} Pareto-optimal alloys, trained surrogates, feasibility classifier
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.9\textwidth]{fig_07_brave.pdf}
+    \caption{Data flow architecture for one iteration of the BRAVE campaign. Phase verification (XRD) classifies each synthesized alloy as feasible or infeasible, creating two parallel update paths: feasible alloys provide objective measurements for GP surrogate training, while all phase outcomes (feasible and infeasible) update the GPC feasibility classifier. The paths converge at the acquisition step, where EHVI is scaled by the feasibility probability $P_\text{feas}(\mathbf{x})$ to penalize high-risk candidates. k-medoids clustering selects the next batch from the top-ranked candidates.}
+    \label{fig:brave_architecture}
+\end{figure*}
+
+
+The campaign ran for three iterations (48 alloys total). This budget was set by experimental throughput---vacuum arc melting, thermomechanical processing, and multi-technique characterization limit the number of alloys that can be completed per cycle---rather than by a convergence criterion.
+
+
+\subsection{Data Management and Overall Workflow}
+
+Data management in this study follows a method-centric architecture with IGSN (International Generic Sample Number) registration for all physical samples. Details of the data architecture, folder structure, IGSN metadata schema, FAIR compliance, and a more detailed end-to-end workflow diagram are provided in the \textbf{SI}.
+
+%%% END inlined from 02_methods.tex%%% BEGIN inlined from 03_results.tex
+
+\section{Results and Discussion}\label{sec:Results}
+
+\subsection{Phase Verification and Feasibility Outcomes}
+
+The 16 candidate alloys selected for iteration BBA were chosen by diversity-aware k-medoids sampling across the 37 chemical subsystems (Section~2.1.3). \autoref{fig:alloy_affine_projection} shows the target chemistries of all 48 alloys synthesized in this work, projected from the 8-element composition simplex onto a regular octagon by affine coordinates and colored by iteration. This view emphasizes how the campaign progressively populated distinct regions of the accessible composition space across BBA, BBB, and BBC. A more detailed visualization of the iteration-0 batch selection is provided in the \textbf{SI}. All candidates across the three iterations were synthesized via vacuum arc melting, cold rolled, and recrystallized as described in Section~2.2. Phase purity was assessed by XRD for every alloy prior to mechanical testing.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{fig_08_affine.pdf}
+    \caption{Affine projection of the target chemistries of all 48 alloys synthesized in this study onto a regular octagon representing the 8-element composition space (Al--V--Cr--Mn--Fe--Co--Ni--Cu). Each point is the affine-coordinate projection of one alloy composition and is colored by design iteration.} %The affine and UMAP projections (\autoref{fig:umap_alloyspace}) serve the same purpose; the affine projection was adopted here as a linear, interpretable alternative.
+    \label{fig:alloy_affine_projection}
+\end{figure} 
+
+\autoref{fig:Phase_Analysis}(a--c) presents the diffraction patterns across all three iterations: the majority of alloys show single-phase FCC reflections at (111), (200), and (220), consistent with the CALPHAD-based design targets. Secondary intermetallic sigma ($P4_{2}/mnm$) phase was detected in a subset of alloys from iterations BBB and BBC.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.95\textwidth]{fig_09_phase.pdf}
+    \caption{X-ray diffraction (XRD) patterns for all alloys across 3 iterations (a--c), showing FCC spectral peaks at (111), (200), and (220) planar reflections. Alloys with secondary sigma phase are indicated.}
+    \label{fig:Phase_Analysis}
+\end{figure*}
+
+Sigma phase appeared preferentially in alloys with combined V + Cr content $\geq$ 20~at.\%, although several alloys with high V + Cr (BBA09, BBB01, BBB03, BBC02, BBC04) remained single-phase FCC. These exceptions had Ni content of 36~at.\% or higher, consistent with increased valence electron concentration (VEC) destabilizing the sigma phase. We note that this compositional dependence---sigma formation correlating with V + Cr and suppressed by Ni---directly informed the GPC feasibility classifier training data.
+
+The sigma-phase failures in BBB triggered a transition from the TCHEA6 to TCHEA7 database and the addition of a 950$^\circ$C FCC stability constraint (Section~2.1.2). Comparing TCHEA7 predictions with experimental XRD results for iterations BBA and BBB revealed five false positives (secondary phases predicted but not observed) and two false negatives (FCC predicted but sigma observed) at 700$^\circ$C, and one false positive and four false negatives at 950$^\circ$C. False negatives are the more consequential error: they lead to failed experiments (i.e., budget spent without usable objective data). These prediction discrepancies quantify the CALPHAD model uncertainty that the GPC feasibility classifier is designed to absorb.
+
+\autoref{fig:BSE_SEM}(a--c) presents BSE-SEM images of three representative alloy compositions (one per iteration), showing fully recrystallized, equiaxed FCC grain structures with annealing twins. No significant porosity or macrosegregation was observed. The corresponding EBSD inverse pole figure (IPF) maps (\autoref{fig:BSE_SEM}(d--f)) confirm the absence of textural anisotropy, indicating that recrystallization reset the deformation-induced orientation bias from cold rolling. 
+Grain size distributions (\autoref{fig:BSE_SEM}(g--i)) show average grain sizes between 10~$\mu$m and 35~$\mu$m, with compositionally complex alloys (7--8 elements) showing finer grains and narrower distributions, consistent with sluggish diffusion in concentrated solid solutions.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.7\textwidth]{fig_10_bse_sem.pdf}
+    \caption{Microstructure of representative FCC alloy compositions across 3 iterations. (a--c) SEM-BSE micrographs showing fully recrystallized equiaxed FCC grains with annealing twins. (d--f) Corresponding EBSD IPF maps confirming random crystallographic texture. (g--i) Grain size histograms with descriptive statistics. Mean grain sizes range from $\sim$10~$\mu$m to 35~$\mu$m.}
+    \label{fig:BSE_SEM}
+\end{figure*}
+
+Alloys confirmed as single-phase FCC proceeded to full mechanical characterization, and we used their objective measurements to train the GP surrogates. Alloys containing sigma phase were classified as infeasible for the purposes of Bayesian optimization: their phase outcome was used to retrain the GPC feasibility classifier, but their objective measurements (when obtainable) were not included in surrogate model training. Several sigma-bearing alloys (BBC03, BBB13, BBC08, BBC14) retained sufficient FCC matrix to yield tensile specimens and were mechanically tested for scientific characterization, but their properties were excluded from the BO loop. Alloys that failed during processing (BBC05--07, BBC09--10, BBC16, BBA04) produced no specimens and contributed only their infeasible label to the GPC. \autoref{table_bba}, \autoref{table_bbb}, and \autoref{table_bbc} list the target and measured compositions (EDS) alongside XRD phase verification for all three iterations. Candidates that violated project constraints (manufacturing failures or secondary phases) are highlighted in red.
+
+\begin{table*}[t]
+\caption{Composition and phase analysis of BBA (Iteration 0) alloys}
+\label{table_bba}
+\centering
+\scriptsize
+\resizebox{\textwidth}{!}{
+\begin{tblr}{
+    hlines,
+    hline{3,21} = {2pt},
+    rowsep=1pt,
+    colspec = {
+        |X[1.2, c]
+        |[2pt]X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]
+        |[2pt]X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]
+        |[2pt]X[2.0, c]
+        |X[2.0, c]|
+        },
+    colsep=0pt,
+    }
+    \SetCell[r=2,c=1]{c}\textbf{\makecell{Alloy\\Name}}
+    & \SetCell[c=8]{c} \textbf{Target Atomic \%}
+    &&&&&&&& \SetCell[c=8]{c} \textbf{EDS Measured Atomic \%}
+    &&&&&&&& \SetCell[r=2,c=1]{c}\textbf{XRD Phase} \\
+    & Al & Co & Cr & Cu & Fe & Mn & Ni & V
+    & Al & Co & Cr & Cu & Fe & Mn & Ni & V \\
+    BBA01 & 4 & 8 & 4 & 4 & 16 & 12 & 48 & 4 & 4.1 & 8.2 & 4.2 & 4.2 & 16.1 & 12.2 & 47.0 & 4.1 & FCC \\
+    BBA02 & 4 & 16 & \SetCell{gray!20}0 & 4 & 12 & 8 & 52 & 4 & 4.2 & 15.0 & \SetCell{gray!20}0.0 & 4.2 & 12.2 & 8.2 & 52.2 & 4.1 & FCC \\
+    BBA03 & 4 & 12 & 8 & 4 & 16 & 8 & 48 & \SetCell{gray!20}0 & 4.3 & 12.1 & 8.2 & 4.2 & 16.1 & 8.2 & 47.0 & \SetCell{gray!20}0.0 & FCC \\
+    \SetCell{red!20}\textbf{BBA04} & \SetCell{gray!20}0 & 12 & 8 & 4 & 16 & 20 & 36 & 4 & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & \SetCell{red!20}\textbf{---} \\
+    BBA05 & 4 & 12 & 8 & \SetCell{gray!20}0 & 8 & 8 & 56 & 4 & 4.1 & 12.2 & 8.2 & \SetCell{gray!20}0.0 & 8.2 & 8.0 & 55.2 & 4.1 & FCC \\
+    BBA06 & 4 & \SetCell{gray!20}0 & 8 & 4 & 24 & 12 & 44 & 4 & 4.2 & \SetCell{gray!20}0.0 & 8.3 & 4.1 & 24.0 & 11.9 & 43.4 & 4.1 & FCC \\
+    BBA07 & 4 & 12 & \SetCell{gray!20}0 & \SetCell{gray!20}0 & 16 & 8 & 52 & 8 & 5.0 & 12.3 & \SetCell{gray!20}0.0 & \SetCell{gray!20}0.0 & 16.2 & 7.9 & 50.5 & 8.1 & FCC \\
+    BBA08 & \SetCell{gray!20}0 & 24 & 8 & \SetCell{gray!20}0 & 12 & 16 & 32 & 8 & \SetCell{gray!20}0.0 & 22.9 & 8.1 & \SetCell{gray!20}0.0 & 12.2 & 16.0 & 32.7 & 8.1 & FCC \\
+    BBA09 & 4 & 16 & 8 & \SetCell{gray!20}0 & 12 & \SetCell{gray!20}0 & 48 & 12 & 4.9 & 16.1 & 8.2 & \SetCell{gray!20}0.0 & 12.0 & \SetCell{gray!20}0.0 & 46.6 & 12.1 & FCC \\
+    BBA10 & 4 & \SetCell{gray!20}0 & 4 & \SetCell{gray!20}0 & 20 & 8 & 52 & 12 & 4.4 & \SetCell{gray!20}0.0 & 4.2 & \SetCell{gray!20}0.0 & 20.2 & 8.0 & 51.0 & 12.2 & FCC \\
+    BBA11 & \SetCell{gray!20}0 & 16 & \SetCell{gray!20}0 & 4 & 20 & 20 & 28 & 12 & \SetCell{gray!20}0.0 & 16.1 & \SetCell{gray!20}0.0 & 4.0 & 20.1 & 20.3 & 27.4 & 12.0 & FCC \\
+    BBA12 & \SetCell{gray!20}0 & \SetCell{gray!20}0 & 8 & 4 & 16 & 12 & 52 & 8 & \SetCell{gray!20}0.0 & \SetCell{gray!20}0.0 & 8.3 & 4.1 & 16.1 & 12.3 & 51.2 & 8.0 & FCC \\
+    BBA13 & 4 & 20 & 4 & 4 & 16 & \SetCell{gray!20}0 & 52 & \SetCell{gray!20}0 & 4.0 & 20.4 & 4.1 & 4.2 & 16.3 & \SetCell{gray!20}0.0 & 51.0 & \SetCell{gray!20}0.0 & FCC \\
+    BBA14 & \SetCell{gray!20}0 & 16 & 8 & 4 & 16 & 20 & 36 & \SetCell{gray!20}0 & \SetCell{gray!20}0.0 & 16.1 & 8.2 & 4.0 & 16.0 & 20.3 & 35.3 & \SetCell{gray!20}0.0 & FCC \\
+    BBA15 & \SetCell{gray!20}0 & 20 & 8 & 4 & \SetCell{gray!20}0 & 20 & 44 & 4 & \SetCell{gray!20}0.0 & 19.9 & 8.2 & 4.2 & \SetCell{gray!20}0.0 & 20.5 & 43.2 & 4.0 & FCC \\
+    BBA16 & 4 & 12 & \SetCell{gray!20}0 & 12 & 20 & 8 & 44 & \SetCell{gray!20}0 & 4.1 & 12.3 & \SetCell{gray!20}0.0 & 11.8 & 20.4 & 8.1 & 43.2 & \SetCell{gray!20}0.0 & FCC \\
+\end{tblr}
+}
+\end{table*}
+
+\begin{table*}[t]
+\caption{Composition and phase analysis of BBB (Iteration 1) alloys}
+\label{table_bbb}
+\centering
+\scriptsize
+\resizebox{\textwidth}{!}{
+\begin{tblr}{
+    hlines,
+    hline{3,17} = {2pt},
+    rowsep=1pt,
+    colspec = {
+        |X[1.2, c]
+        |[2pt]X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]
+        |[2pt]X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]
+        |[2pt]X[2.0, c]
+        |X[2.0, c]|
+        },
+    colsep=0pt,
+    }
+    \SetCell[r=2,c=1]{c}\textbf{\makecell{Alloy\\Name}}
+    & \SetCell[c=8]{c} \textbf{Target Atomic \%}
+    &&&&&&&& \SetCell[c=8]{c} \textbf{EDS Measured Atomic \%}
+    &&&&&&&& \SetCell[r=2,c=1]{c}\textbf{XRD Phase} \\
+    & Al & Co & Cr & Cu & Fe & Mn & Ni & V
+    & Al & Co & Cr & Cu & Fe & Mn & Ni & V \\
+    BBB01 & \SetCell{gray!20}0 & 24 & 4 & \SetCell{gray!20}0 & 8 & 4 & 36 & 24 & \SetCell{gray!20}0.0 & 20.5 & 4.2 & \SetCell{gray!20}0.0 & 8.1 & 4.0 & 38.9 & 24.4 & FCC \\
+    BBB02 & 4 & 32 & 8 & 4 & 4 & 20 & 24 & 4 & 4.2 & 30.4 & 8.2 & 4.1 & 4.1 & 20.1 & 24.7 & 4.1 & FCC \\
+    BBB03 & 4 & \SetCell{gray!20}0 & 12 & 4 & 4 & 16 & 52 & 8 & 4.1 & $\cdot$ & 12.3 & 4.1 & 4.1 & 16.1 & 51.2 & 8.2 & FCC \\
+    BBB04 & 4 & 12 & 4 & \SetCell{gray!20}0 & 28 & \SetCell{gray!20}0 & 40 & 12 & 4.0 & 11.1 & 4.1 & \SetCell{gray!20}0.0 & 28.0 & \SetCell{gray!20}0.0 & 40.8 & 12.0 & FCC \\
+    \SetCell{red!20}\textbf{BBB05} & \SetCell{gray!20}0 & 44 & 12 & \SetCell{gray!20}0 & 4 & 4 & 12 & 24 & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & \SetCell{red!20}\textbf{$\mathbf{FCC+\sigma}$} \\
+    \SetCell{red!20}\textbf{BBB06} & \SetCell{gray!20}0 & 16 & 20 & \SetCell{gray!20}0 & 4 & 4 & 36 & 20 & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & \SetCell{red!20}\textbf{$\mathbf{FCC+\sigma}$} \\
+    BBB07 & 4 & 40 & \SetCell{gray!20}0 & \SetCell{gray!20}0 & 12 & 4 & 36 & 4 & 4.0 & 39.1 & \SetCell{gray!20}0.0 & \SetCell{gray!20}0.0 & 12.3 & 3.9 & 36.7 & 4.0 & FCC \\
+    BBB08 & 4 & 8 & 12 & 4 & 4 & 24 & 40 & 4 & 3.8 & 8.0 & 12.3 & 4.2 & 4.1 & 24.0 & 39.4 & 4.1 & FCC \\
+    \SetCell{red!20}\textbf{BBB09} & \SetCell{gray!20}0 & 4 & 8 & \SetCell{gray!20}0 & 4 & 28 & 40 & 16 & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & \SetCell{red!20}\textbf{$\mathbf{FCC+\sigma}$} \\
+    BBB10 & 4 & \SetCell{gray!20}0 & 4 & 4 & 8 & 16 & 52 & 12 & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & FCC \\
+    \SetCell{red!20}\textbf{BBB11} & \SetCell{gray!20}0 & 24 & 4 & \SetCell{gray!20}0 & 4 & 32 & 20 & 16 & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & \SetCell{red!20}\textbf{$\mathbf{FCC+\sigma}$} \\
+    BBB12 & \SetCell{gray!20}0 & 20 & 4 & \SetCell{gray!20}0 & 4 & 4 & 48 & 20 & \SetCell{gray!20}0.0 & 20.2 & 4.2 & \SetCell{gray!20}0.0 & 4.1 & 4.0 & 47.1 & 20.4 & FCC \\
+    \SetCell{red!20}\textbf{BBB13} & \SetCell{gray!20}0 & 40 & 4 & \SetCell{gray!20}0 & 28 & 4 & 4 & 20 & 0.0 & 39.7 & 4.2 & 0.0 & 27.9 & 3.9 & 4.2 & 20.1 & \SetCell{red!20}\textbf{$\mathbf{FCC+\sigma}$} \\
+    BBB14 & 4 & \SetCell{gray!20}0 & 12 & 16 & 4 & 12 & 52 & \SetCell{gray!20}0 & 4.4 & \SetCell{gray!20}0.0 & 12.1 & 15.7 & 4.1 & 12.4 & 51.3 & \SetCell{gray!20}0.0 & FCC \\
+    BBB15 & 4 & \SetCell{gray!20}0 & 8 & 24 & 4 & 16 & 44 & \SetCell{gray!20}0 & 4.3 & \SetCell{gray!20}0.0 & 8.3 & 23.5 & 4.1 & 16.2 & 43.7 & \SetCell{gray!20}0.0 & FCC \\
+    BBB16 & 4 & 36 & \SetCell{gray!20}0 & \SetCell{gray!20}0 & 4 & 4 & 40 & 12 & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & FCC \\
+\end{tblr}
+}
+\end{table*}
+
+\begin{table*}[t]
+\caption{Composition and phase analysis of BBC (Iteration 2) alloys}
+\label{table_bbc}
+\centering
+\scriptsize
+\resizebox{\textwidth}{!}{
+\begin{tblr}{
+    hlines,
+    hline{3,17} = {2pt},
+    rowsep=1pt,
+    colspec = {
+        |X[1.2, c]
+        |[2pt]X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]
+        |[2pt]X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]|X[0.7, c]
+        |[2pt]X[2.0, c]
+        |X[2.0, c]|
+        },
+    colsep=0pt,
+    }
+    \SetCell[r=2,c=1]{c}\textbf{\makecell{Alloy\\Name}}
+    & \SetCell[c=8]{c} \textbf{Target Atomic \%}
+    &&&&&&&& \SetCell[c=8]{c} \textbf{EDS Measured Atomic \%}
+    &&&&&&&& \SetCell[r=2,c=1]{c}\textbf{XRD Phase} \\
+    & Al & Co & Cr & Cu & Fe & Mn & Ni & V
+    & Al & Co & Cr & Cu & Fe & Mn & Ni & V \\
+    BBC01 & 4 & 12 & 4 & 4 & 20 & 16 & 32 & 8 & 4.0 & 12.2 & 4.2 & 4.0 & 20.1 & 16.0 & 31.4 & 8.2 & FCC \\
+    BBC02 & 4 & 8 & \SetCell{gray!20}0 & \SetCell{gray!20}0 & 4 & 8 & 52 & 24 & 4.0 & 8.2 & \SetCell{gray!20}0.0 & \SetCell{gray!20}0.0 & 4.1 & 8.0 & 51.2 & 24.4 & FCC \\
+    \SetCell{red!20}\textbf{BBC03} & 4 & 4 & 12 & \SetCell{gray!20}0 & \SetCell{gray!20}0 & 4 & 52 & 24 & 4.0 & 4.1 & 12.2 & \SetCell{gray!20}0.0 & \SetCell{gray!20}0.0 & 3.9 & 51.3 & 24.4 & \SetCell{red!20}\textbf{$\mathbf{FCC+\sigma}$} \\
+    BBC04 & 4 & \SetCell{gray!20}0 & 4 & \SetCell{gray!20}0 & 4 & 4 & 60 & 24 & 4.0 & \SetCell{gray!20}0.0 & 4.2 & \SetCell{gray!20}0.0 & 4.1 & 4.0 & 59.3 & 24.5 & FCC \\
+    \SetCell{red!20}\textbf{BBC05} & \SetCell{gray!20}0 & 24 & 8 & \SetCell{gray!20}0 & 16 & 40 & 4 & 8 & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & \SetCell{red!20}\textbf{---} \\
+    \SetCell{red!20}\textbf{BBC06} & 4 & 28 & 4 & \SetCell{gray!20}0 & 4 & 4 & 44 & 12 & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & \SetCell{red!20}\textbf{---} \\
+    \SetCell{red!20}\textbf{BBC07} & 4 & 32 & 4 & \SetCell{gray!20}0 & \SetCell{gray!20}0 & 4 & 44 & 12 & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & \SetCell{red!20}\textbf{---} \\
+    \SetCell{red!20}\textbf{BBC08} & \SetCell{gray!20}0 & 8 & \SetCell{gray!20}0 & 4 & 4 & 28 & 36 & 20 & $\cdot$ & 8.1 & $\cdot$ & 4.1 & 4.2 & 28.1 & 35.7 & 19.9 & \SetCell{red!20}\textbf{$\mathbf{FCC+\sigma}$} \\
+    \SetCell{red!20}\textbf{BBC09} & \SetCell{gray!20}0 & 36 & 4 & \SetCell{gray!20}0 & 16 & 16 & 8 & 20 & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & \SetCell{red!20}\textbf{---} \\
+    \SetCell{red!20}\textbf{BBC10} & 4 & 4 & 16 & \SetCell{gray!20}0 & 8 & \SetCell{gray!20}0 & 52 & 16 & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & \SetCell{red!20}\textbf{---} \\
+    BBC11 & 4 & 12 & 4 & 4 & 12 & 16 & 36 & 12 & 4.3 & 12.2 & 4.2 & 3.9 & 12.2 & 15.9 & 35.1 & 12.3 & FCC \\
+    BBC12 & 4 & 4 & 4 & 8 & 28 & 16 & 32 & 4 & 4.1 & 4.3 & 4.2 & 7.8 & 28.0 & 16.1 & 31.3 & 4.1 & FCC \\
+    BBC13 & 4 & 28 & \SetCell{gray!20}0 & 20 & 4 & 8 & 36 & \SetCell{gray!20}0 & 4.3 & 28.0 & $\cdot$ & 19.9 & 4.1 & 8.4 & 35.4 & $\cdot$ & FCC \\
+    \SetCell{red!20}\textbf{BBC14} & \SetCell{gray!20}0 & 12 & 4 & \SetCell{gray!20}0 & 4 & 16 & 40 & 24 & $\cdot$ & 12.1 & 4.1 & $\cdot$ & 4.3 & 16.1 & 39.0 & 24.5 & \SetCell{red!20}\textbf{$\mathbf{FCC+\sigma}$} \\
+    BBC15 & 4 & 16 & \SetCell{gray!20}0 & 20 & 4 & 12 & 44 & \SetCell{gray!20}0 & 4.4 & 16.2 & $\cdot$ & 19.7 & 4.2 & 12.3 & 43.3 & $\cdot$ & FCC \\
+    \SetCell{red!20}\textbf{BBC16} & 4 & 28 & 4 & \SetCell{gray!20}0 & 8 & \SetCell{gray!20}0 & 40 & 16 & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & $\cdot$ & \SetCell{red!20}\textbf{---} \\
+\end{tblr}
+}
+\end{table*}
+
+
+\subsection{Mechanical Properties Across Iterations}
+
+\subsubsection{Tensile Response}
+
+\autoref{fig:true_stress_strain} presents the true stress--strain curves for all tested FCC alloys across the three iterations. True fracture stress increased progressively across successive iterations, with the majority of alloys surpassing 1~GPa in true tensile strength by iteration BBB. Ductility remained comparable across iterations, with the top-performing alloys sustaining strain at UTS in the range of 45--50\%. Enhanced strain hardening across iterations delayed the onset of strain localization, manifesting as high UTS/YS ratios. Compositions with UTS/YS $>$ 3.5 demonstrated superior strain hardening capacity, contributing to delayed failure under quasi-static loading. For context, Campaign~1 achieved UTS/YS ratios ranging from 1.38 to 2.93~\cite{hastings2025accelerated}. In Campaign~2, every successfully tested single-phase FCC alloy exceeded Campaign~1's maximum: the minimum UTS/YS was 3.07 (BBA07), the median was 3.79, and 9 alloys exceeded 4.0. 
+We note that this wholesale improvement over Campaign~1 is not attributable to the optimizer alone. The GP surrogates in Campaign~2 were initialized with informative priors trained on Campaign~1 experimental data and the Varvenne--Luque--Curtin solid solution strengthening model (Section~2.6), giving the optimizer a physics-grounded starting point rather than a zero-mean prior. The design space was shaped by Campaign~1's experience: we expanded from 6 to 8 elements based on the observation that the 6-element space lacked sufficient compositional freedom to simultaneously maximize strength and ductility, and we replaced hardness with tensile-derived objectives (YS, UTS/YS, strain at UTS) based on the finding that hardness alone is an incomplete proxy for bulk mechanical response. The UTS/YS shift from 1.38--2.93 (Campaign~1) to 3.07--4.53 (Campaign~2) thus reflects the compounding effect of prior-informed surrogates, a better-chosen design space, and more directly relevant optimization objectives. Tabulated values of YS, UTS, and strain to failure for all tested alloys are provided in the \textbf{SI}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\columnwidth]{fig_11_tension.pdf}
+\caption{Consolidated true stress--strain curves from ambient temperature quasistatic uniaxial tensile tests for all tested FCC alloys across 3 iterations. Alloys containing sigma phase are indicated by black arrows. RX refers to recrystallized alloys.}
+\label{fig:true_stress_strain}
+\end{figure}
+
+\subsubsection{Dynamic Hardness and Rate Sensitivity}
+
+Dynamic hardness consistently exceeded quasi-static hardness across all tested compositions (\autoref{fig:HSRNI1}), consistent with the higher strain rates associated with impact testing ($\sim 10^3$\,s$^{-1}$) relative to quasi-static indentation ($\sim 10^0$\,s$^{-1}$). Among single-phase FCC alloys, BBB12 showed the highest hardness. BBC03, which contained secondary sigma phase, showed the overall highest hardness.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{fig_12_hdyn.pdf}
+    \caption{Dynamic and quasistatic hardness values for all candidate alloys across iterations (a) BBA, (b) BBB, and (c) BBC. Bar colors are iteration-specific within each panel. Gray \texttimes{} markers denote processing failures with no hardness data, and $\sigma$ markers indicate alloys with XRD-confirmed sigma phase presence.}
+    \label{fig:HSRNI1}
+\end{figure*}
+
+The dynamic-to-quasi-static hardness ratio, $H_{\text{DYN}}/H_{\text{QS}}$ (\autoref{fig:HSRNI2}), ranged from 1.09 to 1.22 across all samples, with no clear compositional trend. Error bars were computed via propagation of uncertainty from the standard deviations of both dynamic and quasi-static measurements. None of the tested compositions showed error bars overlapping with unity, confirming a measurable rate-dependent strengthening effect in every alloy.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{fig_13_dyn_qs_ratio.pdf}
+    \caption{Dynamic-to-quasistatic hardness ratio ($H_{\mathrm{dyn}}/H_{\mathrm{qs}}$) for all candidate alloys across iterations (a) BBA, (b) BBB, and (c) BBC. Bar colors are iteration-specific within each panel. Gray \texttimes{} markers denote processing failures with no hardness-ratio data, and $\sigma$ markers indicate alloys with XRD-confirmed sigma phase presence.}
+    \label{fig:HSRNI2}
+\end{figure*}
+
+The contact-depth-to-indentation-depth ratio ($h_c/h$) was close to 1 for most samples, indicating minimal pile-up or sink-in. BBC03 was an exception ($h_c/h$ up to 1.03), consistent with its sigma-phase-induced deformation behavior. The near-unity $h_c/h$ for single-phase FCC alloys supports the use of nominal hardness calculations, reducing the need for the time-consuming imaging and tracing steps required for precise contact area estimation.
+
+\subsubsection{Depth of Penetration}
+
+Simulated DoP values across all iterations ranged from 2.22 to 3.35~mm (tabulated in \textbf{SI}). The five best-performing alloys (lowest DoP)---BBC03, BBB13, BBC02, BBB01, and BBC04---were concentrated in iterations BBB and BBC, while the five worst-performing alloys (BBA13, BBA16, BBC15, BBA03, and BBB07) were predominantly from iteration BBA, with one (BBC15) from iteration BBC. This shift confirms that the Bayesian optimization loop progressively identified compositions with improved impact resistance. The 1.13~mm spread in DoP across the full dataset (3.35 $-$ 2.22~mm), though narrow in absolute terms, provided sufficient differentiation for the EHVI acquisition function to distinguish candidates.
+
+\subsubsection{Property Evolution}
+
+\autoref{fig:boxplot_properties} summarizes the statistical evolution of all measured properties across the three iterations. Median values for strength-related properties (YS, UTS, $H_\text{dyn}$, $H_\text{qs}$) increased from BBA to BBC while inter-quartile ranges narrowed, indicating convergence toward consistently high-performing compositions. Median DoP decreased across iterations, with the distribution tightening around lower penetration depths. Strain at UTS was maintained or improved despite the strength gains, confirming that the multi-objective framework avoided the classical strength--ductility trade-off.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.9\textwidth]{fig_14_boxplot.pdf}
+    \caption{Evolution of mechanical properties and simulated ballistic performance across iterations. YS = yield strength, UTS = ultimate tensile strength, $H_{\mathrm{dyn}}$ = dynamic hardness, $H_{\mathrm{qs}}$ = quasistatic hardness, and DoP = simulated depth of penetration. Median strength metrics and $H_{\mathrm{dyn}}/H_{\mathrm{qs}}$ increase from BBA to BBC, while simulated depth of penetration decreases and strain at UTS is preserved.}
+    \label{fig:boxplot_properties}
+\end{figure*}
+
+These improvements in median properties should be interpreted alongside a processing caveat. The optimization campaign treats composition as the sole design variable, but the measured properties also depend on thermomechanical processing history---specifically, the degree of cold work, recrystallization temperature, and resulting grain size. Several alloys that passed phase verification (single-phase FCC by XRD) showed anomalous tensile behavior: low ductility, premature failure, or high scatter between replicate specimens. Post-mortem analysis traced these anomalies to incomplete recrystallization or non-uniform grain size distributions rather than compositional effects. The consequence for the optimization loop is twofold. First, noisy property measurements reduce the signal-to-noise ratio available to the GP surrogates, slowing convergence. Second, alloys whose measured properties reflect processing defects rather than intrinsic compositional effects can mislead the acquisition function, directing the search toward or away from regions for the wrong reasons. Grain sizes in this campaign ranged from 10 to 35~$\mu$m (\autoref{fig:BSE_SEM}), and the more compositionally complex alloys (7--8 elements) generally showed finer, more uniform grains---consistent with sluggish diffusion reducing grain growth---and correspondingly lower property scatter. Standardizing the thermomechanical route to produce consistent, fully recrystallized microstructures across all compositions is a prerequisite for isolating compositional effects in future campaigns.
+
+\subsection{Composition--Property Relationships}
+
+\subsubsection{Correlation Structure and Feature Importance}
+
+\autoref{fig:correlation_matrix} combines three complementary analyses: (a)~a Pearson correlation matrix quantifying linear relationships among elemental concentrations and mechanical responses, (b)~a SHAP beeswarm plot showing each element's importance and directional behavior in the predictive model, and (c)~a corrSHAP bar chart measuring the correlation between each element's compositional value and its SHAP contribution. SHAP values were computed from the gradient-boosted regression models trained independently on each of the five target objectives normalized per target, and pooled to give a single multi-objective view. The multi-objective corrSHAP (\autoref{fig:correlation_matrix}c) is the per-target Pearson correlation between feature value and SHAP value, averaged over the five target models. Positive values mean the element systematically raises the composite response across targets; cancellation across targets reflects a multi-objective trade-off.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=1.0\textwidth]{fig_15_correlation_matrix.pdf}
+    \caption{(a) Pearson correlation matrix among elemental concentrations, mechanical properties, and DoP. (b) SHAP beeswarm plot ranked by mean absolute SHAP value; dot color encodes feature value (red = high, blue = low). (c) corrSHAP bar chart showing the net directional influence of each element on the model output.}
+    \label{fig:correlation_matrix}
+\end{figure*}
+
+Vanadium and copper define the primary compositional axis governing strength and penetration resistance. Vanadium shows strong positive correlations with YS ($r = 0.82$, $n = 37$; the $n=37$ set includes all alloys with measurable YS regardless of feasibility outcome, so this figure is not inflated by feasibility filtering), UTS ($r = 0.80$), and both hardness measures ($r \approx 0.81$), and a strong negative correlation with DoP ($r = -0.88$). Copper shows the opposite pattern: negative correlations with all strength metrics ($r = -0.44$ to $-0.55$) and positive correlation with DoP ($r = 0.53$). The V--Cu anticorrelation ($r = -0.61$) means the design space naturally partitions along this axis.
+
+Among property--property relationships, YS and hardness are tightly coupled ($r = 0.88$), and the two hardness metrics are nearly identical ($r = 0.99$). UTS/YS is strongly anticorrelated with YS ($r = -0.91$) and positively correlated with elongation ($r = 0.80$), confirming that strain-hardening capacity accompanies ductility. DoP correlates almost perfectly (inversely) with YS ($r = -0.94$) and strongly with UTS ($r = -0.86$), indicating that penetration resistance in this alloy family is governed predominantly by strength.
+
+
+SHAP and corrSHAP reflect the chosen multi-objective target and not single-property linear correlations. The SHAP results align with the linear correlations. Vanadium dominates mean $|\text{SHAP}|$, with normalized contributions spanning the full $[-1, +1]$ range; high-V points (red) at the positive tail and low-V (blue) at the
+negative tail, matching V's positive correlations with strength metrics. Iron, manganese, and nickel follow; aluminum has the smallest mean $|\text{SHAP}|$ and clusters near zero. Mn and Ni dots show mixed colors at both positive and negative SHAP values, indicating interaction-mediated (non-monotonic) effects whose sign depends on the concentrations of other elements.
+ 
+Aluminum has the strongest positive corrSHAP ($r \approx +0.78$), significantly higher than iron ($+0.27$), chromium ($+0.22$), and copper ($+0.15$) --- higher Al consistently pushes the composite up despite Al's modest $|\text{SHAP}|$ magnitude. This is consistent with aluminum's role as a solid solution strengthener in Ni-stabilized HEAs, where small additions of Al improve YS and UTS/YS without strongly penalizing ductility. Nickel is near zero ($r \approx 0$), confirming the sign-flipping, interaction-mediated behavior seen in SHAP beeswarm plot. The negative tail is vanadium ($-0.32$), cobalt ($-0.22$), and manganese ($-0.17$). Vanadium's negative multi-objective corrSHAP coexists with its strong positive correlations with strength because the composite also includes elongation and UTS/YS, with which V correlates $-0.36$ and $-0.67$, respectively. The ductility penalty associated with V (likely tied to its role in promoting sigma phase formation and reducing strain hardening capacity) dominates the strength benefit when all five objectives are weighted together. 
+
+
+\subsubsection{Strength--Ductility Trade-off}
+
+\autoref{fig:pair_plots} shows how the BBA (iteration~0), BBB (iteration~1), and BBC (iteration~2) alloys evolve through key strength--ductility property spaces, illustrating both improvement in feasible FCC alloys and the trade-off imposed by sigma phase formation.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{fig_16_pair_plots.pdf}
+    \caption{Pair plots of mechanical property combinations across three successive design iterations. Filled points denote single-phase FCC alloys and desaturated points indicate XRD-confirmed sigma phase presence. Dashed dark-grey lines trace the Pareto front considering only feasible alloys, while dashed light-grey lines trace the Pareto front considering all alloys.}
+    \label{fig:pair_plots}
+\end{figure*}
+
+In panel~(a), most BBA (iteration~0) alloys occupy the lower-strength region, while BBB (iteration~1) and BBC (iteration~2) extend further into the upper-right portion of the plot. BBC04 reaches ${\sim}450$~MPa YS at ${\sim}1480$~MPa UTS, while BBC03 achieves ${\sim}720$~MPa YS but at lower UTS (${\sim}1160$~MPa), consistent with sigma-phase embrittlement. In panel~(b), several of the highest-ductility, highest-work-hardening alloys across the campaign, including BBB03, BBB08, BBB15, BBC01, and BBA06, cluster above 45\% elongation with UTS/YS $>$ 3.5. In panel~(c), the population follows the expected negative trend between elongation and YS, but BBC04 and BBC02 (${\sim}450$--490~MPa YS and ${\sim}48$--50\% elongation) sit above it. In panel~(d), BBB (iteration~1) and BBC (iteration~2) increasingly populate the upper-right quadrant, with BBC04 combining ${\sim}1480$~MPa UTS with ${\sim}50\%$ elongation.
+
+The sigma-bearing alloys BBC03 and BBB13 serve as counterexamples: elevated YS comes at steep ductility cost, reinforcing the importance of phase stability as a design constraint. A detailed analysis of the compositional and microstructural factors driving these improvements will be presented in a forthcoming publication.
+
+\subsubsection{Strength--DoP Correlations and Rate Sensitivity}
+
+DoP shows the expected inverse correlation with strength metrics (\autoref{fig:DOPvAllStrengths}): higher YS and UTS correspond to lower penetration depth. The strong DoP--YS correlation ($r = -0.94$) raises the question of what DoP adds beyond YS alone. The residual variance captures the contribution of rate-dependent strengthening through the Cowper--Symonds constitutive model: alloys with the same YS but different rate-sensitivity exponents $m$ produce different DoP values, providing a simulation-derived discriminant that quasi-static testing alone cannot.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.8\textwidth]{fig_17_dop_vs_strengths.pdf}
+    \caption{Simulated depth of penetration (DoP) versus quasi-static strength metrics across all tested alloys: (a) yield strength (YS) and (b) ultimate tensile strength (UTS). In both panels, higher strength is associated with lower DoP, indicating that the strongest alloys also show the greatest simulated impact resistance.}
+    \label{fig:DOPvAllStrengths}
+\end{figure*}
+
+The relationship between DoP and the calibrated rate-sensitivity exponent $m$ (\autoref{fig:MRelationships}(a)) is moderately positive, meaning that higher $m$ values are associated with larger penetration depths. YS and UTS both correlate negatively with $m$ (\autoref{fig:MRelationships}(b,c)), with the YS relationship stronger than the UTS relationship. Together, these trends indicate that alloys with higher quasi-static strength tend to show lower calibrated rate-sensitivity exponents in this dataset, consistent with a trade-off between quasi-static strength and rate sensitivity in the present Cowper--Symonds fits.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.9\textwidth]{fig_18_m_plots.pdf}
+    \caption{Rate sensitivity exponent ($m$) versus (a) simulated DoP, (b) yield strength, and (c) UTS for all candidate alloys across three iterations.}
+    \label{fig:MRelationships}
+\end{figure*}
+
+
+\subsubsection{Emergent Compositional Design Rules}
+
+The optimization campaign revealed two distinct compositional routes to high performance within the FCC-feasible space, which we describe below.
+
+The first is a \emph{high-strength regime} defined by V = 20--24~at.\%, Cr $\leq$ 4~at.\%, Ni = 36--60~at.\%, and Cu = 0. The four strongest single-phase FCC alloys---BBC04 (${\sim}1480$~MPa UTS, 50\% elongation), BBC02 (${\sim}1460$~MPa, 48\%), BBB01 (${\sim}1450$~MPa, 49\%), and BBB12 (${\sim}1400$~MPa, 47\%)---all share this compositional signature. The strong V--YS correlation ($r = 0.82$, $n = 37$; Section~3.3.1) is consistent with lattice distortion strengthening from the large atomic-size and modulus mismatch of V in the FCC matrix~\cite{varvenne2016theory}. We note, however, that the Varvenne--Luque--Curtin model assumes a fully random solid solution; at V = 20--24~at.\%, deviations from randomness (short-range ordering or local V clustering) could affect quantitative agreement, and this has not been independently validated for the alloys in this campaign. Nickel stabilizes the FCC phase at high V concentrations (VEC effect), and chromium is minimized to avoid sigma formation. BBC04 is the most extreme example: 60~at.\% Ni and 24~at.\% V with no Co, no Cu, and only 4~at.\% Cr---an alloy at the outer edge of the design space that the BO identified precisely because the constraint-aware acquisition permitted boundary exploration.
+
+The second is a \emph{high-ductility regime} with moderate V (8--12~at.\%), higher Mn (16~at.\%), and moderate Cr. BBB03 (${\sim}1220$~MPa UTS, 56\% elongation, UTS/YS = 3.97) and BBC01 (${\sim}1070$~MPa, 52\%, UTS/YS = 4.20) represent this compositional region. The elevated UTS/YS ratios and sustained elongation in these Mn-rich alloys are consistent with enhanced strain hardening, possibly through SFE reduction and twinning~\cite{li2016metastable, otto2013influences}, although direct microstructural evidence of the operating deformation mechanisms was not obtained in this campaign. These alloys trade peak strength for superior ductility and strain hardening capacity.
+
+The two routes occupy different regions of the Pareto front and validate the 8-element expansion from Campaign~1. The high-strength route exploits V--Ni synergy that was inaccessible in the 6-element system (which lacked the compositional freedom to simultaneously maximize V and Ni while suppressing Cr). The high-ductility route exploits Mn, which was absent from Campaign~1 entirely. Cu, by contrast, showed negative Pearson correlations with all strength metrics ($r = -0.44$ to $-0.51$; Section~3.3.1) while its multi-objective corrSHAP is slightly positive ($r \approx +0.15$), reflecting partial cancellation across the five targets; it appeared in none of the top-performing alloys. The BO effectively learned to deprioritize Cu-containing compositions---a result that informs future campaign design in this alloy family.
+
+\subsection{Bayesian Optimization Performance and Feasibility Analysis}
+
+Sections 3.1--3.3 reported the properties and composition--property relationships across the three iterations. The optimization metrics below quantify how the BRAVE framework produced these outcomes, and what the pattern of successes and failures exposes about the structure of the constrained design problem.
+
+Table~\ref{tab:bo_metrics} summarizes the optimization performance across the three iterations. The initial Pareto front (BBA) contained 10 non-dominated alloys with a hypervolume of 658.24. Iteration BBB increased the hypervolume to 817.77 (24.2\% gain) and expanded the Pareto front to 17 alloys, with 9 new non-dominated compositions. Iteration BBC reached a hypervolume of 856.30 (4.7\% gain) with 21 Pareto-optimal alloys.
+
+The Bayesian advantage of the campaign is best measured by the concentration of experimental budget in high-value regions of the design space, rather than by Pareto front size or hypervolume trajectory---both of which are expected to increase under random sampling in correlated objective spaces. The campaign explored 0.12\% of the feasible space (33 feasible alloys out of 27,240 candidates) and concentrated four of its strongest alloys (BBC04, BBC02, BBB01, BBB12---all with V $\geq$ 20~at.\% and Ni $\geq$ 36~at.\%) in a compositional region comprising approximately 100 of the 27,240 feasible candidates ($<$0.4\% of the feasible space). Under random sampling, the probability of placing four or more of 33 draws in this region is $P \approx 6.5 \times 10^{-6}$ (hypergeometric distribution). The feasibility-weighted acquisition strategy is further validated by a controlled computational benchmark (Appendix), in which risk-weighted EHVI matched oracle performance (perfect feasibility knowledge) while reducing wasted evaluations approximately fivefold relative to feasibility-blind BO, across two bi-objective optimization problems on the 6-component Al--V--Cr--Fe--Co--Ni system.
+
+\begin{table*}[t]
+\centering
+\caption{Bayesian Optimization Performance Across Iterations}
+\label{tab:bo_metrics}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Iteration} & \textbf{Avg EHVI} & \textbf{Hypervolume} & \textbf{HV Gain} & \textbf{Pareto Size} & \textbf{Infeasible} \\
+\midrule
+BBA & N/A & 658.24 & --- & 10 & 1/16 \\
+BBB & 836.41 & 817.77 & 24.2\% & 17 (9 new) & 5/16 \\
+BBC & 1059.2 & 856.30 & 4.7\% & 21 (5 new) & 9/16 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsubsection{Feasibility--Performance Trade-off}
+
+The number of alloys infeasible for Bayesian optimization (sigma phase or manufacturing failure preventing XRD verification) increased across iterations: 1/16 in BBA (BBA04, manufacturing failure), 5/16 in BBB (BBB05, BBB06, BBB09, BBB11, BBB13---all sigma), and 9/16 in BBC (BBC03, BBC08, BBC14 sigma; BBC05, BBC06, BBC07, BBC09, BBC10, BBC16 failed cold rolling before XRD). Of the 33 FCC-confirmed alloys, most proceeded to full characterization. A few FCC-confirmed alloys (BBA09, BBB10, BBB16) showed mechanical anomalies (brittle fracture or processing-induced defects) that limited the quality of their objective data but did not change their phase classification.
+
+\emph{Sigma-phase failures} decreased from 0 in BBA to 5 in BBB to 3 in BBC. The reduction from 5 to 3 between BBB and BBC reflects two mid-campaign interventions: the transition from TCHEA6 to TCHEA7 with dual-temperature screening, and the retraining of the GPC feasibility classifier on the 5 sigma outcomes from BBB. The GPC and updated CALPHAD screening reduced the sigma failure rate despite the BO continuing to target V-rich, high-strength compositions near the FCC/sigma boundary.
+
+\emph{Manufacturing and processing failures} (alloys that never reached XRD verification or that failed during cold rolling) went from 1 in BBA to 0 in BBB to 6 in BBC. The six BBC processing failures all failed cold rolling. The current framework has no mechanism to predict or prevent these failures, as the GPC is trained only on phase outcomes. Post-hoc analysis suggests that V-containing nano-precipitates may be responsible for embrittlement in certain compositions, but this finding postdates the present study and will be reported separately.
+
+This observation highlights a deeper tension in this alloy system. Table~\ref{tab:v_failure} quantifies the relationship between V content and outcome across all 48 alloys: no alloy with V = 0 failed, while failure rates reach 100\% at V = 16~at.\% and stay above 50\% for V $\geq$ 16~at.\%. The top row of the performance landscape (V $\geq$ 20~at.\%) contains both the three strongest alloys in the campaign (BBC04, BBC02, BBB01---all at V = 24~at.\%) and four of the eight sigma-phase failures. At V = 24~at.\%, half the alloys fail and half are the best performers---the definition of a boundary-adjacent optimum. High V content simultaneously increases the risk of sigma-phase formation and processing-induced embrittlement. The highest-performing alloys therefore reside adjacent to multiple feasibility boundaries.
+
+The failure rate is non-monotonic in V: it climbs to 100\% at V = 16~at.\% then falls back to 80\% at V = 20~at.\% and 50\% at V = 24~at.\%. This is not evidence that V becomes less destabilizing above 16~at.\%---it is evidence of surrogate-driven co-selection. By the BBB and BBC iterations, the GP had learned the V--Ni--Cr coupling (Ni stabilizes FCC at high V through the VEC effect; Cr promotes sigma), so the high-V candidates sampled in later iterations were preferentially those with high Ni and low Cr---compositional signatures that survive at the boundary. The V = 16~at.\% alloys, sampled earlier, did not benefit from this learned filtering. The 100\% failure rate at V = 16~at.\% is therefore an artifact of when those samples were queried, not of any special instability at that composition. What the BO is doing at V = 24~at.\% is hugging the constraint from the feasible side.
+
+\begin{table*}[t]
+\centering
+\caption{Failure rate and average yield strength by vanadium content across all 48 alloys.}
+\label{tab:v_failure}
+\small
+\begin{tabular}{ccccp{0.48\textwidth}}
+\toprule
+\textbf{V (at.\%)} & \textbf{Total} & \textbf{Failed} & \textbf{Failure Rate} & \textbf{Notable Alloys} \\
+\midrule
+0  & 8  & 0 & 0\%   & --- \\
+4  & 10 & 1 & 10\%  & BBA04 (manufacturing) \\
+8  & 6  & 1 & 17\%  & BBC05 (cold rolling) \\
+12 & 9  & 2 & 22\%  & BBC06, BBC07 (cold rolling) \\
+16 & 4  & 4 & 100\% & BBB09, BBB11 (sigma); BBC10, BBC16 (cold rolling) \\
+20 & 5  & 4 & 80\%  & BBB06, BBB13, BBC08 (sigma); BBC09 (cold rolling) \\
+24 & 6  & 3 & 50\%  & BBB05, BBC03, BBC14 (sigma); BBC04, BBC02, BBB01 (FCC, top 3 UTS) \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.98\columnwidth]{fig_19_v_ys_feasibility.pdf}
+    \caption{The two correlations that define the boundary-adjacent optimum plotted on a shared V axis. \textbf{(top)} Yield strength versus V content for the 30 single-phase FCC alloys with measurable YS (teal), with the four infeasible alloys that still yielded a YS measurement shown as maroon crosses. The regression on the feasible set gives $r = 0.84$ ($P = 8.7 \times 10^{-9}$). \textbf{(bottom)} Fraction of infeasible outcomes per V bin across all 48 alloys, with counts annotated as $\text{fails}/\text{total}$. The Pearson correlation between V content and infeasibility is $r = 0.54$ ($P = 9 \times 10^{-5}$). The yellow band at V = 24~at.\% marks the compositional point at which the three strongest alloys in the campaign and three sigma failures co-occur. The non-monotonic drop in failure rate from V = 16 to V = 24~at.\% reflects the BO's learned V--Ni--Cr coupling: high-V candidates sampled in later iterations were preferentially those with high Ni and low Cr, whose feasibility survives at the boundary.}
+    \label{fig:v_ys_feasibility}
+\end{figure}
+
+To quantify whether the relationship between V content and infeasibility is statistically significant, we applied two complementary tests~\cite{virtanen2020scipy}. First, treating V content as a continuous variable, the Pearson correlation between V content and infeasibility (coded as 0 or 1) is $r = 0.54$ ($P = 9.0 \times 10^{-5}$, $n = 48$): higher V is associated with higher probability of failure, and the probability that this association arises by chance is less than 0.01\%. This association is driven by V specifically, not by the V + Cr combination that defines the sigma stability threshold: V and Cr are uncorrelated across the 48 alloys ($r = 0.06$), confirming that V is a dominant predictor of infeasibility. Second, dividing alloys into high-V ($\geq 16$~at.\%) and low-V ($< 16$~at.\%) groups, 11 of 15 high-V alloys were infeasible compared to 4 of 33 low-V alloys---an odds ratio of 19.9 (Fisher's exact test, $P = 5.3 \times 10^{-5}$), meaning a high-V alloy is approximately 20 times more likely to fail than a low-V alloy. This association is robust to the choice of threshold: the odds ratio remains significant ($P < 0.05$) for all cutoffs from V $\geq$ 12 to V $\geq$ 20~at.\%.
+
+Among the 30 feasible alloys with yield strength data, V content correlates with YS at $r = 0.84$ ($P = 8.7 \times 10^{-9}$). The same element that most strongly predicts mechanical performance also most strongly predicts failure---both at significance levels below $P < 10^{-4}$. The BO's preferential sampling of high-V alloys in iterations BBB and BBC (15 of 32 alloys with V $\geq$ 16~at.\%, compared to 0 of 16 in the diversity-sampled BBA) is itself evidence that the surrogates correctly identified V as the performance driver. The selection bias toward high V is not a confound---it is the optimizer doing its job, concentrating budget where the predicted payoff is highest. The consequence is that both the best alloys and the most failures accumulate in the same compositional region, which is the signature of a boundary-adjacent optimum.
+
+This dual role is a pattern consistent with the general observation in constrained optimization that optimal solutions tend to lie on or near active constraint boundaries~\cite{ray2009infeasibility}. This coupling arises when the same compositional variable drives both performance and constraint violation: increasing V improves strength through lattice distortion effects (the objective gradient points toward high V) but simultaneously promotes sigma-phase formation (the constraint gradient points in the same direction). The unconstrained optimum would be a very high-V alloy that forms sigma. The constrained optimum is therefore the alloy with the highest V content that remains single-phase FCC---on the phase stability boundary by definition.
+
+(Formally, the Karush--Kuhn--Tucker conditions for constrained optimality require $\nabla f + \lambda \nabla g = 0$ with multiplier $\lambda > 0$ at the solution, placing the optimum on the active constraint boundary $g(\mathbf{x}) = 0$~\cite{nocedal2006numerical}. The KKT conditions apply strictly to continuous, single-objective problems; the present campaign operates on a discrete compositional grid with multiple objectives, but the underlying intuition---that aligned objective and constraint gradients push optima toward boundaries---transfers to this setting.) If the optimum were far from the constraint, the constraint would not be restricting the search, and the problem would be effectively unconstrained. This has a practical implication for campaign design: in alloy systems where the primary strengthening element also destabilizes the target phase (e.g., V in the present system), a feasibility-aware acquisition strategy is a prerequisite for accessing the high-performing region of the design space. The present campaign provides an experimental realization of this principle: vanadium drives both the objective ($r = 0.84$ with YS) and the constraint ($r = 0.54$ with infeasibility), and the three strongest alloys in the campaign share the V = 24~at.\% boundary with three sigma failures. The boundary phenomenon has been observed implicitly in metastability-engineered HEAs, where optimal TRIP-mediated strength--ductility combinations arise at the edge of FCC phase stability~\cite{li2016metastable}, and has been proposed as an algorithmic strategy for constrained Bayesian optimization~\cite{tian2024boundary, maguire2025good}. However, the explicit connection between performance--constraint coupling through a shared compositional variable and the KKT prediction that constrained optima lie on active boundaries has not, to our knowledge, been demonstrated quantitatively in an experimental alloy campaign.
+
+The sigma-phase trend (0 $\rightarrow$ 5 $\rightarrow$ 3) is the more informative metric for evaluating the feasibility-aware acquisition strategy. In iteration BBA, candidates were selected by diversity-aware k-medoids sampling across the interior of the FCC stability region, producing no sigma failures. In BBB, the BO targeted high-V, high-Cr regions where the GP surrogates predicted strong mechanical performance---the same regions where sigma is thermodynamically competitive. The 5 sigma failures provided the GPC with its first substantial training data and triggered the TCHEA7 transition. In BBC, the updated screening and retrained GPC reduced sigma failures to 3 despite continued exploration of the V-rich boundary---evidence that the feasibility-aware acquisition learned to avoid the most sigma-prone compositions while preserving access to the high-performing V-rich region.
+
+The counterfactual remains instructive. A hard-filtered strategy would have excluded the high-V region entirely after the BBB sigma failures. BBC04 and BBC02---the two highest-UTS alloys in the campaign---would never have been synthesized. The BRAVE framework found them by accepting controlled risk near the phase boundary, with the GPC progressively sharpening the feasibility boundary between iterations.
+
+The relevant performance metric is the performance gained per iteration, not the absolute failure rate. Despite 9/16 total failures in BBC (3 sigma + 6 processing), the 7 feasible alloys from that iteration included the strongest compositions in the campaign (BBC04, BBC02), and the hypervolume continued to increase (4.7\% gain over BBB). Extending the feasibility model to incorporate processing constraints---predicting which compositions are likely to fail cold rolling, independent of phase stability---is a priority for future campaigns.
+
+The feasibility analysis also exposes CALPHAD database fidelity as a practical bottleneck for closed-loop alloy campaigns. The TCHEA6 database, used for initial screening, failed to predict sigma formation in several V- and Cr-rich compositions that were experimentally confirmed as multiphase. The mid-campaign transition to TCHEA7---with its expanded sigma, BCC, HCP, and liquid phase assessments across $>$100 ternary subsystems---reduced but did not eliminate these prediction errors (Section~3.1). The GPC feasibility classifier absorbs residual prediction errors by learning the empirical feasibility boundary from experimental phase outcomes, but its effectiveness depends on the quality of the thermodynamic screening that defines the initial candidate pool. A poorly calibrated CALPHAD database shifts the entire feasible space, potentially excluding high-performing regions from the outset or flooding the candidate pool with infeasible compositions that consume experimental budget before the GPC has sufficient training data to compensate. This dependency has practical implications: future campaigns should (i)~validate CALPHAD predictions against a small exploratory batch before committing to full-scale optimization, (ii)~incorporate dual-temperature screening (as we adopted here after iteration BBB) from the first iteration, and (iii)~prioritize thermodynamic databases with assessed coverage of the relevant ternary and quaternary subsystems.
+
+%%% END inlined from 03_results.tex%%% BEGIN inlined from 04_conclusion.tex
+\section{Conclusions}\label{sec:Conclusion}
+
+In this work, we applied a risk-aware Bayesian optimization campaign (BRAVE) to the Al--V--Cr--Mn--Fe--Co--Ni--Cu FCC HEA system, synthesizing 48 alloys over three closed-loop iterations. We optimized five objectives simultaneously (YS, UTS/YS, strain at UTS, $H_\text{dyn}/H_\text{qs}$, DoP) while exploring 0.12\% of the 27,240-composition feasible space.
+
+\begin{enumerate}
+
+\item \textbf{The highest-performing compositions reside on the FCC phase stability boundary.} Vanadium drives both yield strength ($r = 0.84$, $n = 30$ feasible alloys) and sigma-phase formation ($r = 0.54$, $P = 9 \times 10^{-5}$, $n = 48$). At V = 24~at.\%, the three strongest alloys and three sigma failures share the same compositional point---the definition of a boundary-adjacent optimum. This outcome corresponds to the KKT prediction that constrained optima lie on active boundaries when objective and constraint gradients align~\cite{nocedal2006numerical, ray2009infeasibility}. Although such optima have been observed implicitly in metastability-engineered HEAs~\cite{li2016metastable} and proposed algorithmically~\cite{tian2024boundary, maguire2025good}, they have not, to our knowledge, been demonstrated with statistical significance in a closed-loop experimental campaign.
+
+\item \textbf{BRAVE navigated the boundary where simpler strategies cannot.} Hard filtering would have excluded the V-rich region after the first sigma failures. BBC04 and BBC02 (the two highest-UTS alloys) would never have been synthesized. Conversely, feasibility-blind BO would have repeatedly queried infeasible compositions without learning to avoid them. BRAVE embedded a learned feasibility probability into EHVI, concentrating resources in the V-rich, Ni-rich corner ($<$0.4\% of the feasible space, $P \approx 6.5 \times 10^{-6}$ under random sampling) while reducing the sigma rate from 5/16 to 3/16. Processing failures (1 $\rightarrow$ 0 $\rightarrow$ 6) lie outside the framework's scope. Despite 9/16 total infeasible alloys in BBC, the 7 feasible compositions included the strongest in the campaign. A computational benchmark (Appendix) confirms that risk-weighted EHVI matches oracle performance with ${\sim}5\times$ fewer wasted evaluations.
+
+\item \textbf{Two compositional regimes emerged from the 8-element space.} A high-strength regime (V = 20--24~at.\%, Cr $\leq$ 4~at.\%, Ni = 36--60~at.\%) produced BBC04 (${\sim}1480$~MPa UTS, 50\% elongation), where Ni stabilizes FCC at extreme V concentrations through VEC effects. A high-ductility regime (V = 8--12~at.\%, Mn = 16~at.\%) achieved UTS/YS up to 4.20 at $>$50\% elongation, consistent with SFE reduction and enhanced strain hardening~\cite{li2016metastable, otto2013influences}. Neither regime was accessible in Campaign~1's 6-element system. SHAP analysis confirmed V as the most influential feature (highest mean $|\text{SHAP}|$), consistent with its strong linear correlation with strength ($r = 0.82$). Ni, ranked fourth by mean $|\text{SHAP}|$, shows near-zero linear correlation with strength ($r = -0.03$) but non-negligible SHAP contributions whose sign reverses with compositional context---consistent with interaction-mediated, non-monotonic influence. Cu correlated negatively with all strength metrics and positively with DoP.
+
+\item \textbf{The campaign avoided the strength--ductility trade-off and compounded gains from Campaign~1.} Median YS increased across iterations while ductility was preserved, and inter-quartile ranges narrowed---indicating convergence. Every single-phase FCC alloy exceeded Campaign~1's best UTS/YS (2.93~\cite{hastings2025accelerated}): minimum 3.07, median 3.79, 9 above 4.0. We attribute this to three compounding factors: (i)~informative priors from Campaign~1 data and the Varvenne--Luque--Curtin model, (ii)~a design space expanded based on Campaign~1's lessons, and (iii)~objectives refined from the finding that hardness alone is an incomplete proxy for mechanical response.
+
+\item \textbf{DoP operated as a simulation-in-the-loop objective.} Calibrated from tensile and SHPB data via a Cowper--Symonds model, DoP tracks YS ($r = -0.94$) but also captures rate-sensitivity effects invisible to quasi-static testing. The strongest alloys (high V) showed lower rate-dependent strengthening, consistent with dislocation-glide-dominated deformation---a trade-off that is invisible without a rate-sensitive objective.
+
+\item \textbf{CALPHAD database fidelity limits the feasibility classifier.} The mid-campaign TCHEA6 $\rightarrow$ TCHEA7 transition reduced but did not eliminate false negatives---the errors that produce failed experiments. The GPC learns the empirical boundary from phase outcomes. A poorly calibrated database can still exclude high-performing regions or admit too many infeasible compositions before the GPC acquires sufficient training data.
+
+\end{enumerate}
+
+We note several limitations. The campaign optimized composition only; microstructure and processing were not design variables. Variability in grain size (10--35~$\mu$m) and recrystallization response introduced scatter that compositional surrogates cannot capture---several phase-pure alloys showed anomalous tensile behavior traceable to incomplete recrystallization, reducing the signal-to-noise available to the GP models. The DoP model uses a Cowper--Symonds framework without damage criteria, limiting its scope to relative penetration ranking. Furthermore, the GPC (trained on 8 sigma failures) cannot predict the 7 processing failures (i.e., cold-rolling defects) that dominated BBC's budget---a distinct failure mode outside the classifier's design scope.
+
+The three-iteration budget was set by experimental throughput rather than convergence criteria, and the diminishing HV gain (24.2\% in BBB, 4.7\% in BBC) leaves open whether additional iterations would yield substantial further improvement.
+
+In future work, we plan to incorporate microstructural descriptors (e.g., grain size, texture, precipitate fraction) as design variables and extend the feasibility model to processing failures. Testing BRAVE on systems with more complex phase competition (e.g., refractory HEAs with BCC/HCP/sigma boundaries) would assess generalizability. The KKT observation predicts boundary-adjacent optima should recur whenever the performance-driving element also destabilizes the target phase.
+
+%%% END inlined from 04_conclusion.tex
+\section*{CRediT authorship contribution statement}
+
+\textbf{Mrinalini Mulukutla:} Methodology, Investigation, Formal analysis, Data curation, Visualization, Project administration, Writing -- original draft.
+\textbf{Danial Khatamsaz:} Methodology, Software, Formal analysis, Writing -- original draft.
+\textbf{Trevor Hastings:} Formal analysis, Investigation, Methodology, Software, Visualization, Writing -- original draft.
+\textbf{Wenle Xu:} Data curation, Investigation, Writing -- original draft.
+\textbf{Daniel Salas:} Data curation, Formal analysis, Investigation, Methodology, Writing -- original draft.
+\textbf{Joydeep Kundu:} Data curation, Investigation, Methodology, Visualization, Writing -- original draft.
+\textbf{Vasanth C.\ Shunmugasamy:} Data curation, Investigation, Methodology, Visualization, Writing -- original draft.
+\textbf{Daniel Lewis:} Investigation, Methodology, Visualization, Writing -- original draft.
+\textbf{Jacob Hempel:} Formal analysis, Investigation, Methodology, Visualization, Writing -- original draft.
+\textbf{Clinton Strosser:} Investigation.
+\textbf{Alexandra Salinas:} Formal analysis, Investigation, Methodology, Writing -- original draft.
+\textbf{Brent Vela:} Data curation, Formal analysis, Investigation, Methodology, Visualization, Writing -- original draft.
+\textbf{Nicolas Flores:} Data curation, Formal analysis, Investigation, Software, Visualization, Writing -- original draft.
+\textbf{Sina Hossein Zadeh:} Investigation, Software, Writing -- original draft.
+\textbf{Ali Rachidi:} Investigation, Software.
+\textbf{David Elbert:} Investigation, Software.
+\textbf{Brady Butler:} Conceptualization, Investigation, Methodology, Supervision, Writing -- review \& editing.
+\textbf{James Paramore:} Supervision, Writing -- review \& editing.
+\textbf{Dimitris Lagoudas:} Conceptualization, Funding acquisition, Supervision, Writing -- review \& editing.
+\textbf{Justin Wilkerson:} Conceptualization, Funding acquisition, Supervision, Writing -- review \& editing.
+\textbf{George Pharr:} Conceptualization, Funding acquisition, Supervision, Writing -- review \& editing.
+\textbf{Douglas Allaire:} Conceptualization, Formal analysis, Funding acquisition, Software, Supervision, Writing -- review \& editing.
+\textbf{Vahid Attari:} Software, Writing -- original draft.
+\textbf{Ibrahim Karaman:} Conceptualization, Funding acquisition, Supervision, Writing -- review \& editing.
+\textbf{Ankit Srivastava:} Conceptualization, Funding acquisition, Project administration, Supervision, Writing -- review \& editing.
+\textbf{Raymundo Arr\'{o}yave:} Conceptualization, Formal analysis, Funding acquisition, Methodology, Supervision, Writing -- review \& editing.
+
+
+\section*{Declaration of competing interest}
+
+    The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Data Availability}
+
+    The data generated and analyzed during this study is included in \underline{Supplementary Information} and is also available in the github repository below, provided as an Excel database.
+
+\section*{Code Availability}
+
+    Code used in this project is available on https://github.com/mrinalinimulukutla/BRAVE.
+
+\section*{Acknowledgements}
+
+The research was sponsored by the Army Research Laboratory and was accomplished under Cooperative Agreement Number W911NF-22-2-0106. The views and conclusions contained in this document are those of the authors. They should not be interpreted as representing the official policies, either expressed or implied, of the Army Research Laboratory or the US Government. The US Government is authorized to reproduce and distribute reprints for Government Purposes, notwithstanding any copyright notation herein. 
+    
+The authors would like to acknowledge Dr.\ Anup and his group at Texas A\&M University for access to their XRD Bruker D8 Discover instrument, and Texas A\&M's Materials Characterization Facility for access to their EBSD-capable FIB-SEM. The authors also acknowledge Dr.\ Ken Vecchio and his group at the University of California, San Diego for their support with Split-Hopkinson Pressure Bar (SHPB) testing, and Texas A\&M's High Performance Research Computing group for access to the computational infrastructure used in this work.
+
+
+We also acknowledge the use of Claude Sonnet 4.6 for data analysis assistance and prose editing. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the content of the publication.
+
+%\input{Supplemental}
+
+
+%%% BEGIN inlined from 05_appendix.tex
+\section*{Appendix}
+\label{sec:appendix}
+
+\subsection*{A. Mathematical Details of the BRAVE Framework}
+\label{sec:appendix_math}
+
+\begin{figure*}[!ht]
+    \centering
+    \includegraphics[width=0.95\textwidth]{fig_20_benchmark.pdf}
+    \caption{Benchmarking results for four MOBBO strategies on the six-component HEA system. Two bi-objective tasks are shown: (a) CV(YS)--Pugh ratio and (b) CV(YS)--Cauchy pressure. Metrics: feasible hypervolume (HV), Pareto front size, and feasibility-violation rate (FVR). Risk-weighted MOBBO matches oracle performance while maintaining low FVR.}
+    \label{fig:benchmark_results}
+\end{figure*}
+
+This section collects the mathematical details of the surrogate modeling, multi-objective acquisition, multi-source fusion, and batch selection components summarized in Section~2.6.
+
+\subsubsection*{A.1 Gaussian Process Regression}
+
+In Bayesian optimization, probabilistic surrogate models are used to represent expensive-to-evaluate objective functions and guide candidate selection through uncertainty-aware predictions. We used Gaussian process regression (GPR) as the surrogate due to its low computational cost and flexible distance-based correlation structure~\cite{Rasmussen:2005:GPM:1162254}.
+
+Assuming there are $N$ previously observed data denoted by $\{\mathbf{X}_{N}, \mathbf{y}_{N}\}$, where $\mathbf{X}_{N} = (\mathbf{x}_{1}, \ldots, \mathbf{x}_{N})$ and $\mathbf{y}_{N} = \left(f(\mathbf{x}_{1}), \ldots, f(\mathbf{x}_{N})\right)$, then the GP probabilistic prediction at unobserved location \textbf{x} is a normal distribution:
+\begin{equation}
+\label{GP11}
+f_{\textrm{GP}}(\mathbf{x}) \mid \mathbf{X}_{N}, \mathbf{y}_{N} \sim \mathcal{N}\left(\mu(\mathbf{x}),\sigma_{\textrm{GP}}^2(\mathbf{x})\right)
+\end{equation}
+where
+\begin{equation}
+\begin{aligned}
+\label{meancov}
+\mu(\mathbf{x}) &= K(\mathbf{X}_{N},\mathbf{x})^\textrm{T}[K(\mathbf{X}_{N},\mathbf{X}_{N})+\sigma^2_{n}I]^{-1} \mathbf{y}_{N}\\
+\sigma_{\textrm{GP}}^2 (\mathbf{x})  &=  k(\mathbf{x},\mathbf{x}) - K(\mathbf{X}_{N},\mathbf{x})^\textrm{T} [K(\mathbf{X}_{N},\mathbf{X}_{N})+\sigma^2_{n}I]^{-1}K(\mathbf{X}_{N},\mathbf{x})
+\end{aligned}
+\end{equation}
+here, $k$ is a real-valued kernel function to calculate correlations, $K(\mathbf{X}_{N},\mathbf{X}_{N})$ as a $N \times N$ matrix with $m,n$ entry as $k(\mathbf{x}_{m}, \mathbf{x}_{n})$, and $K(\mathbf{X}_{N}, \mathbf{x})$ is a $N \times 1$ vector with $m^{th}$ entry as $k(\mathbf{x}_{m}, \mathbf{x})$.  The term $\sigma^2_{n}$ is used to model experiment errors. A common choice for kernel function is squared exponential:
+\begin{equation}
+\label{eq:5}
+k(\mathbf{x},\mathbf{x'}) = \sigma_s^2 \exp\left(- \sum_{h = 1}^{d} \frac {(x_h-x'_h)^2}{2l_h^2}\right )
+\end{equation}
+where $d$ is the dimensionality of the input space, $\sigma_s^2$ is the signal variance, and $l_h$, where $h = 1,2,\ldots,d$, is the characteristic length-scale to determine correlation strength between data points within dimension $h$.
+
+\subsubsection*{A.2 Informative Priors}
+
+Although standard GPR sets the mean function to zero, this forfeits the opportunity to encode prior knowledge. An informative prior instead sets the mean function to a physics-based model prediction, $\mu(\mathbf{x})$, and trains the GPR on the discrepancy $f'(\mathbf{x}) = f_{\textrm{exp}}(\mathbf{x}) - \mu(\mathbf{x})$ between experimental observations and the prior. The posterior $f = f' + \mu$ defaults to the physics-based prediction where no experimental data exist, and overrides it where observations are available.
+
+In this work, we used GPR with an informative prior that integrates physical insights from the Varvenne--Luque--Curtin solid solution strengthening model~\cite{varvenne2016theory} as the prior, $\mu$. This model captures the strengthening behavior of FCC HEAs by accounting for solute misfit volumes, modulus mismatch, and local lattice distortions in a fully random solution. We combined this physics-based prior with limited experimental data, including Vickers hardness (HV) and temperature-dependent yield strength (YS) measurements.
+
+Let the true composition-temperature-dependent mechanical behavior of the HEAs be denoted by $f_{\textrm{exp}}(\mathbf{x})$, where $\mathbf{x}$ is a vector describing the alloy composition and test temperature. The GPR model is built over the residual between experimental observations and the prior prediction, $f_{\textrm{dis}}(\mathbf{x}) = f_{\textrm{exp}}(\mathbf{x}) - \mu(\mathbf{x})$. The final GPR prediction is then:
+\[
+f(\mathbf{x}) = f_{\textrm{dis}}(\mathbf{x}) + \mu(\mathbf{x}).
+\]
+
+The machine learning models were developed using data from~\cite{hastings2025accelerated} in conjunction with the {\tt CBFV}~\cite{Murdock2020IsProperties} and {\tt HEACalculator} packages~\cite{doguhan_sariturk_2022_7429046} for composition feature generation. These tools generated over 5000 features for each composition, which were subsequently optimized using the RecursiveByShapValues method~\cite{Prokhorenkova2018CatBoost:Features} to eliminate redundant features based on SHAP values. Given the tabular nature of the dataset, with a limited number of datapoints and a high dimensionality of features, the CatBoost gradient boosting algorithm~\cite{Prokhorenkova2018CatBoost:Features} was used.
+
+\subsubsection*{A.3 Multi-Objective Optimization via EHVI}
+
+Because EHVI is implemented in minimization form, the four desirable-to-maximize objectives (YS, UTS/YS, strain at UTS, and $H_\text{dyn}/H_\text{qs}$) were sign-inverted before surrogate modeling and hypervolume calculation, while DoP remained in its original minimization form.
+
+A multi-objective optimization problem is defined as
+\begin{equation}
+\label{eq:problem_app}
+    \mbox{minimize}\,\,\,  \{f_1(\textbf{x}), ...,f_n(\textbf{x})\}, \textbf{x} \in \mathcal{X}
+\end{equation}
+where $f_1(\textbf{x}),\ldots, f_n(\textbf{x})$ are the objectives and $\mathcal{X}$ is the feasible design space. Typically, no single solution simultaneously optimizes all objectives. The solution is instead a set of non-dominated designs with trade-offs, forming the Pareto front in the objective space. The optimal solutions $\mathbf{y}$ are denoted as $\mathbf{y}\prec \mathbf{y'}$ and expressed as
+\begin{equation}
+\begin{aligned}
+   \{\mathbf{y}: \mathbf{y} & = (y_1, y_2, \ldots, y_n), \; y_i \leq y_i' \;\; \forall \; i \in \{1, 2, \ldots, n\}, \\
+   &  \exists \; j \in \{1, 2, \ldots, n\} : y_j < y'_j\}
+\end{aligned}
+\end{equation}
+where $\mathbf{y}' = (y_1', y_2', \ldots, y_n')$ denotes any possible objective output.
+
+Several approaches exist for approximating the Pareto front, including weighted sum~\cite{marler2010weighted}, adaptive weighted sum~\cite{kim2005adaptive}, normal boundary intersection~\cite{das1998normal}, and hypervolume indicator methods~\cite{beume2009s,bradstreet2010fast,emmerich2011hypervolume,fonseca2006improved,russo2013quick,yang2007novel,zitzler1999multiobjective}. Hypervolume is the space bounded by a fixed reference point and the current Pareto front approximation. Maximizing it pushes the approximation toward the true Pareto front. The acquisition function used here is Expected Hypervolume Improvement (EHVI), computed via the recursive decomposition method of Zhao et al.~\cite{zhao2018fast}. Following~\cite{feliot2017bayesian}, EHVI is defined as
+\begin{equation}
+    \mathbb{E}[\textrm{{HVI}}({\mathbf{y}})] =\int_U \mathbb{P}(\mathbf{y} \prec{\mathbf{y}'})d{{\mathbf{y}'}}
+    \label{Expected_app}
+\end{equation}
+where $\mathbb{P}(\mathbf{y} \prec \mathbf{y}')$ is the probability that $\mathbf{y}'$ dominates $\mathbf{y}$ and $U$ is the dominated hypervolume. Given an independent GP for each objective, the posterior predictive is $y_i \sim \mathcal{N}(\mu_i , \sigma_i^2)$ where $i\leq m$ and $\mu_i,\sigma_i^2$ are the mean and variance of the $i^{th}$ objective. For a new candidate:
+\begin{equation}
+    \mathbb{P}(\mathbf{y} \prec \mathbf{y}') = \prod_{i=1}^m \Phi \left ( \frac{y_i' - \mu_i}{\sigma_i} \right )
+    \label{prob_app}
+\end{equation}
+where $\Phi$ is the CDF of the standard normal. Details regarding the closed-form expression of Eq.~(\ref{Expected_app}) can be found in Refs.~\cite{zhao2018fast,feliot2017bayesian,while2011fast,jaszkiewicz2018improved,khatamsaz2020efficient}.
+
+\subsubsection*{A.4 Multi-Source Modeling via Reification}
+
+Four objectives (YS, UTS/YS, strain at UTS, $H_\text{dyn}/H_\text{qs}$) were measured experimentally. The fifth (DoP) was a simulation output derived from FEM models calibrated to the tensile and SHPB data acquired in the same iteration. DoP therefore passed through a two-level model chain---experiment $\rightarrow$ constitutive calibration $\rightarrow$ FEM $\rightarrow$ GP---and its uncertainty compounded surrogate approximation error with upstream calibration error. All five objectives entered the EHVI computation as GP posterior distributions regardless of their origin.
+
+To avoid assumptions about the hierarchy of information sources, we estimated inter-source correlations using the reification technique~\cite{allaire2012fusing,thomison2017model}. Following~\cite{Winkler_1981}, the fused mean and variance are:
+\begin{equation}
+\label{e:WinklerMeanGen_app}
+\mathbb{E} [\hat{f}(\mathbf{x})]=\frac{\mathbf{e}^\textrm{T} \tilde{\Sigma}(\mathbf{x})^{-1}  \boldsymbol{\mu}(\mathbf{x})}{\mathbf{e}^\textrm{T} \tilde{\Sigma}(\mathbf{x})^{-1} \mathbf{e}}
+\end{equation}
+\begin{equation}
+\label{e:WinklerVarianceGen_app}
+\textrm{Var}\left(\hat{f}(\mathbf{x})\right) = \frac{1}{\mathbf{e}^\textrm{T} \tilde{\Sigma}(\mathbf{x})^{-1} \mathbf{e}}
+\end{equation}
+where $\mathbf{e} = [1,\ldots,1]^\textrm{T}$, $\boldsymbol{\mu}(\mathbf{x}) = [\mu_1(\mathbf{x}),\ldots,\mu_m(\mathbf{x})]^\textrm{T}$ given $m$ information sources, and $\tilde{\Sigma}(\mathbf{x})$ is the covariance matrix with diagonal elements $\sigma_i^2$ and off-diagonal elements $\bar{\rho}_{ij} \sigma_i \sigma_j$. The correlation coefficient $\bar{\rho}_{ij}$ is calculated via reification:
+\begin{equation}
+\bar{\rho}_{ij}(\mathbf{x}) = \frac{\sigma_j^2(\mathbf{x})}{\sigma_i^2(\mathbf{x}) + \sigma_j^2(\mathbf{x})} \rho_{ij}(\mathbf{x}) + \frac{\sigma_i^2(\mathbf{x})}{\sigma_i^2(\mathbf{x})+\sigma_j^2(\mathbf{x})} \rho_{ji}(\mathbf{x})
+\label{e:VWrho_app}
+\end{equation}
+where
+\begin{equation}
+\begin{aligned}
+\rho_{ij}(\mathbf{x}) &= \frac{\sigma_i(\mathbf{x})}{\sqrt{\left(\mu_i(\mathbf{x})-\mu_j(\mathbf{x})\right)^2 + \sigma_i^2(\mathbf{x})}}, \\
+\rho_{ji}(\mathbf{x}) &= \frac{\sigma_j(\mathbf{x})}{\sqrt{\left(\mu_i(\mathbf{x})-\mu_j(\mathbf{x})\right)^2 + \sigma_j^2(\mathbf{x})}}.
+\end{aligned}
+\label{e:rho_app}
+\end{equation}
+
+\subsubsection*{A.5 Batch Bayesian Optimization}
+
+GP surrogates depend on kernel length-scale hyperparameters that control correlation strength across the input space. Although standard tuning methods (e.g., maximum likelihood~\cite{Rasmussen:2005:GPM:1162254}, cross-validation) are effective with sufficient data, they can become trapped in local optima when training data are sparse~\cite{joy2020batch,couperthwaite2020materials}.
+
+To address this, we constructed a large ensemble of GPs with randomly sampled length-scales, each encoding a different smoothness assumption~\cite{joy2020batch}. Each GP made a different inference about the underlying objective function, yielding different candidate suggestions:
+\begin{equation}
+    \textbf{x}_{1:n} = \arg\max_{\mathbf{x} \in \chi}  \textrm{EHVI}^{N}(\textbf{x} | \textrm{GP}(\mathbb{D}_N,\theta_{1:n}))
+\end{equation}
+where $n$ Gaussian processes were built with different hyperparameter sets $\theta$ given data $\mathbb{D}$. From the $n$ candidate suggestions, k-medoids clustering selected a batch of compositions that maximized diversity while preserving aggregate hypervolume gain.
+
+\subsection*{B. Benchmarking Risk-Aware Multi-Objective Bayesian Optimization}
+\label{sec:appendix_benchmark}
+
+To quantitatively assess the effectiveness of the proposed risk-aware multi-objective Bayesian optimization (MOBBO) strategy, we constructed a controlled computational benchmark based on the six-component Al--V--Cr--Fe--Co--Ni HEA space. The full design space was discretized at 4~at.\% resolution, generating a pool of 23{,}694 distinct compositions with precomputed objective properties and phase stability metrics.
+
+Two bi-objective optimization problems were defined:
+(i) maximize yield strength proxy (CV\_YS) and Pugh ratio ($B/G$), and
+(ii) maximize CV\_YS and Cauchy pressure ($C_{12} - C_{44}$).
+CV\_YS was computed using the Curtin--Varvenne solid solution strengthening model~\cite{varvenne2016theory}. Pugh ratio and Cauchy pressure were approximated via rule-of-mixtures aggregation of elemental elastic constants.
+
+Feasibility was introduced through a dual-database configuration that mimics realistic model discrepancy: screening used TCHEA6 (FCC $\geq 0.99$ at 700$^\circ$C), while ground-truth feasibility labels were assigned from TCHEA7. Any composition with TCHEA7 FCC fraction $<0.99$ was treated as infeasible.
+
+Four acquisition strategies were compared:
+
+\begin{enumerate}
+    \item \textbf{Baseline MOBBO}: EHVI applied across the full design space without feasibility awareness.
+    \item \textbf{Hard-Filter MOBBO}: EHVI restricted to TCHEA6-predicted FCC-stable compositions.
+    \item \textbf{Risk-Weighted MOBBO}: EHVI multiplied by $p_{\text{feas}} = (\text{FCC}_{\text{TCHEA7}})^{\alpha}$ with $\alpha = 2$.
+    \item \textbf{Oracle MOBBO}: EHVI weighted by the true binary feasibility label from TCHEA7 (upper bound).
+\end{enumerate}
+
+Each campaign selected 10 initial compositions via $k$-medoids clustering, then ran 20 sequential iterations of batch size 10, with GP regressors for objectives and a Random Forest classifier for feasibility. Five random seeds yielded 100 total campaigns per objective pair. Performance was evaluated using feasible hypervolume (HV), Pareto front size, and feasibility violation rate (FVR).
+
+\autoref{fig:benchmark_results} summarizes the results. The differences between strategies are consistent across both objective pairs:
+
+
+
+\begin{itemize}
+
+\item \textbf{Baseline MOBBO} fails completely: near-zero feasible HV, trivial Pareto sets, FVR $\approx 1.0$, with $>$90\% of evaluations wasted on infeasible candidates.
+
+\item \textbf{Hard-Filter MOBBO} improves feasibility (FVR $\approx 0.15$) but plateaus early when TCHEA6 mispredictions over-restrict exploration. It achieves HV = 7.25 (Pugh) and 4.66 (Cauchy) but lacks robustness near misclassified boundaries.
+
+\item \textbf{Risk-Weighted MOBBO} matches the oracle in final HV (7.25 and 4.66), maintains low FVR ($\approx 0.15$--0.20), and converges within 3--5 iterations. By penalizing rather than excluding uncertain candidates, it preserves exploration flexibility near critical boundaries.
+
+\item \textbf{Oracle MOBBO} achieves identical final HV but wastes $\approx$170--190 evaluations on infeasible candidates early on, demonstrating that feasibility knowledge alone is insufficient---it must be incorporated into the acquisition function.
+
+\end{itemize}
+
+The three feasibility-aware strategies converge to the same final HV because that value is the ceiling: it is the true feasible Pareto front of the discretized 6-component space, and any strategy that avoids wasting the budget on infeasibles will eventually saturate at it. Final HV therefore cannot discriminate among Hard-Filter, Risk-Weighted, and Oracle. What separates them is the path to that ceiling. Hard-Filter reaches it in this benchmark because the accessible optimum happens to sit safely inside TCHEA6's predicted feasible set; in a system where the optimum lies on a TCHEA6-misclassified boundary---which is the situation of the 8-element experimental campaign in the main text---Hard-Filter would exclude the winning region outright. Risk-Weighted reaches the same ceiling without depending on a ground-truth feasibility database: it learns the empirical boundary from experimental outcomes as they arrive, matching Oracle's final HV with ${\sim}5\times$ fewer wasted evaluations. The binding bottleneck in feasibility-constrained MOBBO is therefore feasibility awareness. Baseline MOBBO's failure demonstrates this: EHVI is a competent acquisition function, but without feasibility awareness it wastes the budget on infeasible candidates and the GPs never accumulate enough clean signal to converge. Among feasibility-aware strategies, the operationally important distinction is robustness to database discrepancy and resource efficiency, not peak Pareto quality.
+
+Even with perfect feasibility knowledge, the oracle still queries $\approx$170--190 infeasible high-objective candidates over the 20-iteration budget, because feasibility labels alone do not suppress the acquisition function's attraction to unexplored regions with high predicted performance. Risk-weighted MOBBO avoids this by embedding feasibility directly into the acquisition score, matching the oracle's final HV with ${\sim}5\times$ fewer wasted evaluations. The experimental campaign shows the same pattern: identifying the feasibility boundary is necessary but not sufficient---the acquisition function must be designed to navigate it.
+
+The magnitude of this efficiency gain is not compatible with chance. Under a Poisson null model in which risk-weighted MOBBO and the oracle have the same per-iteration probability of wasting an evaluation, the probability of observing $\approx$35 or fewer wasted evaluations from risk-weighted MOBBO given the oracle's baseline of $\approx$180 wasted evaluations is $P < 10^{-30}$ per bi-objective task (normal approximation to the Poisson tail, $z \approx -10.8$), so $P < 10^{-60}$ jointly across the CV(YS)--Pugh and CV(YS)--Cauchy pressure tasks. In parallel with the hypergeometric bound reported in Section~3.4 for the experimental campaign ($P \approx 6.5 \times 10^{-6}$ that the four highest-YS alloys cluster in the V-rich, Ni-rich corner by chance), the ablation therefore establishes the risk-aware advantage on two complementary axes: statistical improbability of the observed concentration in the experimental campaign, and statistical improbability of the observed efficiency gain in the computational benchmark.
+
+%%% END inlined from 05_appendix.tex
+%%% --- Inlined bibliography (generated from references.bib via BibTeX + jabbrv_elsarticle-num) ---
+%%% To regenerate: latexmk -pdf manuscript.tex (jabbrv expands \JournalTitle{} at typeset time)
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{pollock2016alloy}
+T.~M. Pollock, Alloy design for aircraft engines, {\JournalTitle{Nature
+  Materials}} 15~(8) (2016) 809--815.
+\newblock \href {http://dx.doi.org/10.1038/nmat4709}
+  {\path{doi:10.1038/nmat4709}}.
+
+\bibitem{reed2006superalloys}
+R.~C. Reed, The Superalloys: Fundamentals and Applications, Cambridge
+  University Press, 2006.
+
+\bibitem{arroyave2022perspective}
+R.~Arr{\'o}yave, D.~Khatamsaz, B.~Vela, R.~Couperthwaite, A.~Molkeri, P.~Singh,
+  D.~D. Johnson, X.~Qian, A.~Srivastava, D.~Allaire, A perspective on
+  {Bayesian} methods applied to materials discovery and design,
+  {\JournalTitle{MRS Commun.}} 12 (2022) 1037--1049.
+\newblock \href {http://dx.doi.org/10.1557/s43579-022-00288-0}
+  {\path{doi:10.1557/s43579-022-00288-0}}.
+
+\bibitem{liu2022highthroughput}
+Z.-K. Liu, S.-L. Shang, A.~M. Beese, Y.~Wang, A.~Eghtesad, J.~Shimanek, S.~Qin,
+  S.~Lin, H.~Sun, B.~Bocklund, \href{https://doi.org/10.2172/1907945}{High
+  throughput computational framework of materials properties for extreme
+  environments}, Tech. rep., The Pennsylvania State University (2022).
+\newblock \href {http://dx.doi.org/10.2172/1907945}
+  {\path{doi:10.2172/1907945}}.
+\newline\urlprefix\url{https://doi.org/10.2172/1907945}
+
+\bibitem{miracle2017critical}
+D.~B. Miracle, O.~N. Senkov,
+  \href{https://doi.org/10.1016/j.actamat.2016.08.081}{A critical review of
+  high entropy alloys and related concepts}, {\JournalTitle{Acta Mater.}}
+  122 (2017) 448--511.
+\newblock \href {http://dx.doi.org/10.1016/j.actamat.2016.08.081}
+  {\path{doi:10.1016/j.actamat.2016.08.081}}.
+\newline\urlprefix\url{https://doi.org/10.1016/j.actamat.2016.08.081}
+
+\bibitem{zhang2014microstructures}
+Y.~Zhang, T.~T. Zuo, Z.~Tang, M.~C. Gao, K.~A. Dahmen, P.~K. Liaw, Z.~P. Lu,
+  \href{https://doi.org/10.1016/j.pmatsci.2013.10.001}{Microstructures and
+  properties of high-entropy alloys}, {\JournalTitle{Progress in Materials
+  Science}} 61 (2014) 1--93.
+\newblock \href {http://dx.doi.org/10.1016/j.pmatsci.2013.10.001}
+  {\path{doi:10.1016/j.pmatsci.2013.10.001}}.
+\newline\urlprefix\url{https://doi.org/10.1016/j.pmatsci.2013.10.001}
+
+\bibitem{cantor2004microstructural}
+B.~Cantor, I.~T.~H. Chang, P.~Knight, A.~J.~B. Vincent,
+  \href{https://doi.org/10.1016/j.msea.2003.10.257}{Microstructural development
+  in equiatomic multicomponent alloys}, {\JournalTitle{Materials Science and
+  Engineering: A}} 375--377 (2004) 213--218.
+\newblock \href {http://dx.doi.org/10.1016/j.msea.2003.10.257}
+  {\path{doi:10.1016/j.msea.2003.10.257}}.
+\newline\urlprefix\url{https://doi.org/10.1016/j.msea.2003.10.257}
+
+\bibitem{gludovatz2014fracture}
+B.~Gludovatz, A.~Hohenwarter, D.~Catoor, E.~H. Chang, E.~P. George, R.~O.
+  Ritchie, A fracture-resistant high-entropy alloy for cryogenic applications,
+  {\JournalTitle{Science}} 345 (2014) 1153--1158.
+\newblock \href {http://dx.doi.org/10.1126/science.1254581}
+  {\path{doi:10.1126/science.1254581}}.
+
+\bibitem{li2016metastable}
+Z.~Li, K.~G. Pradeep, Y.~Deng, D.~Raabe, C.~C. Tasan, Metastable high-entropy
+  dual-phase alloys overcome the strength--ductility trade-off,
+  {\JournalTitle{Nature}} 534 (2016) 227--230.
+\newblock \href {http://dx.doi.org/10.1038/nature17981}
+  {\path{doi:10.1038/nature17981}}.
+
+\bibitem{otto2013influences}
+F.~Otto, A.~Dlouhy, C.~Somsen, H.~Bei, G.~Eggeler, E.~P. George, The influences
+  of temperature and microstructure on the tensile properties of a {CoCrFeMnNi}
+  high-entropy alloy, {\JournalTitle{Acta Mater.}} 61 (2013) 5743--5755.
+\newblock \href {http://dx.doi.org/10.1016/j.actamat.2013.06.018}
+  {\path{doi:10.1016/j.actamat.2013.06.018}}.
+
+\bibitem{potyrailo2011combinatorial}
+R.~Potyrailo, K.~Rajan, K.~Stoewe, I.~Takeuchi, B.~Chisholm, H.~Lam,
+  Combinatorial and high-throughput screening of materials libraries: review of
+  state of the art, {\JournalTitle{ACS Comb. Sci.}} 13~(6) (2011)
+  579--633.
+\newblock \href {http://dx.doi.org/10.1021/co200007w}
+  {\path{doi:10.1021/co200007w}}.
+
+\bibitem{rajan2008combinatorial}
+K.~Rajan, Combinatorial materials sciences: Experimental strategies for
+  accelerated knowledge discovery, {\JournalTitle{Annual Review of Materials
+  Research}} 38~(1) (2008) 299--322.
+\newblock \href {http://dx.doi.org/10.1146/annurev.matsci.38.060407.130217}
+  {\path{doi:10.1146/annurev.matsci.38.060407.130217}}.
+
+\bibitem{national2008integrated}
+{National Research Council}, Integrated Computational Materials Engineering: A
+  Transformational Discipline for Improved Competitiveness and National
+  Security, National Academies Press, 2008.
+\newblock \href {http://dx.doi.org/10.17226/12199} {\path{doi:10.17226/12199}}.
+
+\bibitem{panchal2013key}
+J.~H. Panchal, S.~R. Kalidindi, D.~L. McDowell, Key computational modeling
+  issues in integrated computational materials engineering,
+  {\JournalTitle{Comput.-Aided Des.}} 45~(1) (2013) 4--25.
+\newblock \href {http://dx.doi.org/10.1016/j.cad.2012.06.006}
+  {\path{doi:10.1016/j.cad.2012.06.006}}.
+
+\bibitem{arroyave2019systems}
+R.~Arr{\'o}yave, D.~L. McDowell, Systems approaches to materials design: past,
+  present, and future, {\JournalTitle{Annu. Rev. Mater. Res.}} 49
+  (2019) 103--126.
+\newblock \href {http://dx.doi.org/10.1146/annurev-matsci-070218-125955}
+  {\path{doi:10.1146/annurev-matsci-070218-125955}}.
+
+\bibitem{yang2022machine}
+C.~Yang, C.~Ren, Y.~Jia, G.~Wang, M.~Li, W.~Lu, A machine learning-based alloy
+  design system to facilitate the rational design of high entropy alloys with
+  enhanced hardness, {\JournalTitle{Acta Mater.}} 222 (2022) 117431.
+\newblock \href {http://dx.doi.org/10.1016/j.actamat.2021.117431}
+  {\path{doi:10.1016/j.actamat.2021.117431}}.
+
+\bibitem{shahriari2016taking}
+B.~Shahriari, K.~Swersky, Z.~Wang, R.~P. Adams, N.~de~Freitas,
+  \href{https://doi.org/10.1109/JPROC.2015.2494218}{Taking the human out of the
+  loop: A review of bayesian optimization}, {\JournalTitle{Proceedings of the
+  IEEE}} 104~(1) (2016) 148--175.
+\newblock \href {http://dx.doi.org/10.1109/JPROC.2015.2494218}
+  {\path{doi:10.1109/JPROC.2015.2494218}}.
+\newline\urlprefix\url{https://doi.org/10.1109/JPROC.2015.2494218}
+
+\bibitem{frazier2018tutorial}
+P.~I. Frazier, {Bayesian} optimization, in: Recent Advances in Optimization and
+  Modeling of Contemporary Problems, INFORMS, 2018, pp. 255--278.
+\newblock \href {http://dx.doi.org/10.1287/educ.2018.0188}
+  {\path{doi:10.1287/educ.2018.0188}}.
+
+\bibitem{Rasmussen:2005:GPM:1162254}
+C.~E. Rasmussen, C.~K.~I. Williams, Gaussian Processes for Machine Learning
+  (Adaptive Computation and Machine Learning), The MIT Press, Cambridge, MA,
+  USA, 2005.
+
+\bibitem{snoek2012practical}
+J.~Snoek, H.~Larochelle, R.~P. Adams, Practical bayesian optimization of
+  machine learning algorithms, in: Advances in neural information processing
+  systems, 2012, pp. 2951--2959.
+
+\bibitem{emmerich2006single}
+M.~T.~M. Emmerich, K.~C. Giannakoglou, B.~Naujoks, Single- and multiobjective
+  evolutionary optimization assisted by {Gaussian} random field metamodels,
+  {\JournalTitle{IEEE Trans. Evol. Comput.}} 10~(4) (2006)
+  421--439.
+\newblock \href {http://dx.doi.org/10.1109/TEVC.2005.859463}
+  {\path{doi:10.1109/TEVC.2005.859463}}.
+
+\bibitem{zhao2018fast}
+G.~Zhao, R.~Arr{\'o}yave, X.~Qian, Fast exact computation of expected
+  hypervolume improvement, {\JournalTitle{arXiv}} abs/1812.07692.
+
+\bibitem{mamun2025accelerated}
+O.~Mamun, M.~Bause, B.~S.~M. Ebna~Hai, Accelerated development of
+  multi-component alloys in discrete design space using {Bayesian}
+  multi-objective optimisation, {\JournalTitle{Machine Learning: Science and
+  Technology}} 6~(1) (2025) 015001.
+\newblock \href {http://dx.doi.org/10.1088/2632-2153/ada47d}
+  {\path{doi:10.1088/2632-2153/ada47d}}.
+
+\bibitem{hanaoka2022comparison}
+K.~Hanaoka, \href{https://doi.org/10.1016/j.mtcomm.2022.103440}{Comparison of
+  conceptually different multi-objective bayesian optimization methods for
+  material design problems}, {\JournalTitle{Mater. Today Commun.}} 31
+  (2022) 103440.
+\newblock \href {http://dx.doi.org/10.1016/j.mtcomm.2022.103440}
+  {\path{doi:10.1016/j.mtcomm.2022.103440}}.
+\newline\urlprefix\url{https://doi.org/10.1016/j.mtcomm.2022.103440}
+
+\bibitem{khatamsaz2022multiobjective}
+D.~Khatamsaz, B.~Vela, P.~Singh, D.~D. Johnson, D.~Allaire, R.~Arr{\'{o}}yave,
+  \href{https://www.sciencedirect.com/science/article/pii/S1359645422005146}{{Multi-objective
+  materials bayesian optimization with active learning of design constraints:
+  Design of ductile refractory multi-principal-element alloys}},
+  {\JournalTitle{Acta Mater.}} 236 (2022) 118133.
+\newblock \href {http://dx.doi.org/10.1016/j.actamat.2022.118133}
+  {\path{doi:10.1016/j.actamat.2022.118133}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S1359645422005146}
+
+\bibitem{vela2023data}
+B.~Vela, D.~Khatamsaz, C.~Acemi, I.~Karaman, R.~Arróyave,
+  \href{https://doi.org/10.1016/j.actamat.2023.119351}{Data-augmented modeling
+  for yield strength of refractory high entropy alloys: A bayesian approach},
+  {\JournalTitle{Acta Mater.}} 261 (2023) 119351.
+\newblock \href {http://dx.doi.org/10.1016/j.actamat.2023.119351}
+  {\path{doi:10.1016/j.actamat.2023.119351}}.
+\newline\urlprefix\url{https://doi.org/10.1016/j.actamat.2023.119351}
+
+\bibitem{paramore2025twoshot}
+J.~D. Paramore, T.~Hastings, B.~G. Butler, M.~T. Hurst, D.~O. Lewis, E.~Norris,
+  B.~Barkai, J.~Cline, B.~Miller, J.~Cortes, I.~Karaman, G.~M. Pharr,
+  R.~Arróyave, Two-shot optimization of compositionally complex refractory
+  alloys, {\JournalTitle{Acta Mater.}} 289 (2025) 120820.
+\newblock \href {http://dx.doi.org/10.1016/j.actamat.2025.120820}
+  {\path{doi:10.1016/j.actamat.2025.120820}}.
+
+\bibitem{xue2016accelerated}
+D.~Xue, P.~V. Balachandran, J.~Hogden, J.~Theiler, D.~Xue, T.~Lookman,
+  Accelerated search for materials with targeted properties by adaptive design,
+  {\JournalTitle{Nat. Commun.}} 7 (2016) 11241.
+\newblock \href {http://dx.doi.org/10.1038/ncomms11241}
+  {\path{doi:10.1038/ncomms11241}}.
+
+\bibitem{rao2022machine}
+Z.~Rao, P.-Y. Tung, R.~Xie, Y.~Wei, H.~Zhang, A.~Ferrari, T.~P.~C. Klaver,
+  F.~K{\"o}rmann, P.~T. Sukumar, A.~Kwiatkowski~da Silva, Y.~Chen, Z.~Li,
+  D.~Ponge, J.~Neugebauer, O.~Gutfleisch, S.~Bauer, D.~Raabe, Machine
+  learning--enabled high-entropy alloy discovery, {\JournalTitle{Science}}
+  378~(6615) (2022) 78--85.
+\newblock \href {http://dx.doi.org/10.1126/science.abo4940}
+  {\path{doi:10.1126/science.abo4940}}.
+
+\bibitem{sohail2025machine}
+Y.~Sohail, C.~Zhang, D.~Xue, J.~Zhang, D.~Zhang, S.~Gao, Y.~Yang, X.~Fan,
+  H.~Zhang, G.~Liu, J.~Sun, E.~Ma, Machine-learning design of ductile
+  {FeNiCoAlTa} alloys with high strength, {\JournalTitle{Nature}} 643 (2025)
+  119--124.
+\newblock \href {http://dx.doi.org/10.1038/s41586-025-09160-2}
+  {\path{doi:10.1038/s41586-025-09160-2}}.
+
+\bibitem{wei2025discovering}
+Q.~Wei, Y.~Wang, G.~Yang, T.~Li, S.~Yu, Z.~Dong, T.-Y. Zhang, Discovering novel
+  lead-free solder alloy by multi-objective {Bayesian} active learning with
+  experimental uncertainty, {\JournalTitle{npj Comput. Mater.}} 11
+  (2025) 10.
+\newblock \href {http://dx.doi.org/10.1038/s41524-024-01480-7}
+  {\path{doi:10.1038/s41524-024-01480-7}}.
+
+\bibitem{ghorbani2024active}
+M.~Ghorbani, M.~Boley, P.~N.~H. Nakashima, N.~Birbilis, An active machine
+  learning approach for optimal design of magnesium alloys using {Bayesian}
+  optimisation, {\JournalTitle{Sci. Rep.}} 14 (2024) 8299.
+\newblock \href {http://dx.doi.org/10.1038/s41598-024-59100-9}
+  {\path{doi:10.1038/s41598-024-59100-9}}.
+
+\bibitem{tian2024noise}
+Y.~Tian, B.~Hu, P.~Dang, J.~Pang, Y.~Zhou, D.~Xue, Noise-aware active learning
+  to develop high-temperature shape memory alloys with large latent heat,
+  {\JournalTitle{Adv. Sci.}} 11 (2024) 2406216.
+\newblock \href {http://dx.doi.org/10.1002/advs.202406216}
+  {\path{doi:10.1002/advs.202406216}}.
+
+\bibitem{cai2025process}
+J.~Cai, M.~Han, X.~Yan, Y.~Chen, D.~Li, K.~Zhao, D.~Zhang, K.~Hu, H.~H. Sua,
+  H.~K. Jun, K.~Xie, G.~Liu, X.~Liu, S.~Liu, A process-synergistic active
+  learning framework for high-strength {Al-Si} alloys design,
+  {\JournalTitle{npj Comput. Mater.}} 11 (2025) 228.
+\newblock \href {http://dx.doi.org/10.1038/s41524-025-01721-3}
+  {\path{doi:10.1038/s41524-025-01721-3}}.
+
+\bibitem{li2022strength}
+H.~Li, R.~Yuan, H.~Liang, W.~Y. Wang, J.~Li, J.~Wang, Towards high entropy
+  alloy with enhanced strength and ductility using domain knowledge constrained
+  active learning, {\JournalTitle{Mater. Des.}} 223 (2022) 111186.
+\newblock \href {http://dx.doi.org/10.1016/j.matdes.2022.111186}
+  {\path{doi:10.1016/j.matdes.2022.111186}}.
+
+\bibitem{nocedal2006numerical}
+J.~Nocedal, S.~J. Wright, Numerical Optimization, 2nd Edition, Springer New
+  York, 2006.
+\newblock \href {http://dx.doi.org/10.1007/978-0-387-40065-5}
+  {\path{doi:10.1007/978-0-387-40065-5}}.
+
+\bibitem{tian2024boundary}
+Y.~Tian, A.~Zuniga, X.~Zhang, J.~P. D{\"u}rholt, P.~Das, J.~Chen, W.~Matusik,
+  M.~Konakovic~Lukovic, Boundary exploration for {Bayesian} optimization with
+  unknown physical constraints, in: Proceedings of the 41st International
+  Conference on Machine Learning, Vol. 235 of PMLR, 2024, pp. 48295--48320.
+
+\bibitem{maguire2025good}
+C.~Maguire, C.~Hardcastle, T.~Hastings, R.~Arr{\'o}yave, B.~Vela, Good enough
+  is better: Feasibility vs. {Pareto}-optimality in alloy design (2025).
+\newblock \href {http://arxiv.org/abs/2510.20125} {\path{arXiv:2510.20125}}.
+
+\bibitem{hickman2025anubis}
+R.~J. Hickman, G.~Tom, Y.~Zou, M.~Aldeghi, A.~Aspuru-Guzik, Anubis: {Bayesian}
+  optimization with unknown feasibility constraints for scientific
+  experimentation, {\JournalTitle{Digit. Discov.}} 4 (2025) 2104--2122.
+\newblock \href {http://dx.doi.org/10.1039/D5DD00018A}
+  {\path{doi:10.1039/D5DD00018A}}.
+
+\bibitem{low2024evolution}
+A.~K.~Y. Low, F.~Mekki-Berrada, A.~Gupta, A.~Ostudin, J.~Xie, E.~Vissol-Gaudin,
+  Y.-F. Lim, Q.~Li, Y.~S. Ong, S.~A. Khan, K.~Hippalgaonkar, Evolution-guided
+  {Bayesian} optimization for constrained multi-objective optimization in
+  self-driving labs, {\JournalTitle{npj Comput. Mater.}} 10 (2024)
+  104.
+\newblock \href {http://dx.doi.org/10.1038/s41524-024-01274-x}
+  {\path{doi:10.1038/s41524-024-01274-x}}.
+
+\bibitem{chen2026materials}
+J.~Chen, P.~Ou, Y.~Chang, H.~Zhang, X.~Li, E.~H. Sargent, W.~Chen, Materials
+  discovery using uncertainty-aware constrained {Bayesian} optimization with
+  representation learning of high-dimensional inputs, {\JournalTitle{ASME
+  Journal of Mechanical Design}} 148~(2) (2026) 021707.
+\newblock \href {http://dx.doi.org/10.1115/1.4070206}
+  {\path{doi:10.1115/1.4070206}}.
+
+\bibitem{tamura2023nims}
+R.~Tamura, S.~Matsuda, K.~Tsuda, {NIMS-OS}: an automation software to implement
+  a closed loop between artificial intelligence and robotic experiments in
+  materials science, {\JournalTitle{Science and Technology of Advanced
+  Materials: Methods}} 3~(1) (2023) 2232297.
+\newblock \href {http://dx.doi.org/10.1080/27660400.2023.2232297}
+  {\path{doi:10.1080/27660400.2023.2232297}}.
+
+\bibitem{khatamsaz2023bayesian}
+D.~Khatamsaz, B.~Vela, P.~Singh, D.~D. Johnson, D.~Allaire, R.~Arr{\'o}yave,
+  Bayesian optimization with active learning of design constraints using an
+  entropy-based approach, {\JournalTitle{npj Comput. Mater.}} 9~(1)
+  (2023) 49.
+\newblock \href {http://dx.doi.org/10.1038/s41524-023-01006-7}
+  {\path{doi:10.1038/s41524-023-01006-7}}.
+
+\bibitem{hardcastle2025physics}
+C.~Hardcastle, R.~O'Mullan, R.~Arr{\'o}yave, B.~Vela, Physics-informed
+  {Gaussian} process classification for constraint-aware alloy design,
+  {\JournalTitle{Digit. Discov.}} 4 (2025) 1884--1900.
+\newblock \href {http://dx.doi.org/10.1039/D5DD00084J}
+  {\path{doi:10.1039/D5DD00084J}}.
+
+\bibitem{mulukutla2024illustrating}
+M.~Mulukutla, A.~N. Person, S.~Voigt, L.~Kuettner, B.~Kappes, D.~Khatamsaz,
+  R.~Robinson, D.~Salas~Mula, W.~Xu, D.~Lewis, H.~Eoh, K.~Xiao, H.~Wang, J.~S.
+  Saini, R.~Mahat, T.~Hastings, M.~Skokan, V.~Attari, M.~Elverud, J.~D.
+  Paramore, B.~Butler, K.~Vecchio, S.~R. Kalidindi, D.~Allaire, I.~Karaman,
+  E.~L. Thomas, G.~Pharr, A.~Srivastava, R.~Arr{\'o}yave, Illustrating an
+  effective workflow for accelerated materials discovery,
+  {\JournalTitle{Integr. Mater. Manuf. Innov.}} 13 (2024)
+  453--473.
+\newblock \href {http://dx.doi.org/10.1007/s40192-024-00357-3}
+  {\path{doi:10.1007/s40192-024-00357-3}}.
+
+\bibitem{hastings2025accelerated}
+T.~Hastings, M.~Mulukutla, D.~Khatamsaz, D.~Salas, W.~Xu, D.~Lewis, N.~Person,
+  M.~Skokan, B.~Miller, J.~Paramore, B.~Butler, D.~Allaire, V.~Attari,
+  I.~Karaman, G.~Pharr, A.~Srivastava, R.~Arr{\'o}yave, Accelerated
+  multi-objective alloy discovery through efficient {Bayesian} methods:
+  Application to the {FCC} high entropy alloy space, {\JournalTitle{Acta
+  Materialia}} 297 (2025) 121173.
+\newblock \href {http://dx.doi.org/10.1016/j.actamat.2025.121173}
+  {\path{doi:10.1016/j.actamat.2025.121173}}.
+
+\bibitem{Oliver1992}
+W.~C. Oliver, G.~M. Pharr, An improved technique for determining hardness and
+  elastic modulus using load and displacement sensing indentation experiments,
+  {\JournalTitle{J. Mater. Res.}} 7~(6) (1992) 1564--1583.
+
+\bibitem{varvenne2016theory}
+C.~Varvenne, A.~Luque, W.~Curtin, Theory of strengthening in fcc high entropy
+  alloys, {\JournalTitle{Acta Mater.}} 118 (2016) 164--176.
+\newblock \href {http://dx.doi.org/10.1016/j.actamat.2016.07.040}
+  {\path{doi:10.1016/j.actamat.2016.07.040}}.
+
+\bibitem{virtanen2020scipy}
+P.~Virtanen, R.~Gommers, T.~E. Oliphant, M.~Haberland, T.~Reddy, D.~Cournapeau,
+  E.~Burovski, P.~Peterson, W.~Weckesser, J.~Bright, S.~J. van~der Walt,
+  M.~Brett, J.~Wilson, K.~J. Millman, N.~Mayorov, A.~R.~J. Nelson, E.~Jones,
+  R.~Kern, E.~Larson, C.~J. Carey, {\.I}.~Polat, Y.~Feng, E.~W. Moore,
+  J.~VanderPlas, D.~Laxalde, J.~Perktold, R.~Cimrman, I.~Henriksen, E.~A.
+  Quintero, C.~R. Harris, A.~M. Archibald, A.~H. Ribeiro, F.~Pedregosa, P.~van
+  Mulbregt, {SciPy} 1.0: fundamental algorithms for scientific computing in
+  {Python}, {\JournalTitle{Nat. Methods}} 17 (2020) 261--272.
+\newblock \href {http://dx.doi.org/10.1038/s41592-019-0686-2}
+  {\path{doi:10.1038/s41592-019-0686-2}}.
+
+\bibitem{ray2009infeasibility}
+T.~Ray, H.~K. Singh, A.~Isaacs, W.~Smith, Infeasibility driven evolutionary
+  algorithm for constrained optimization, in: Constraint-Handling in
+  Evolutionary Optimization, Vol. 198 of Studies in Computational Intelligence,
+  Springer Berlin Heidelberg, 2009, pp. 145--165.
+\newblock \href {http://dx.doi.org/10.1007/978-3-642-00619-7_7}
+  {\path{doi:10.1007/978-3-642-00619-7_7}}.
+
+\bibitem{Murdock2020IsProperties}
+R.~J. Murdock, S.~K. Kauwe, A.~Y.~T. Wang, T.~D. Sparks, {Is Domain Knowledge
+  Necessary for Machine Learning Materials Properties?},
+  {\JournalTitle{Integrating Materials and Manufacturing Innovation 2020 9:3}}
+  9~(3) (2020) 221--227.
+\newblock \href {http://dx.doi.org/10.1007/S40192-020-00179-Z}
+  {\path{doi:10.1007/S40192-020-00179-Z}}.
+
+\bibitem{doguhan_sariturk_2022_7429046}
+D.~Sarıt{\"{u}}rk,
+  \href{https://doi.org/10.5281/zenodo.7429046}{{HEACalculator}} (2022).
+\newblock \href {http://dx.doi.org/10.5281/zenodo.7429046}
+  {\path{doi:10.5281/zenodo.7429046}}.
+\newline\urlprefix\url{https://doi.org/10.5281/zenodo.7429046}
+
+\bibitem{Prokhorenkova2018CatBoost:Features}
+L.~Prokhorenkova, G.~Gusev, A.~Vorobev, A.~V. Dorogush, A.~Gulin, {CatBoost:
+  unbiased boosting with categorical features}, {\JournalTitle{Advances in
+  neural information processing systems}} 31.
+
+\bibitem{marler2010weighted}
+R.~T. Marler, J.~S. Arora, The weighted sum method for multi-objective
+  optimization: {N}ew insights, {\JournalTitle{Struct. Multidiscipl. Optim.}}
+  41~(6) (2010) 853--862.
+\newblock \href {http://dx.doi.org/10.1007/s00158-009-0460-7}
+  {\path{doi:10.1007/s00158-009-0460-7}}.
+
+\bibitem{kim2005adaptive}
+I.~Y. Kim, O.~L. de~Weck, Adaptive weighted-sum method for bi-objective
+  optimization: Pareto front generation, {\JournalTitle{Struct. Multidiscipl.
+  Optim.}} 29~(2) (2005) 149--158.
+\newblock \href {http://dx.doi.org/10.1007/s00158-004-0465-1}
+  {\path{doi:10.1007/s00158-004-0465-1}}.
+
+\bibitem{das1998normal}
+I.~Das, J.~E. Dennis, Normal-boundary intersection: A new method for generating
+  the pareto surface in nonlinear multicriteria optimization problems,
+  {\JournalTitle{SIAM J. Control Optim.}} 8~(3) (1998) 631--657.
+\newblock \href {http://dx.doi.org/10.1137/S1052623496307510}
+  {\path{doi:10.1137/S1052623496307510}}.
+
+\bibitem{beume2009s}
+N.~Beume, S-metric calculation by considering dominated hypervolume as klee's
+  measure problem, {\JournalTitle{Evol. Comput.}} 17~(4) (2009) 477--492.
+\newblock \href {http://dx.doi.org/10.1162/evco.2009.17.4.17402}
+  {\path{doi:10.1162/evco.2009.17.4.17402}}.
+
+\bibitem{bradstreet2010fast}
+L.~Bradstreet, L.~While, L.~Barone, A fast many-objective hypervolume algorithm
+  using iterated incremental calculations, in: IEEE Congr. Evol. Comput., 2010,
+  pp. 1--8.
+\newblock \href {http://dx.doi.org/10.1109/CEC.2010.5586344}
+  {\path{doi:10.1109/CEC.2010.5586344}}.
+
+\bibitem{emmerich2011hypervolume}
+M.~T. Emmerich, A.~H. Deutz, J.~W. Klinkenberg, Hypervolume-based expected
+  improvement: Monotonicity properties and exact computation, in: 2011 IEEE
+  Congress of Evol. Comput. (CEC), 2011, pp. 2147--2154.
+\newblock \href {http://dx.doi.org/10.2514/6.2015-0143}
+  {\path{doi:10.2514/6.2015-0143}}.
+
+\bibitem{fonseca2006improved}
+C.~M. Fonseca, L.~Paquete, M.~L{\'o}pez-Ib{\'a}nez, An improved dimension-sweep
+  algorithm for the hypervolume indicator, in: 2006 IEEE Int. Conf. Evol.
+  Comput., 2006, pp. 1157--1163.
+\newblock \href {http://dx.doi.org/10.1109/CEC.2006.1688440}
+  {\path{doi:10.1109/CEC.2006.1688440}}.
+
+\bibitem{russo2013quick}
+L.~M. Russo, A.~P. Francisco, Quick hypervolume, {\JournalTitle{IEEE Trans.
+  Evol. Comput.}} 18~(4) (2013) 481--502.
+\newblock \href {http://dx.doi.org/10.1109/TEVC.2013.2281525}
+  {\path{doi:10.1109/TEVC.2013.2281525}}.
+
+\bibitem{yang2007novel}
+Q.~Yang, S.~Ding, Novel algorithm to calculate hypervolume indicator of pareto
+  approximation set, in: Int. Conf. Intell. Comput., 2007, pp. 235--244.
+\newblock \href {http://dx.doi.org/{10.1007/978-3-540-74282-1_27}}
+  {\path{doi:{10.1007/978-3-540-74282-1_27}}}.
+
+\bibitem{zitzler1999multiobjective}
+E.~Zitzler, L.~Thiele, Multiobjective evolutionary algorithms: a comparative
+  case study and the strength pareto approach, {\JournalTitle{IEEE Trans. Evol.
+  Comput.}} 3~(4) (1999) 257--271.
+\newblock \href {http://dx.doi.org/10.1109/4235.797969}
+  {\path{doi:10.1109/4235.797969}}.
+
+\bibitem{feliot2017bayesian}
+P.~Feliot, J.~Bect, E.~Vazquez, A bayesian approach to constrained single-and
+  multi-objective optimization, {\JournalTitle{J. Global Optim.}} 67~(1-2)
+  (2017) 97--133.
+\newblock \href {http://dx.doi.org/10.1007/s10898-016-0427-3}
+  {\path{doi:10.1007/s10898-016-0427-3}}.
+
+\bibitem{while2011fast}
+L.~While, L.~Bradstreet, L.~Barone, A fast way of calculating exact
+  hypervolumes, {\JournalTitle{IEEE Trans. Evol. Comput.}} 16~(1) (2011)
+  86--95.
+\newblock \href {http://dx.doi.org/10.1109/TEVC.2010.2077298}
+  {\path{doi:10.1109/TEVC.2010.2077298}}.
+
+\bibitem{jaszkiewicz2018improved}
+A.~Jaszkiewicz, Improved quick hypervolume algorithm, {\JournalTitle{Computers
+  Oper. Res.}} 90 (2018) 72--83.
+\newblock \href {http://dx.doi.org/10.1016/j.cor.2017.09.016}
+  {\path{doi:10.1016/j.cor.2017.09.016}}.
+
+\bibitem{khatamsaz2020efficient}
+D.~Khatamsaz, L.~Peddareddygari, S.~Friedman, D.~L. Allaire, Efficient
+  multi-information source multiobjective bayesian optimization, in: AIAA
+  Scitech 2020 Forum, 2020, p. 2127.
+\newblock \href {http://dx.doi.org/10.2514/6.2020-2127}
+  {\path{doi:10.2514/6.2020-2127}}.
+
+\bibitem{allaire2012fusing}
+D.~Allaire, K.~Willcox, Fusing information from multifidelity computer models
+  of physical systems, in: 15th Int. Conf. Inf. Fusion, 2012, pp. 2458--2465.
+
+\bibitem{thomison2017model}
+W.~D. Thomison, D.~L. Allaire, A model reification approach to fusing
+  information from multifidelity information sources, in: 19th AIAA
+  Non-Deterministic Approaches Conf., 2017, p. 1949.
+\newblock \href {http://dx.doi.org/10.2514/6.2017-1949}
+  {\path{doi:10.2514/6.2017-1949}}.
+
+\bibitem{Winkler_1981}
+R.~Winkler, Combining probability distributions from dependent information
+  sources, {\JournalTitle{Manag. Sci.}} 27~(4) (1981) 479--488.
+\newblock \href {http://dx.doi.org/10.1287/mnsc.27.4.479}
+  {\path{doi:10.1287/mnsc.27.4.479}}.
+
+\bibitem{joy2020batch}
+T.~T. Joy, S.~Rana, S.~Gupta, S.~Venkatesh, Batch bayesian optimization using
+  multi-scale search, {\JournalTitle{Knowl.-Based Syst.}} 187 (2020) 104818.
+
+\bibitem{couperthwaite2020materials}
+R.~Couperthwaite, A.~Molkeri, D.~Khatamsaz, A.~Srivastava, D.~Allaire,
+  R.~Arr{\`o}yave, Materials design through batch bayesian optimization with
+  multisource information fusion, {\JournalTitle{JOM}} (2020) 1--13.
+
+\end{thebibliography}
+
+%%% --- End inlined bibliography ---
+\end{document}

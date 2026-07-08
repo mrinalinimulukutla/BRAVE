@@ -8,6 +8,8 @@ abstract: >-
 type: software
 repository-code: "https://github.com/mrinalinimulukutla/BRAVE"
 license: MIT
+version: 1.0.0
+date-released: 2026-07-07
 keywords:
   - Bayesian optimization
   - high-entropy alloys

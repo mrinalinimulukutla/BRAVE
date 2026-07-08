@@ -30,3 +30,13 @@ catboost_info/
 *.run.xml
 *.bcf
 _minted*/
+
+# PNG previews emitted by figures_code/ scripts alongside the PDF the manuscript
+# actually uses; regenerated on demand, not part of the tracked submission set.
+paper/fig_08_affine.png
+paper/fig_12_hdyn.png
+paper/fig_13_dyn_qs_ratio.png
+paper/fig_14_boxplot.png
+paper/fig_16_pair_plots.png
+paper/fig_18_m_plots.png
+paper/fig_19_v_ys_feasibility.png
