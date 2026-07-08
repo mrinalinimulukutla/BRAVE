@@ -9,8 +9,8 @@ Al–V–Cr–Mn–Fe–Co–Ni–Cu compositional space across five mechanical 
 ```
 data/          Master experimental database
 code/          Analysis & modeling code (BBO, feasibility, Thermo-Calc, HEACalculator)
-figures_code/  Scripts + notebook that generate the paper figures from data/
-paper/         LaTeX manuscript, bibliography, and figure assets
+figures_code/  Scripts, notebook, and prompts that generate the figures from data/
+paper/         Submitted manuscript, supplement, highlights, and final figures
 ```
 
 - **`data/HTMDEC_Y2_db.xlsx`** — master experimental database used to train the
@@ -35,15 +35,20 @@ paper/         LaTeX manuscript, bibliography, and figure assets
 - **`code/HEACalculator/`** — high-entropy-alloy thermodynamic feature library
   imported by `code/bbo_python/helper.py`. Third-party, GPLv3 — see
   [THIRD_PARTY.md](THIRD_PARTY.md).
-- **`figures_code/`** — plotting scripts (`make_*.py`) that read
-  `data/HTMDEC_Y2_db.xlsx` and write into `paper/Figures/`, plus
-  `C2_Visualizations.ipynb` (exploratory correlation heatmap, multi-objective SHAP
-  beeswarm + corrSHAP bar plot, property pair plot, and per-property box plots for
-  iterations BBA / BBB / BBC).
-- **`paper/`** — the LaTeX manuscript (`main.tex` + `0X_*.tex` sections,
-  `Supplemental.tex`), `references.bib`, the compiled `main.pdf` /
-  `Supplemental.pdf`, and the figure assets in `paper/Figures/` and
-  `paper/Sup_figures/`.
+- **`figures_code/`** — everything used to produce the figures: the data-driven
+  scripts (`make_*.py`, which read `data/HTMDEC_Y2_db.xlsx` and write `fig_NN`
+  PDFs/PNGs into `paper/`), `C2_Visualizations.ipynb` (correlation / SHAP /
+  corrSHAP panels → `fig_15`), and the `prompts/` + `ai_generated/` provenance for
+  the schematic figures. The complete figure-to-source map for **all** main and
+  supplementary figures is in [figures_code/README.md](figures_code/README.md).
+- **`paper/`** — the submission bundle, flat: `manuscript.tex` (the submitted
+  **single-column, 12 pt, line-numbered** review version, self-contained with an
+  inlined bibliography) and its compiled `manuscript_final.pdf`; the Supplementary
+  Information source `supplementary_information.tex` (two-column; cites
+  `references.bib`; figures in `paper/Sup_figures/`) and its compiled
+  `supplementary_information.pdf`; `highlights.pdf`;
+  `graphical_abstract.{png,pdf}`; and the final main-text figures
+  `fig_01_kkt` … `fig_20_benchmark`. Build both PDFs with `make paper`.
 
 ## Element order
 
@@ -74,15 +79,19 @@ The data-driven paper figures are regenerated from `data/HTMDEC_Y2_db.xlsx`:
 make figures
 ```
 
-This runs every script in `figures_code/` and writes the PDFs/PNGs into
-`paper/Figures/`. The scripts resolve their input and output paths relative to the
-repository root, so they can also be run individually from any directory, e.g.:
+This runs the data-driven scripts in `figures_code/` and writes the `fig_NN`
+PDFs/PNGs into `paper/` (see [figures_code/README.md](figures_code/README.md) for
+which figures are script-, notebook-, or non-code-generated). The scripts resolve
+their input and output paths relative to the repository root, so they can also be
+run individually from any directory, e.g.:
 
 ```
 python figures_code/make_figure14_boxplots.py
 ```
 
-To rebuild the manuscript (requires `latexmk` and a TeX distribution):
+To rebuild the manuscript (requires `latexmk` and a full TeX distribution — the
+single-column class uses Helvetica, so `texlive-fontsrecommended` / `psnfss` must
+be installed):
 
 ```
 make paper

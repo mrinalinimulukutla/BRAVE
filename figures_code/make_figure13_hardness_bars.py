@@ -6,8 +6,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / 'data' / 'HTMDEC_Y2_db.xlsx'
-OUT_PDF = ROOT / 'paper' / 'Figures' / 'Hdyn_Hqs_1_02.pdf'
-OUT_PNG = ROOT / 'paper' / 'Figures' / 'Hdyn_Hqs_1_02.png'
+OUT_PDF = ROOT / 'paper' / 'fig_12_hdyn.pdf'
+OUT_PNG = ROOT / 'paper' / 'fig_12_hdyn.png'
 
 ITERATIONS = ['BBA', 'BBB', 'BBC']
 PANEL_TITLES = {

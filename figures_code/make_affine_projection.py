@@ -20,9 +20,8 @@ POLY_COLOR  = "#374151"
 RAY_COLOR   = "#d1d5db"
 
 ROOT = Path(__file__).resolve().parents[1]
-TEX_SOURCE = ROOT / "paper" / "03_results.tex"
-OUT_PDF = ROOT / "paper" / "Figures" / "alloy_affine_projection.pdf"
-OUT_PNG = ROOT / "paper" / "Figures" / "alloy_affine_projection.png"
+OUT_PDF = ROOT / "paper" / "fig_08_affine.pdf"
+OUT_PNG = ROOT / "paper" / "fig_08_affine.png"
 
 
 def clean_cell(cell: str) -> str:
@@ -61,7 +60,7 @@ def affine_project(comp, vertices):
 
 
 def main():
-    alloys = parse_alloys(TEX_SOURCE)
+    alloys = parse_alloys(str(ROOT / "paper" / "manuscript.tex"))
     n = len(ELEMENT_ORDER)
     angles   = np.linspace(math.pi / 2, math.pi / 2 + 2 * math.pi, n, endpoint=False)
     vertices = np.c_[np.cos(angles), np.sin(angles)]

@@ -12,6 +12,10 @@ george==0.4.1
 pyDOE==0.3.8
 openpyxl==3.1.5
 
+# Correlation / SHAP / pair-plot figures (figures_code/C2_Visualizations.ipynb).
+seaborn==0.13.2
+shap==0.46.0
+
 # Composition-based feature vectors (used by code/bbo_python/helper.py).
 # Not version-pinned: install the current release.
 CBFV

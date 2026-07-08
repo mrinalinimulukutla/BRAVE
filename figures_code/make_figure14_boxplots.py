@@ -6,8 +6,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / 'data' / 'HTMDEC_Y2_db.xlsx'
-OUT_PDF = ROOT / 'paper' / 'Figures' / 'box_plot.pdf'
-OUT_PNG = ROOT / 'paper' / 'Figures' / 'box_plot.png'
+OUT_PDF = ROOT / 'paper' / 'fig_14_boxplot.pdf'
+OUT_PNG = ROOT / 'paper' / 'fig_14_boxplot.png'
 
 ITERATIONS = ['BBA', 'BBB', 'BBC']
 ITER_COLORS = {
